@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpbc81lwktlxs"]
+
+[ext_resource type="Script" path="res://autoloads/lobby.gd" id="1_485el"]
+
+[node name="Lobby" type="Node"]
+script = ExtResource("1_485el")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 90.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="Player" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Player disconnected"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Returning to lobby ..."
+horizontal_alignment = 1

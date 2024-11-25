@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bslhrv3eo36wd"]
 
-[ext_resource type="Script" path="res://scenes/lobby.gd" id="1_g2fmt"]
-[ext_resource type="PackedScene" uid="uid://chbh4lxk8rmmd" path="res://scenes/ui/lobby_player.tscn" id="2_060bj"]
+[ext_resource type="Script" path="res://lobby/lobby_menu.gd" id="1_22fuw"]
+[ext_resource type="PackedScene" uid="uid://chbh4lxk8rmmd" path="res://scenes/ui/lobby_player.tscn" id="2_68dem"]
 
 [node name="Lobby" type="MarginContainer"]
 anchors_preset = 15
@@ -9,8 +9,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_g2fmt")
-lobby_player_scene = ExtResource("2_060bj")
+script = ExtResource("1_22fuw")
+lobby_player_scene = ExtResource("2_68dem")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
