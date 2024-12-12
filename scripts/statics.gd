@@ -16,10 +16,11 @@ enum Role {
 class PlayerData:
 	var id: int
 	var name: String
-	var index: int = 0
+	# Position relative to other players
+	var index: int = -1
 	var role: Role
 	
-	func _init(new_id: int, new_name: String, new_index: int = 0, new_role: Role = Role.NONE) -> void:
+	func _init(new_id: int, new_name: String, new_index: int = -1, new_role: Role = Role.NONE) -> void:
 		id = new_id
 		name = new_name
 		index = new_index
@@ -32,3 +33,13 @@ class PlayerData:
 			"index": index,
 			"role": role,
 		}
+	
+	static func from_dict(data: Dictionary) -> PlayerData:
+		return PlayerData.new(data.id, data.name, data.index, data.role)
+	
+	func update(player_data: PlayerData) -> void:
+		if id != player_data.id:
+			return
+		name = player_data.name
+		index = player_data.index
+		role = player_data.role

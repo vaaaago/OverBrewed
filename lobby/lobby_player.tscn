@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://iobnvr8f3tkm"]
+
+[ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="1_dxmoh"]
+
+[node name="LobbyPlayer" type="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+offset_right = 114.0
+offset_bottom = 23.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Player"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Role"
+
+[node name="Ready" type="TextureRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("1_dxmoh")
+expand_mode = 3

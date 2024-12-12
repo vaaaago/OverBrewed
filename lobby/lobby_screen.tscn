@@ -1,152 +1,86 @@
-[gd_scene load_steps=3 format=3 uid="uid://bslhrv3eo36wd"]
+[gd_scene load_steps=2 format=3 uid="uid://cgsspji18smle"]
 
-[ext_resource type="Script" path="res://lobby/lobby_menu.gd" id="1_22fuw"]
-[ext_resource type="PackedScene" uid="uid://chbh4lxk8rmmd" path="res://scenes/ui/lobby_player.tscn" id="2_68dem"]
+[ext_resource type="Theme" uid="uid://bwgdrcgopd0s1" path="res://lobby/lobby_theme.tres" id="1_0ce57"]
 
-[node name="Lobby" type="MarginContainer"]
+[node name="LobbyScreen" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_22fuw")
-lobby_player_scene = ExtResource("2_68dem")
+theme = ExtResource("1_0ce57")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"Zero"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
 layout_mode = 2
+theme_type_variation = &"Zero"
+
+[node name="Panel" type="Panel" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Label" type="Label" parent="MarginContainer2/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 0.9
+offset_left = -104.5
+offset_top = -88.0
+offset_right = 104.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 10
+size_flags_stretch_ratio = 0.5
+theme_type_variation = &"Title"
+text = "Screen"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="MarginContainer2/VBoxContainer/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 0.9
+offset_left = -314.0
+offset_top = -68.0
+offset_right = -250.0
+offset_bottom = -4.0
+text = "く"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"Zero"
+
+[node name="Control" type="Control" parent="MarginContainer2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_type_variation = &"Zero"
+
+[node name="MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer" type="PanelContainer" parent="MarginContainer2/VBoxContainer/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.1
+offset_left = -314.5
+offset_right = 314.5
+offset_bottom = 290.0
+grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="Menus" type="MarginContainer" parent="PanelContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="StartMenu" type="VBoxContainer" parent="PanelContainer/Menus"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/Menus/StartMenu"]
-layout_mode = 2
-text = "Name:
-"
-
-[node name="User" type="LineEdit" parent="PanelContainer/Menus/StartMenu"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Player"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Menus/StartMenu"]
-layout_mode = 2
-
-[node name="Host" type="Button" parent="PanelContainer/Menus/StartMenu/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Host"
-
-[node name="Join" type="Button" parent="PanelContainer/Menus/StartMenu/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Join"
-
-[node name="JoinMenu" type="VBoxContainer" parent="PanelContainer/Menus"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="PanelContainer/Menus/JoinMenu"]
-layout_mode = 2
-text = "IP:
-"
-
-[node name="IP" type="LineEdit" parent="PanelContainer/Menus/JoinMenu"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "127.0.0.1"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Menus/JoinMenu"]
-layout_mode = 2
-
-[node name="BackJoin" type="Button" parent="PanelContainer/Menus/JoinMenu/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Back"
-
-[node name="ConfirmJoin" type="Button" parent="PanelContainer/Menus/JoinMenu/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Join"
-
-[node name="Info" type="Label" parent="PanelContainer/Menus/JoinMenu"]
-visible = false
-layout_mode = 2
-
-[node name="ReadyMenu" type="VBoxContainer" parent="PanelContainer/Menus"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(250, 0)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/Menus/ReadyMenu"]
-layout_mode = 2
-text = "Players:
-"
-
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/Menus/ReadyMenu"]
-layout_mode = 2
-
-[node name="Players" type="VBoxContainer" parent="PanelContainer/Menus/ReadyMenu/PanelContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/Menus/ReadyMenu"]
-layout_mode = 2
-
-[node name="RoleA" type="Button" parent="PanelContainer/Menus/ReadyMenu/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Role A"
-
-[node name="RoleB" type="Button" parent="PanelContainer/Menus/ReadyMenu/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Role B"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/Menus/ReadyMenu"]
-layout_mode = 2
-
-[node name="BackReady" type="Button" parent="PanelContainer/Menus/ReadyMenu/HBoxContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Back
-"
-
-[node name="Ready" type="Button" parent="PanelContainer/Menus/ReadyMenu/HBoxContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Ready"
-
-[node name="TimeContainer" type="HBoxContainer" parent="PanelContainer/Menus/ReadyMenu"]
-unique_name_in_owner = true
-layout_mode = 2
-alignment = 1
-
-[node name="Label2" type="Label" parent="PanelContainer/Menus/ReadyMenu/TimeContainer"]
-layout_mode = 2
-text = "Starting in:"
-
-[node name="Time" type="Label" parent="PanelContainer/Menus/ReadyMenu/TimeContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "5"
-
-[node name="StartTimer" type="Timer" parent="."]

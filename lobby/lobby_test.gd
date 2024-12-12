@@ -6,7 +6,6 @@ var player_index = 1
 @onready var start_game_timer: Timer = $StartGameTimer
 
 func _ready():
-	
 	for i in Game.test_players.size():
 		var test_player = Game.test_players[i]
 		var player = Statics.PlayerData.new(
@@ -23,22 +22,23 @@ func _ready():
 	if is_multiplayer_authority():
 		multiplayer.peer_connected.connect(_on_peer_connected)
 	
-	if not try_host():
-		try_join()
+	if not _try_host():
+		_try_join()
 
 
-func try_host() -> bool:
+func _try_host() -> bool:
 	var peer = ENetMultiplayerPeer.new()
 	var err = peer.create_server(Statics.PORT, Statics.MAX_CLIENTS)
 	if err == OK:
 		multiplayer.multiplayer_peer = peer
-		Debug.add_to_window_title("(Server)")
-		Game.set_player_id("1")
+		Debug.add_to_window_title("Server")
+		Game.update_player_id()
+		_update_window_placement(0)
 		start_game_timer.timeout.connect(_on_start_game_timeout)
 	return err == OK
 
 
-func try_join() -> bool:
+func _try_join() -> bool:
 	var peer = ENetMultiplayerPeer.new()
 	var err = peer.create_client("localhost", Statics.PORT)
 	if err == OK:
@@ -50,21 +50,41 @@ func _on_peer_connected(id: int) -> void:
 	if is_multiplayer_authority():
 		Game.players[player_index].id = id
 		for i in Game.players.size():
-			send_player_data_id.rpc(i, Game.players[i].id)
+			_send_player_data_id.rpc(i, Game.players[i].id)
 		player_index += 1
 		start_game_timer.start()
 
 
 @rpc("reliable")
-func send_player_data_id(index, id):
+func _send_player_data_id(index, id):
 	if multiplayer.get_unique_id() == id and not Game.players[index].id:
-		Debug.add_to_window_title("(Client %d)" % index)
+		Debug.add_to_window_title("Client %d" % index)
 		Debug.index = index
+		_update_window_placement(index)
 	Game.players[index].id = id
 
+
 func _on_start_game_timeout() -> void:
-	start_game.rpc()
+	_start_game.rpc()
+
 
 @rpc("reliable", "call_local")
-func start_game() -> void:
+func _start_game() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+
+func _update_window_placement(index: int) -> void:
+	if not Game.fill_screen:
+		return
+	var columns: int = ceil(sqrt(Game.players.size()))
+	var rows: int = ceil(1.0 * Game.players.size() / columns)
+	var x = index % columns
+	var y = index / columns
+	
+	var screen_rect = DisplayServer.screen_get_usable_rect()
+	var window_size = screen_rect.size / Vector2i(columns, rows)
+	var title_size = DisplayServer.window_get_title_size(get_window().title)
+	var title_size_offset = Vector2i(0, title_size.y)
+	
+	get_window().position = Vector2i(x, y) * window_size + title_size_offset + screen_rect.position
+	get_window().size = window_size - title_size_offset

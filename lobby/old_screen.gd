@@ -95,7 +95,7 @@ func _on_host_pressed() -> void:
 	_go_to_menu(ready_menu)
 	
 	Debug.add_to_window_title("(Server)")
-	Game.set_player_id("1")
+	Game.update_player_id()
 
 
 func _on_join_pressed() -> void:
