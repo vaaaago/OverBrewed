@@ -9,6 +9,11 @@ script = ExtResource("2_l54gy")
 [node name="Label" parent="MarginContainer2/VBoxContainer/Panel" index="0"]
 text = "Host"
 
+[node name="MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer" parent="MarginContainer2/VBoxContainer/MarginContainer/Control" index="0"]
+offset_left = -314.0
+offset_right = 315.0
+offset_bottom = 226.0
+
 [node name="Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer#MarginContainer" type="MarginContainer" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer" index="0"]
 layout_mode = 2
 
@@ -36,3 +41,15 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Host
 "
+
+[node name="ErrorLabel" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer/Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer#MarginContainer/VBoxContainer" index="2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.647059, 0, 1)
+text = "An error occurred · o ·)>"
+horizontal_alignment = 1
+
+[node name="ErrorTimer" type="Timer" parent="." index="1"]
+wait_time = 3.0
+one_shot = true

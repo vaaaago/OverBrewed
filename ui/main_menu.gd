@@ -1,3 +1,4 @@
+class_name MainMenu
 extends Control
 
 
@@ -17,7 +18,3 @@ func _ready() -> void:
 	join.pressed.connect(func(): get_tree().change_scene_to_file("res://lobby/join_screen.tscn"))
 	
 	host.grab_focus()
-
-
-func _process(delta: float) -> void:
-	pass

@@ -24,6 +24,9 @@ func _ready():
 	
 	if not _try_host():
 		_try_join()
+	
+	# disable in order to be able to reach main menu again
+	Game.multiplayer_test = false
 
 
 func _try_host() -> bool:
@@ -47,7 +50,7 @@ func _try_join() -> bool:
 
 
 func _on_peer_connected(id: int) -> void:
-	if is_multiplayer_authority():
+	if multiplayer.is_server():
 		Game.players[player_index].id = id
 		for i in Game.players.size():
 			_send_player_data_id.rpc(i, Game.players[i].id)
