@@ -114,6 +114,8 @@ func set_current_player_role(role: Statics.Role) -> void:
 @rpc("any_peer", "reliable", "call_local")
 func set_player_vote(id: int, vote: bool) -> void:
 	var player = get_player(id)
+	if not player:
+		return
 	player.vote = vote
 	player_updated.emit(id)
 	vote_updated.emit(id)
@@ -121,6 +123,12 @@ func set_player_vote(id: int, vote: bool) -> void:
 
 func set_current_player_vote(vote: bool) -> void:
 	set_player_vote.rpc(multiplayer.get_unique_id(), vote)
+
+
+func reset_votes() -> void:
+	for player in players:
+		set_player_vote.rpc(player.id, false)
+
 
 func is_online() -> bool:
 	return not multiplayer.multiplayer_peer is OfflineMultiplayerPeer and \
@@ -169,4 +177,4 @@ func _handle_node_added(node: Node) -> void:
 	if node.get_parent() == get_window():
 		# Scene has been changed
 		change_window_scale = node is MainMenu or node is LobbyHostScreen or \
-			node is LobbyJoinScreen or node is LobbyWaitingScreen
+			node is LobbyJoinScreen or node is LobbyWaitingScreen or node is Credits

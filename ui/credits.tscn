@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj66nte78u87x"]
+
+[ext_resource type="PackedScene" uid="uid://cgsspji18smle" path="res://lobby/lobby_screen.tscn" id="1_m3vk0"]
+[ext_resource type="Script" path="res://ui/credits.gd" id="2_hvxmk"]
+
+[node name="CreditsScreen" instance=ExtResource("1_m3vk0")]
+script = ExtResource("2_hvxmk")
+
+[node name="Label" parent="MarginContainer2/VBoxContainer/Panel" index="0"]
+text = "Credits"
+
+[node name="MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer" parent="MarginContainer2/VBoxContainer/MarginContainer/Control" index="0"]
+theme_type_variation = &"Zero"
+
+[node name="MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer" type="RichTextLabel" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer" index="0"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]
+[b]Lobby[/b]
+Elías Zelada
+[/center]"

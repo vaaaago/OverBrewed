@@ -1,7 +1,70 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf8ype3b0y31w"]
+[gd_scene load_steps=8 format=3 uid="uid://cf8ype3b0y31w"]
 
 [ext_resource type="PackedScene" uid="uid://cgsspji18smle" path="res://lobby/lobby_screen.tscn" id="1_xldsp"]
 [ext_resource type="Script" path="res://lobby/join_screen.gd" id="2_0bjwb"]
+[ext_resource type="Theme" uid="uid://bwgdrcgopd0s1" path="res://lobby/lobby_theme.tres" id="3_i53lg"]
+[ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="4_q5f0x"]
+
+[sub_resource type="Animation" id="Animation_c2ij0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MessageContainer/JoiningServer/VBoxContainer/LoadingIcon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MessageContainer/JoiningServer/VBoxContainer/LoadingIcon:pivot_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, 64)]
+}
+
+[sub_resource type="Animation" id="Animation_34y7y"]
+resource_name = "loading"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MessageContainer/JoiningServer/VBoxContainer/LoadingIcon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MessageContainer/JoiningServer/VBoxContainer/LoadingIcon:pivot_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, 64)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kd86l"]
+_data = {
+"RESET": SubResource("Animation_c2ij0"),
+"loading": SubResource("Animation_34y7y")
+}
 
 [node name="JoinScreen" instance=ExtResource("1_xldsp")]
 script = ExtResource("2_0bjwb")
@@ -64,3 +127,84 @@ horizontal_alignment = 1
 [node name="ErrorTimer" type="Timer" parent="." index="1"]
 wait_time = 3.0
 one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
+process_mode = 3
+layer = 64
+
+[node name="MessageContainer" type="Panel" parent="CanvasLayer" index="0"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("3_i53lg")
+theme_type_variation = &"Darker"
+
+[node name="JoiningServer" type="MarginContainer" parent="CanvasLayer/MessageContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.5
+offset_top = -145.5
+offset_right = 270.5
+offset_bottom = 147.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MessageContainer/JoiningServer" index="0"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MessageContainer/JoiningServer/VBoxContainer" index="0"]
+layout_mode = 2
+text = "Joinning server"
+horizontal_alignment = 1
+
+[node name="LoadingIcon" type="TextureRect" parent="CanvasLayer/MessageContainer/JoiningServer/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_q5f0x")
+stretch_mode = 2
+
+[node name="CancelButton" type="Button" parent="CanvasLayer/MessageContainer/JoiningServer/VBoxContainer" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancel"
+
+[node name="ConnectionFailed" type="MarginContainer" parent="CanvasLayer/MessageContainer" index="1"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_left = 433.5
+offset_top = 213.5
+offset_right = 846.5
+offset_bottom = 506.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MessageContainer/ConnectionFailed" index="0"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MessageContainer/ConnectionFailed/VBoxContainer" index="0"]
+layout_mode = 2
+text = "Connection failed!"
+horizontal_alignment = 1
+
+[node name="LoadingIcon" type="TextureRect" parent="CanvasLayer/MessageContainer/ConnectionFailed/VBoxContainer" index="1"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_q5f0x")
+stretch_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_kd86l")
+}
+autoplay = "loading"

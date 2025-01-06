@@ -17,7 +17,6 @@ extends Control
 
 
 var LOBBY_PLAYER_SCENE = preload("res://lobby/lobby_player.tscn")
-var _player_ready = false
 
 
 func _ready() -> void:
@@ -25,8 +24,8 @@ func _ready() -> void:
 	ready_button.pressed.connect(_toggle_ready)
 	Game.players_updated.connect(_handle_players_updated)
 	Game.player_updated.connect(func(id): _update_ready_button())
+	Game.vote_updated.connect(func(id): _handle_vote_updated())
 	if multiplayer.is_server():
-		Game.vote_updated.connect(func(id): _handle_vote_updated())
 		start_timer.timeout.connect(func(): _start_game.rpc())
 	_handle_players_updated()
 	role_button.visible = Game.use_roles
@@ -50,10 +49,14 @@ func _process(delta: float) -> void:
 
 
 func _toggle_ready() -> void:
-	_player_ready = !_player_ready
-	player_texture.modulate = Color.GREEN if _player_ready else Color.WHITE
+	Game.set_current_player_vote(not Game.get_current_player().vote)
+	_update_player()
+
+
+func _update_player() -> void:
+	var player_ready = Game.get_current_player().vote
+	player_texture.modulate = Color.GREEN if player_ready else Color.WHITE
 	role_container.hide()
-	Game.set_current_player_vote(_player_ready)
 
 
 func _handle_players_updated() -> void:
@@ -67,7 +70,8 @@ func _handle_players_updated() -> void:
 			player_list.add_child(lobby_player_inst)
 	_update_ready_button()
 	if multiplayer.is_server():
-		_handle_vote_updated()
+		Game.reset_votes()
+
 
 func _handle_back_pressed() -> void:
 	if multiplayer.is_server():
@@ -96,13 +100,15 @@ func _update_role(role: Statics.Role) -> void:
 
 
 func _handle_vote_updated() -> void:
-	var all_voted = true
-	for player in Game.players:
-		all_voted = all_voted and player.vote
-	if all_voted:
-		_start_timer.rpc()
-	elif not start_timer.is_stopped():
-		_stop_timer.rpc()
+	_update_player()
+	if multiplayer and multiplayer.is_server():
+		var all_voted = true
+		for player in Game.players:
+			all_voted = all_voted and player.vote
+		if all_voted and _can_start_game():
+			_start_timer.rpc()
+		elif not start_timer.is_stopped():
+			_stop_timer.rpc()
 
 @rpc("reliable", "call_local")
 func _start_timer() -> void:
@@ -125,11 +131,16 @@ func _start_game() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 
-func _update_ready_button() -> void:
+func _can_start_game() -> bool:
 	var quantity = Game.players.size() >= Game.min_players
 	var completion = not Game.use_roles or not Game.all_roles or _are_all_roles_selected()
 	var uniqueness = not Game.use_roles or not Game.unique_roles or _are_all_roles_unique()
-	ready_button.disabled = not (quantity and completion and uniqueness)
+	var fullness = not Game.use_roles or _all_players_selected_role()
+	return quantity and completion and uniqueness and fullness
+
+
+func _update_ready_button() -> void:
+	ready_button.disabled = not _can_start_game()
 
 
 func _are_all_roles_selected() -> bool:
@@ -149,5 +160,11 @@ func _are_all_roles_unique() -> bool:
 		if roles.has(player.role):
 			roles.erase(player.role)
 		else:
+			return false
+	return true
+
+func _all_players_selected_role() -> bool:
+	for player in Game.players:
+		if player.role == Statics.Role.NONE:
 			return false
 	return true

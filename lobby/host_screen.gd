@@ -11,8 +11,6 @@ extends Control
 func _ready() -> void:
 	player_name.text = OS.get_environment("USERNAME") + (str(randi() % 1000) if OS.has_feature("editor")
  else "")
-	back_button.pressed.connect(func(): get_tree().change_scene_to_file("res://ui/main_menu.tscn"))
-	
 	player_name.caret_column = player_name.text.length()
 	player_name.grab_focus()
 	host_button.pressed.connect(_host)
