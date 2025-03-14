@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cf8ype3b0y31w"]
 
 [ext_resource type="PackedScene" uid="uid://cgsspji18smle" path="res://lobby/lobby_screen.tscn" id="1_xldsp"]
-[ext_resource type="Script" path="res://lobby/join_screen.gd" id="2_0bjwb"]
+[ext_resource type="Script" uid="uid://cr2abnsynvkkq" path="res://lobby/join_screen.gd" id="2_0bjwb"]
 [ext_resource type="Theme" uid="uid://bwgdrcgopd0s1" path="res://lobby/lobby_theme.tres" id="3_i53lg"]
 [ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="4_q5f0x"]
 
@@ -62,8 +62,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kd86l"]
 _data = {
-"RESET": SubResource("Animation_c2ij0"),
-"loading": SubResource("Animation_34y7y")
+&"RESET": SubResource("Animation_c2ij0"),
+&"loading": SubResource("Animation_34y7y")
 }
 
 [node name="JoinScreen" instance=ExtResource("1_xldsp")]

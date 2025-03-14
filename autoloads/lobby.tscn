@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpbc81lwktlxs"]
 
-[ext_resource type="Script" path="res://autoloads/lobby.gd" id="1_485el"]
+[ext_resource type="Script" uid="uid://b6e84r7fxxg4h" path="res://autoloads/lobby.gd" id="1_485el"]
 [ext_resource type="Theme" uid="uid://bwgdrcgopd0s1" path="res://lobby/lobby_theme.tres" id="1_boshi"]
 
 [node name="Lobby" type="Node"]
