@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bj1i23wquei4u"]
 
-[ext_resource type="Script" uid="uid://b35vcwdxkvr67" path="res://lobby/lobby_test.gd" id="1_cksts"]
+[ext_resource type="Script" uid="uid://dubtb6awynq" path="res://lobby/lobby_test.gd" id="1_cksts"]
 
 [node name="LobbyTest" type="Node"]
 script = ExtResource("1_cksts")
