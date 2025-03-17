@@ -45,7 +45,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	game_start_counter.text = str(ceil(start_timer.time_left))
+	game_start_counter.text = str(int(ceil(start_timer.time_left)))
 
 
 func _toggle_ready() -> void:
@@ -128,7 +128,7 @@ func _stop_timer() -> void:
 @rpc("reliable", "call_local")
 func _start_game() -> void:
 	Game.set_current_player_vote(false)
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_packed(Game.main_scene)
 
 
 func _can_start_game() -> bool:
