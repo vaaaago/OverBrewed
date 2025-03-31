@@ -89,4 +89,5 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="MarginContainer3"]
 layout_mode = 2
 theme_type_variation = &"Title"
-text = "Multiplayer Example"
+text = "OverBrewed"
+horizontal_alignment = 1
