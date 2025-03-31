@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq0y42snvptw5"]
+
+[ext_resource type="Script" uid="uid://ddari88vi5rti" path="res://scenes/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://c4gscsf85ohu4" path="res://scenes/Player.tscn" id="2_sugp2"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0wfyh")
+player_scene = ExtResource("2_sugp2")
+
+[node name="PlayerRoot" type="Node2D" parent="."]
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Spawn_1" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(181, 548)
+gizmo_extents = 40.0
+
+[node name="Spawn_2" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(1090, 554)
+gizmo_extents = 40.0
+
+[node name="Spawn_3" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(631, 125)
+gizmo_extents = 40.0
