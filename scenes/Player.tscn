@@ -4,18 +4,13 @@
 [ext_resource type="Script" uid="uid://raqwhy26vr3r" path="res://scenes/player.gd" id="1_v6fml"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v6fml"]
-radius = 64.0703
+radius = 51.0392
 
 [node name="Player" type="CharacterBody2D"]
-y_sort_enabled = true
 motion_mode = 1
+wall_min_slide_angle = 0.122173
+safe_margin = 0.1
 script = ExtResource("1_v6fml")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_p0vlq")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_v6fml")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -33,3 +28,11 @@ theme_override_font_sizes/font_size = 25
 text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot"]
+texture = ExtResource("1_p0vlq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v6fml")
