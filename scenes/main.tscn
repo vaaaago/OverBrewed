@@ -8,6 +8,7 @@ script = ExtResource("1_0wfyh")
 player_scene = ExtResource("2_sugp2")
 
 [node name="PlayerRoot" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 
