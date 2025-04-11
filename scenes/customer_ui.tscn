@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cpt1qu0qvtarw"]
+[gd_scene load_steps=2 format=3 uid="uid://cpt1qu0qvtarw"]
+
+[ext_resource type="PackedScene" uid="uid://bry6xdsxbldjm" path="res://scenes/ticket.tscn" id="1_gfc1e"]
 
 [node name="CustomerUi" type="Control"]
 layout_mode = 3
@@ -18,4 +20,17 @@ offset_right = 1229.08
 offset_bottom = 80.24
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 320
+
+[node name="Ticket" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_gfc1e")]
+layout_mode = 2
+
+[node name="Ticket2" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_gfc1e")]
+layout_mode = 2
+
+[node name="Ticket3" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_gfc1e")]
+layout_mode = 2
+
+[node name="Ticket4" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_gfc1e")]
 layout_mode = 2
