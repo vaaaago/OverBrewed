@@ -5,7 +5,12 @@ extends CharacterBody2D
 
 @onready var label: Label = $Label
 @onready var sprite: Sprite2D = $Pivot/Sprite2D
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var playback = animation_tree["parameters/playback"]
+@onready var pivot: Node2D = $Pivot
 
+func _ready() -> void:
+	pass
 
 func setup(player_object: Statics.PlayerData):
 	# Seteamos el nombre del nodo de forma de que sea unico
@@ -27,6 +32,7 @@ func _physics_process(delta: float) -> void:
 		var move_input: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		# Equivalente a get_axis pero para dos ejes
 		
+		play_movement_animations.rpc(move_input)
 		velocity = velocity.move_toward(move_input * max_speed, acceleration * delta)
 		sync_data.rpc(position, velocity)
 	
@@ -37,3 +43,16 @@ func _physics_process(delta: float) -> void:
 func sync_data(pos: Vector2, vel: Vector2) -> void:
 	position = lerp(position, pos, 0.8)
 	velocity = lerp(velocity, vel, 0.8)
+
+@rpc("authority", "call_local", "unreliable")
+func play_movement_animations(move_input: Vector2):
+	if abs(move_input.x) > 0.2:
+		pivot.scale.x = -sign(move_input.x)
+		playback.travel("horizontal_walk")
+	elif move_input.y > 0:
+		playback.travel("downwards_walk")
+	elif move_input.y < 0:
+		playback.travel("upwards_walk")
+	else:
+		playback.travel("idle")
+	
