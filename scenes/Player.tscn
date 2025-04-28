@@ -1,8 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://c4gscsf85ohu4"]
+[gd_scene load_steps=30 format=3 uid="uid://c4gscsf85ohu4"]
 
 [ext_resource type="Script" uid="uid://raqwhy26vr3r" path="res://scenes/player.gd" id="1_v6fml"]
 [ext_resource type="Texture2D" uid="uid://boewvvl6tdewu" path="res://assets/sprites/CalicoKitty/calicoKitty_walk.png" id="2_3li8b"]
 [ext_resource type="Texture2D" uid="uid://c7h5ukpdxlmov" path="res://assets/sprites/CalicoKitty/calicoKitty_curiousIdleBreaker.png" id="2_v6fml"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdl7e"]
+radius = 28.6356
 
 [sub_resource type="Animation" id="Animation_70d11"]
 length = 0.001
@@ -336,9 +339,6 @@ _data = {
 &"upwards_walk": SubResource("Animation_khinc")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mdl7e"]
-radius = 28.6356
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mdl7e"]
 animation = &"downwards_walk"
 
@@ -391,13 +391,18 @@ states/upwards_walk/position = Vector2(545, -17)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_khinc"), "upwards_walk", "idle", SubResource("AnimationNodeStateMachineTransition_bruh7"), "idle", "upwards_walk", SubResource("AnimationNodeStateMachineTransition_6eyey"), "horizontal_walk", "idle", SubResource("AnimationNodeStateMachineTransition_d3wef"), "idle", "horizontal_walk", SubResource("AnimationNodeStateMachineTransition_o4126"), "horizontal_walk", "upwards_walk", SubResource("AnimationNodeStateMachineTransition_lkdrv"), "upwards_walk", "horizontal_walk", SubResource("AnimationNodeStateMachineTransition_p7iby"), "idle", "downwards_walk", SubResource("AnimationNodeStateMachineTransition_0rnld"), "downwards_walk", "idle", SubResource("AnimationNodeStateMachineTransition_srp4u"), "downwards_walk", "horizontal_walk", SubResource("AnimationNodeStateMachineTransition_jfpux"), "horizontal_walk", "downwards_walk", SubResource("AnimationNodeStateMachineTransition_61ith"), "upwards_walk", "downwards_walk", SubResource("AnimationNodeStateMachineTransition_ebwui"), "downwards_walk", "upwards_walk", SubResource("AnimationNodeStateMachineTransition_sfy4j")]
 graph_offset = Vector2(-126, -14)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3li8b"]
+radius = 50.0899
+
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 motion_mode = 1
 wall_min_slide_angle = 0.122173
 safe_margin = 0.1
 script = ExtResource("1_v6fml")
 
 [node name="Label" type="Label" parent="."]
+z_index = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -413,6 +418,10 @@ theme_override_font_sizes/font_size = 25
 text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("CircleShape2D_mdl7e")
 
 [node name="Pivot" type="Node2D" parent="."]
 
@@ -431,9 +440,29 @@ libraries = {
 }
 speed_scale = 0.65
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_mdl7e")
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="Pivot"]
+root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_gv3ic")
-anim_player = NodePath("../Pivot/AnimationPlayer")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="PickupArea" type="Area2D" parent="."]
+z_index = 1
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+shape = SubResource("CircleShape2D_3li8b")
+
+[node name="PickUpMarkers" type="Node2D" parent="."]
+
+[node name="MarkerDown" type="Marker2D" parent="PickUpMarkers"]
+position = Vector2(0, 50)
+
+[node name="MarkerRight" type="Marker2D" parent="PickUpMarkers"]
+position = Vector2(50, 0)
+
+[node name="MarkerUp" type="Marker2D" parent="PickUpMarkers"]
+position = Vector2(0, -50)
+
+[node name="MarkerLeft" type="Marker2D" parent="PickUpMarkers"]
+position = Vector2(-50, 0)
