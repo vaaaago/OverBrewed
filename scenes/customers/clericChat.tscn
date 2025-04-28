@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdnchmbsq08hl"]
+[gd_scene load_steps=6 format=3 uid="uid://bdnchmbsq08hl"]
 
-[ext_resource type="Script" uid="uid://3glx2hm5m7wk" path="res://scenes/customers/cleric_chat.gd" id="1_kqq01"]
+[ext_resource type="Script" path="res://scenes/customers/cleric_chat.gd" id="1_kqq01"]
 [ext_resource type="Texture2D" uid="uid://br7u2x8jshjwb" path="res://assets/sprites/customers/cleric_portrait.png" id="1_lwkm2"]
+[ext_resource type="FontFile" uid="uid://cr76aq2ordawm" path="res://assets/fonts/Letterstyle(1).otf" id="3_yeylb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqq01"]
-bg_color = Color(0.191063, 0.026426, 0.191082, 1)
+bg_color = Color(0.239216, 0, 0.247059, 0.643137)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwkm2"]
-bg_color = Color(0.237615, 0.147965, 0.0252841, 1)
+bg_color = Color(0.239216, 0.14902, 0.0235294, 0)
 
 [node name="ClericChat" type="Control"]
 layout_mode = 3
@@ -20,35 +21,36 @@ script = ExtResource("1_kqq01")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
-offset_left = 382.0
-offset_top = 1.0
-offset_right = 882.0
+offset_top = 576.0
+offset_right = 1282.0
 offset_bottom = 721.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_kqq01")
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
 layout_mode = 2
-offset_left = 125.0
-offset_top = 20.0
-offset_right = 364.0
-offset_bottom = 322.0
+offset_left = 1.0
+offset_top = -126.0
+offset_right = 240.0
+offset_bottom = 176.0
 texture = ExtResource("1_lwkm2")
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 185.0
-offset_top = 639.0
-offset_right = 309.0
-offset_bottom = 696.0
+offset_left = 1082.0
+offset_top = 44.0
+offset_right = 1206.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("3_yeylb")
 text = "Ok!"
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 2
-offset_left = 48.0
-offset_top = 335.0
-offset_right = 448.0
-offset_bottom = 610.0
-theme_override_font_sizes/font_size = 30
+offset_left = 281.0
+offset_top = 41.0
+offset_right = 1104.0
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("3_yeylb")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_lwkm2")
-text = "Hola! me duele la watita, cociname una pocion de vida"
+text = "Hi! I've been having terrible headaches lately. Could you give me something for that?"
 autowrap_mode = 2
