@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=4 uid="uid://cr5ci8phiwilr"]
+[gd_scene load_steps=22 format=4 uid="uid://cr5ci8phiwilr"]
 
 [ext_resource type="Texture2D" uid="uid://t5ol6nipy8xs" path="res://scenes/map/ambience/Paneling With Stone.png" id="1_ceyww"]
 [ext_resource type="Texture2D" uid="uid://cpebbroi27d40" path="res://scenes/map/ambience/Floors.png" id="2_3bino"]
 [ext_resource type="Texture2D" uid="uid://rfo8258o0i2i" path="res://scenes/map/ambience/libassetpack-tiled.png" id="2_rfcbn"]
 [ext_resource type="Texture2D" uid="uid://f7wbh7x8i4hk" path="res://scenes/map/ambience/Exterior Border.png" id="3_mlbse"]
 [ext_resource type="Texture2D" uid="uid://vct5f4dycuxk" path="res://scenes/map/ambience/All Furniture.png" id="4_mlbse"]
+[ext_resource type="PackedScene" path="res://scenes/cauldron.tscn" id="6_kbjg7"]
 [ext_resource type="Texture2D" uid="uid://6v5ls27v72pb" path="res://scenes/map/ambience/Fondo de pantalla negro.jpeg" id="6_klu5n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_caao4"]
@@ -2713,6 +2714,9 @@ tile_map_data = PackedByteArray("AAAZAAAAAAAMAAAAAAAZAAEAAAAMAAEAAAAZAAIAAAAMAAI
 tile_set = SubResource("TileSet_bj5nr")
 
 [node name="garden" type="TileMapLayer" parent="floor"]
+
+[node name="Cauldron" parent="floor" instance=ExtResource("6_kbjg7")]
+position = Vector2(626, 435)
 
 [node name="FondoDePantallaNegro" type="Sprite2D" parent="."]
 z_index = -3
