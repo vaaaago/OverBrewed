@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdnchmbsq08hl"]
+
+[ext_resource type="Texture2D" uid="uid://br7u2x8jshjwb" path="res://assets/sprites/customers/cleric_portrait.png" id="1_lwkm2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqq01"]
+bg_color = Color(0.191063, 0.026426, 0.191082, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwkm2"]
+bg_color = Color(0.237615, 0.147965, 0.0252841, 1)
+
+[node name="ClericChat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+offset_left = 382.0
+offset_top = 1.0
+offset_right = 882.0
+offset_bottom = 721.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kqq01")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 2
+offset_left = 125.0
+offset_top = 20.0
+offset_right = 364.0
+offset_bottom = 322.0
+texture = ExtResource("1_lwkm2")
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 639.0
+offset_right = 309.0
+offset_bottom = 696.0
+text = "Ok!"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 48.0
+offset_top = 335.0
+offset_right = 448.0
+offset_bottom = 610.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lwkm2")
+text = "Hola! me duele la watita, cociname una pocion de vida"
+autowrap_mode = 2
