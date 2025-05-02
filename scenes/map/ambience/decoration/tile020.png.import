@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6v5ls27v72pb"
-path="res://.godot/imported/Fondo de pantalla negro.jpeg-bc6fc82ab426b790ac63da492a7766c4.ctex"
+uid="uid://cjamc1lxle7bk"
+path="res://.godot/imported/tile020.png-87c5c260ab45e1a4dd95e43b3f73c85c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/map/ambience/Fondo de pantalla negro.jpeg"
-dest_files=["res://.godot/imported/Fondo de pantalla negro.jpeg-bc6fc82ab426b790ac63da492a7766c4.ctex"]
+source_file="res://scenes/map/ambience/decoration/tile020.png"
+dest_files=["res://.godot/imported/tile020.png-87c5c260ab45e1a4dd95e43b3f73c85c.ctex"]
 
 [params]
 

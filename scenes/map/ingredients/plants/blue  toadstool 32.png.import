@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t5ol6nipy8xs"
-path="res://.godot/imported/Paneling With Stone.png-be04733e781493c6037a4a6b1d274245.ctex"
+uid="uid://cdsyi11lq86op"
+path="res://.godot/imported/blue  toadstool 32.png-8732964d63899f454acfabcd258559c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/map/ambience/Paneling With Stone.png"
-dest_files=["res://.godot/imported/Paneling With Stone.png-be04733e781493c6037a4a6b1d274245.ctex"]
+source_file="res://scenes/map/ingredients/plants/blue  toadstool 32.png"
+dest_files=["res://.godot/imported/blue  toadstool 32.png-8732964d63899f454acfabcd258559c9.ctex"]
 
 [params]
 

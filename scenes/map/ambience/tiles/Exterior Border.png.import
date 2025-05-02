@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vct5f4dycuxk"
-path="res://.godot/imported/All Furniture.png-8c3acc07fbc1fb3190a10a2ea0d74944.ctex"
+uid="uid://f7wbh7x8i4hk"
+path="res://.godot/imported/Exterior Border.png-adf8b2e0197c779f514a776a177c3e6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/map/ambience/All Furniture.png"
-dest_files=["res://.godot/imported/All Furniture.png-8c3acc07fbc1fb3190a10a2ea0d74944.ctex"]
+source_file="res://scenes/map/ambience/tiles/Exterior Border.png"
+dest_files=["res://.godot/imported/Exterior Border.png-adf8b2e0197c779f514a776a177c3e6c.ctex"]
 
 [params]
 

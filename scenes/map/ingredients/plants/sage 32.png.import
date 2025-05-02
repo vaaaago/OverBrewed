@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpebbroi27d40"
-path="res://.godot/imported/Floors.png-c312165551cfe0c5daf12a00d3711c71.ctex"
+uid="uid://0xcmckh41jda"
+path="res://.godot/imported/sage 32.png-61782a31f4114213a11edf1cb34b679b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/map/ambience/Floors.png"
-dest_files=["res://.godot/imported/Floors.png-c312165551cfe0c5daf12a00d3711c71.ctex"]
+source_file="res://scenes/map/ingredients/plants/sage 32.png"
+dest_files=["res://.godot/imported/sage 32.png-61782a31f4114213a11edf1cb34b679b.ctex"]
 
 [params]
 

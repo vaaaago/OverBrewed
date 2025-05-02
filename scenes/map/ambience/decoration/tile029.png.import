@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f7wbh7x8i4hk"
-path="res://.godot/imported/Exterior Border.png-1f83710988001da3d4a006f14213d04b.ctex"
+uid="uid://diy6ly52sk3oy"
+path="res://.godot/imported/tile029.png-b35d38a18e4999fe1c35fd4262d6699b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/map/ambience/Exterior Border.png"
-dest_files=["res://.godot/imported/Exterior Border.png-1f83710988001da3d4a006f14213d04b.ctex"]
+source_file="res://scenes/map/ambience/decoration/tile029.png"
+dest_files=["res://.godot/imported/tile029.png-b35d38a18e4999fe1c35fd4262d6699b.ctex"]
 
 [params]
 
