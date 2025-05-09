@@ -52,6 +52,7 @@ func _input(event: InputEvent) -> void:
 			elif picked_object:
 				Debug.log("Objeto soltado")
 				configure_picked_object(picked_object, false)
+				pickable_objects.push_front(picked_object)
 				picked_object = null
 
 
@@ -64,6 +65,16 @@ func _physics_process(delta: float) -> void:
 		#Debug.log(picked_object)
 		
 		play_movement_animations.rpc(move_input)
+		
+		for i in get_slide_collision_count():
+			# Obtenemos los objetos con los que colisionamos
+			var collision = get_slide_collision(i)
+			
+			# Por cada uno de ellos, calculamos la componente del vector velocidad que va hacia la pared/objeto
+			# y se la restamos a la velocidad. Asi dejamos de acelerar hacia la pared, y podemos deslizarnos aun por ella.
+			var normal_projected_velocity = velocity.dot(collision.get_normal()) * collision.get_normal()
+			velocity = velocity - normal_projected_velocity
+			
 		velocity = velocity.move_toward(move_input * max_speed, acceleration * delta)
 		sync_data.rpc(position, velocity)
 	

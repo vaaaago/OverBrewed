@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8lsyb801m532" path="res://autoloads/game.gd" id="1_fmbhi"]
 [ext_resource type="Script" uid="uid://bnqpng0o60r43" path="res://scripts/player_data_resource.gd" id="2_xaonh"]
-[ext_resource type="PackedScene" uid="uid://bq0y42snvptw5" path="res://scenes/main.tscn" id="3_du0e2"]
+[ext_resource type="PackedScene" uid="uid://cr5ci8phiwilr" path="res://scenes/map/store.tscn" id="3_du0e2"]
 
 [sub_resource type="Resource" id="Resource_nviqh"]
 script = ExtResource("2_xaonh")
