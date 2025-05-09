@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcxkmyuo0wdyx"]
+
+[ext_resource type="Texture2D" uid="uid://dqs6qw2wr4y07" path="res://assets/sprites/Cauldren Set/!cauldren.png" id="1_bi80w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bi80w"]
+radius = 30.0167
+
+[sub_resource type="Animation" id="Animation_jyhfs"]
+length = 12.0
+loop_mode = 2
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_sugp2"]
+resource_name = "red_cauldron"
+length = 9.0
+loop_mode = 1
+step = 0.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.666667, 1, 1.33333, 1.66667, 2, 2.33333, 2.66667, 3, 3.33333, 3.66667, 4, 4.33333, 4.66667, 5, 5.33333, 5.66667, 6, 6.33333, 6.66667, 7, 7.33333, 7.66667, 8, 8.33333, 8.66667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbgi4"]
+_data = {
+&"RESET": SubResource("Animation_jyhfs"),
+&"red_cauldron": SubResource("Animation_sugp2")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bi80w"]
+animation = &"red_cauldron"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8jqlm"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_l3ke8"]
+states/Start/position = Vector2(229, 100)
+states/red_cauldron/node = SubResource("AnimationNodeAnimation_bi80w")
+states/red_cauldron/position = Vector2(560, 100)
+transitions = ["Start", "red_cauldron", SubResource("AnimationNodeStateMachineTransition_8jqlm")]
+
+[node name="Cauldron" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_bi80w")
+hframes = 12
+vframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 20)
+shape = SubResource("CircleShape2D_bi80w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tbgi4")
+}
+autoplay = "RESET"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_l3ke8")
+anim_player = NodePath("../AnimationPlayer")
