@@ -8,4 +8,4 @@ func _ready():
 	ok_button.pressed.connect(_on_ok_button_pressed)
 
 func _on_ok_button_pressed():
-	ok_pressed.emit(self)
+	queue_free()
