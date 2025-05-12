@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://cr5ci8phiwilr"]
+[gd_scene load_steps=59 format=4 uid="uid://cr5ci8phiwilr"]
 
 [ext_resource type="Texture2D" uid="uid://t5ol6nipy8xs" path="res://scenes/map/ambience/tiles/Paneling With Stone.png" id="1_ceyww"]
 [ext_resource type="Script" uid="uid://ddari88vi5rti" path="res://scenes/main.gd" id="1_ixixb"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://diy6ly52sk3oy" path="res://scenes/map/ambience/decoration/tile029.png" id="37_ekvhi"]
 [ext_resource type="Texture2D" uid="uid://b4vlpiuv22j6q" path="res://scenes/map/ambience/decoration/tile030.png" id="38_v6jl5"]
 [ext_resource type="PackedScene" uid="uid://151p2wp14a3p" path="res://scenes/pickable_object.tscn" id="39_p21c8"]
+[ext_resource type="PackedScene" uid="uid://b3vaown7ssk8j" path="res://scenes/customers/cleric.tscn" id="42_bn3hj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_caao4"]
 texture = ExtResource("2_3bino")
@@ -4146,3 +4147,9 @@ position = Vector2(837, 404)
 
 [node name="PickableObject2" parent="PickableObjects" instance=ExtResource("39_p21c8")]
 position = Vector2(1054, 655)
+
+[node name="cleric" parent="." instance=ExtResource("42_bn3hj")]
+position = Vector2(570, 124)
+
+[node name="Player" parent="." instance=ExtResource("8_2ov5w")]
+position = Vector2(447, 440)
