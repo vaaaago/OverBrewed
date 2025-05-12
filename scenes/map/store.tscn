@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://cr5ci8phiwilr"]
+[gd_scene load_steps=59 format=4 uid="uid://cr5ci8phiwilr"]
 
 [ext_resource type="Texture2D" uid="uid://t5ol6nipy8xs" path="res://scenes/map/ambience/tiles/Paneling With Stone.png" id="1_ceyww"]
 [ext_resource type="Script" uid="uid://ddari88vi5rti" path="res://scenes/main.gd" id="1_ixixb"]
@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://cpipvsipenkp4" path="res://scenes/map/ambience/decoration/tile028.png" id="36_sh1vm"]
 [ext_resource type="Texture2D" uid="uid://diy6ly52sk3oy" path="res://scenes/map/ambience/decoration/tile029.png" id="37_ekvhi"]
 [ext_resource type="Texture2D" uid="uid://b4vlpiuv22j6q" path="res://scenes/map/ambience/decoration/tile030.png" id="38_v6jl5"]
+[ext_resource type="PackedScene" uid="uid://bieegw68igah3" path="res://scenes/map/book/book.tscn" id="39_bn3hj"]
 [ext_resource type="PackedScene" uid="uid://151p2wp14a3p" path="res://scenes/pickable_object.tscn" id="39_p21c8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_caao4"]
@@ -4084,7 +4085,7 @@ texture = ExtResource("36_sh1vm")
 
 [node name="Tile029" type="Sprite2D" parent="Map/decoration"]
 y_sort_enabled = true
-position = Vector2(1073, 462)
+position = Vector2(1074, 383)
 texture = ExtResource("37_ekvhi")
 
 [node name="Tile030" type="Sprite2D" parent="Map/decoration"]
@@ -4094,7 +4095,7 @@ texture = ExtResource("38_v6jl5")
 
 [node name="weighingScale" type="Sprite2D" parent="Map/decoration"]
 y_sort_enabled = true
-position = Vector2(978, 429)
+position = Vector2(981, 398)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("11_3phgk")
 
@@ -4103,6 +4104,11 @@ y_sort_enabled = true
 position = Vector2(569, 618)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("12_8nqjd")
+
+[node name="BookImage13" type="Sprite2D" parent="Map/decoration"]
+position = Vector2(1145, 446)
+rotation = -1.1973
+scale = Vector2(1.2, 1.2)
 
 [node name="FondoDePantallaNegro" type="Sprite2D" parent="Map"]
 z_index = -3
@@ -4142,7 +4148,14 @@ position = Vector2(624, 320)
 y_sort_enabled = true
 
 [node name="PickableObject" parent="PickableObjects" instance=ExtResource("39_p21c8")]
-position = Vector2(837, 404)
+position = Vector2(685, 313)
 
 [node name="PickableObject2" parent="PickableObjects" instance=ExtResource("39_p21c8")]
-position = Vector2(1054, 655)
+position = Vector2(527, 302)
+
+[node name="Player" parent="." instance=ExtResource("8_2ov5w")]
+position = Vector2(1154, 645)
+
+[node name="Book" parent="." instance=ExtResource("39_bn3hj")]
+position = Vector2(1065, 489)
+rotation = -1.18682
