@@ -40,3 +40,6 @@ texture = ExtResource("3_rebn7")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]
