@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://cr5ci8phiwilr"]
+[gd_scene load_steps=60 format=4 uid="uid://cr5ci8phiwilr"]
 
 [ext_resource type="Texture2D" uid="uid://t5ol6nipy8xs" path="res://scenes/map/ambience/tiles/Paneling With Stone.png" id="1_ceyww"]
 [ext_resource type="Script" uid="uid://ddari88vi5rti" path="res://scenes/main.gd" id="1_ixixb"]
