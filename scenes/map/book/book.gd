@@ -4,6 +4,8 @@ extends Node2D
 @onready var interaction_area := $Area2D
 @onready var texto := $LibroUI/RichTextLabel
 @onready var libro_ui := $LibroUI
+
+
 var player_in_range := false
 var libro_abierto = false
 
@@ -30,11 +32,3 @@ func _on_body_exited(body):
 		player_in_range = false
 		libro_abierto = false
 		libro_ui.visible = false
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
