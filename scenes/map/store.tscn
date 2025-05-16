@@ -4130,6 +4130,10 @@ texture = ExtResource("10_yb33p")
 [node name="Cauldron" parent="Tools" instance=ExtResource("6_kbjg7")]
 position = Vector2(626, 435)
 
+[node name="Book" parent="Tools" instance=ExtResource("39_bn3hj")]
+position = Vector2(1065, 489)
+rotation = -1.18682
+
 [node name="PlayerRoot" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -4152,10 +4156,3 @@ position = Vector2(685, 313)
 
 [node name="PickableObject2" parent="PickableObjects" instance=ExtResource("39_p21c8")]
 position = Vector2(527, 302)
-
-[node name="Player" parent="." instance=ExtResource("8_2ov5w")]
-position = Vector2(1154, 645)
-
-[node name="Book" parent="." instance=ExtResource("39_bn3hj")]
-position = Vector2(1065, 489)
-rotation = -1.18682
