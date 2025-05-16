@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://rd5gck0l5mv0"]
 
-[ext_resource type="Script" uid="uid://3glx2hm5m7wk" path="res://scenes/customers/cleric_chat.gd" id="1_5dumh"]
+[ext_resource type="Script" uid="uid://3glx2hm5m7wk" path="res://scenes/customers/dialog.gd" id="1_5dumh"]
 [ext_resource type="Texture2D" uid="uid://c4ir22ecl2d5a" path="res://assets/sprites/customers/jester_portrait.png" id="2_5dumh"]
 [ext_resource type="FontFile" uid="uid://cr76aq2ordawm" path="res://assets/fonts/Letterstyle(1).otf" id="3_1nvyj"]
 
