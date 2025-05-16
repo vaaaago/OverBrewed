@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://b4vlpiuv22j6q" path="res://scenes/map/ambience/decoration/tile030.png" id="38_v6jl5"]
 [ext_resource type="PackedScene" uid="uid://bieegw68igah3" path="res://scenes/map/book/book.tscn" id="39_bn3hj"]
 [ext_resource type="PackedScene" uid="uid://151p2wp14a3p" path="res://scenes/pickable_object.tscn" id="39_p21c8"]
+[ext_resource type="PackedScene" uid="uid://b3vaown7ssk8j" path="res://scenes/customers/cleric.tscn" id="42_bn3hj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_caao4"]
 texture = ExtResource("2_3bino")
@@ -4156,3 +4157,9 @@ position = Vector2(685, 313)
 
 [node name="PickableObject2" parent="PickableObjects" instance=ExtResource("39_p21c8")]
 position = Vector2(527, 302)
+
+[node name="cleric" parent="." instance=ExtResource("42_bn3hj")]
+position = Vector2(570, 124)
+
+[node name="Player" parent="." instance=ExtResource("8_2ov5w")]
+position = Vector2(447, 440)

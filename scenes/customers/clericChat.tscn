@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bdnchmbsq08hl"]
 
-[ext_resource type="Script" uid="uid://3glx2hm5m7wk" path="res://scenes/customers/cleric_chat.gd" id="1_kqq01"]
+[ext_resource type="Script" path="res://scenes/customers/cleric_chat.gd" id="1_kqq01"]
 [ext_resource type="Texture2D" uid="uid://br7u2x8jshjwb" path="res://assets/sprites/customers/cleric_portrait.png" id="1_lwkm2"]
 [ext_resource type="FontFile" uid="uid://cr76aq2ordawm" path="res://assets/fonts/Letterstyle(1).otf" id="3_yeylb"]
 
@@ -11,6 +11,7 @@ bg_color = Color(0.239216, 0, 0.247059, 0.643137)
 bg_color = Color(0.239216, 0.14902, 0.0235294, 0)
 
 [node name="ClericChat" type="Control"]
+z_index = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
