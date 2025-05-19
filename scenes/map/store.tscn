@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://cr5ci8phiwilr"]
+[gd_scene load_steps=62 format=4 uid="uid://cr5ci8phiwilr"]
 
 [ext_resource type="Texture2D" uid="uid://t5ol6nipy8xs" path="res://scenes/map/ambience/tiles/Paneling With Stone.png" id="1_ceyww"]
 [ext_resource type="Script" uid="uid://ddari88vi5rti" path="res://scenes/main.gd" id="1_ixixb"]
@@ -3874,6 +3874,44 @@ texture = ExtResource("9_p21c8")
 [sub_resource type="TileSet" id="TileSet_mwkp2"]
 sources/0 = SubResource("TileSetAtlasSource_ixixb")
 
+[sub_resource type="Animation" id="Animation_bn3hj"]
+resource_name = "flying"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sh1vm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ekvhi"]
+_data = {
+&"RESET": SubResource("Animation_sh1vm"),
+&"flying": SubResource("Animation_bn3hj")
+}
+
 [node name="Store" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ixixb")
@@ -4125,6 +4163,14 @@ y_sort_enabled = true
 [node name="mortar" type="Sprite2D" parent="Tools"]
 position = Vector2(510, 609)
 scale = Vector2(0.4, 0.4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tools/mortar"]
+libraries = {
+&"": SubResource("AnimationLibrary_ekvhi")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="Tools/mortar"]
+position = Vector2(0, -5)
 texture = ExtResource("10_yb33p")
 
 [node name="Cauldron" parent="Tools" instance=ExtResource("6_kbjg7")]
