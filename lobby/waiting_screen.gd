@@ -23,8 +23,8 @@ func _ready() -> void:
 	player_name.text = Game.get_current_player().name
 	ready_button.pressed.connect(_toggle_ready)
 	Game.players_updated.connect(_handle_players_updated)
-	Game.player_updated.connect(func(id): _update_ready_button())
-	Game.vote_updated.connect(func(id): _handle_vote_updated())
+	Game.player_updated.connect(func(_id): _update_ready_button())
+	Game.vote_updated.connect(func(_id): _handle_vote_updated())
 	if multiplayer.is_server():
 		start_timer.timeout.connect(func(): _start_game.rpc())
 	_handle_players_updated()
@@ -44,7 +44,7 @@ func _ready() -> void:
 			role_button.text = "Role?"
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	game_start_counter.text = str(int(ceil(start_timer.time_left)))
 
 

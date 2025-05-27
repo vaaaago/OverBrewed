@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcxkmyuo0wdyx"]
+[gd_scene load_steps=12 format=3 uid="uid://dcxkmyuo0wdyx"]
 
+[ext_resource type="Script" uid="uid://v0jespiaa5kt" path="res://scenes/tool.gd" id="1_8jqlm"]
 [ext_resource type="Texture2D" uid="uid://dqs6qw2wr4y07" path="res://assets/sprites/Cauldren Set/!cauldren.png" id="1_bi80w"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_bi80w"]
-radius = 30.0167
+[ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="2_l3ke8"]
 
 [sub_resource type="Animation" id="Animation_jyhfs"]
 length = 12.0
@@ -58,8 +57,51 @@ states/red_cauldron/node = SubResource("AnimationNodeAnimation_bi80w")
 states/red_cauldron/position = Vector2(560, 100)
 transitions = ["Start", "red_cauldron", SubResource("AnimationNodeStateMachineTransition_8jqlm")]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bi80w"]
+radius = 30.0167
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8jqlm"]
+radius = 51.0098
+
 [node name="Cauldron" type="StaticBody2D"]
 y_sort_enabled = true
+script = ExtResource("1_8jqlm")
+total_ingredients = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -74.0
+offset_top = 60.0
+offset_right = 74.0
+offset_bottom = 106.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Ingredient_1" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_l3ke8")
+expand_mode = 3
+
+[node name="Ingredient_2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_l3ke8")
+expand_mode = 3
+
+[node name="Ingredient_3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_l3ke8")
+expand_mode = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -67,18 +109,33 @@ scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_bi80w")
 hframes = 12
 vframes = 8
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-y_sort_enabled = true
-position = Vector2(0, 20)
-shape = SubResource("CircleShape2D_bi80w")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_tbgi4")
 }
 autoplay = "RESET"
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="Sprite2D"]
+root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_l3ke8")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 20)
+shape = SubResource("CircleShape2D_bi80w")
+metadata/_edit_lock_ = true
+
+[node name="InteractionArea" type="Area2D" parent="."]
+z_index = 1
+collision_layer = 4
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="InteractionAreaShape" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 20)
+shape = SubResource("CircleShape2D_8jqlm")
+metadata/_edit_lock_ = true

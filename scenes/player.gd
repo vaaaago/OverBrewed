@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 var pickable_objects: Array[PickableObject] = []
 var picked_object: PickableObject = null
+var nearby_tool: tool = null
 
 @onready var label: Label = $Label
 @onready var sprite: Sprite2D = $Pivot/Sprite2D
@@ -12,6 +13,7 @@ var picked_object: PickableObject = null
 @onready var playback = animation_tree["parameters/playback"]
 @onready var pivot: Node2D = $Pivot
 @onready var pickup_area: Area2D = $PickupArea
+@onready var interaction_area: Area2D = $InteractionArea
 @onready var marker_down: Marker2D = $PickUpMarkers/MarkerDown
 
 
@@ -19,6 +21,8 @@ var picked_object: PickableObject = null
 func _ready() -> void:
 	pickup_area.area_entered.connect(_on_pickup_area_area_entered)
 	pickup_area.area_exited.connect(_on_pickup_area_area_exited)
+	interaction_area.area_entered.connect(_on_interaction_area_area_entered)
+	interaction_area.area_exited.connect(_on_interaction_area_area_exited)
 
 func setup(player_object: Statics.PlayerData):
 	# Seteamos el nombre del nodo de forma de que sea unico
@@ -54,15 +58,20 @@ func _input(event: InputEvent) -> void:
 				#pickable_objects.push_front(picked_object)
 				#is_on_pickup_area = true
 				picked_object = null
-
+		
+		if event.is_action_pressed("deposit_ingredient"):
+			if nearby_tool and picked_object:
+				Debug.log("Objeto depositado")
+				nearby_tool.add_ingredient.rpc(picked_object)
+				
+				picked_object.destroy.rpc()
+				picked_object = null
 
 func _physics_process(delta: float) -> void:
+	Debug.log(picked_object, 0.3)
 	if is_multiplayer_authority():
 		var move_input: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		# Equivalente a get_axis pero para dos ejes
-		
-		#Debug.log(pickable_objects)
-		#Debug.log(picked_object)
 		
 		play_movement_animations.rpc(move_input)
 		
@@ -107,10 +116,20 @@ func configure_picked_object(object: PickableObject, picked_up: bool) -> void:
 
 func _on_pickup_area_area_entered(area: Area2D):
 	if is_multiplayer_authority():
-		Debug.log("Objeto detectado")
+		#Debug.log("Objeto detectado")
 		pickable_objects.append(area.get_parent())
 		
 func _on_pickup_area_area_exited(area: Area2D):
 	if is_multiplayer_authority():
-		Debug.log("Objeto sale")
+		#Debug.log("Objeto sale")
 		pickable_objects.erase(area.get_parent())
+
+func _on_interaction_area_area_entered(area: Area2D):
+	if is_multiplayer_authority():
+		Debug.log("Entra utensilio")
+		nearby_tool = area.get_parent()
+
+func _on_interaction_area_area_exited(area: Area2D):
+	if is_multiplayer_authority():
+		Debug.log("Sale utensilio")
+		nearby_tool = null
