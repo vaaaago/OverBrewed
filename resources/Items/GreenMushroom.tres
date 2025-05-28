@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://etj4qjfvb4r7"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_oecd4"]
+[ext_resource type="Texture2D" uid="uid://ci6h5jb3kscc1" path="res://assets/sprites/Environment/ingredients/plants/green mushroom 32.png" id="2_en1bq"]
+
+[resource]
+script = ExtResource("1_oecd4")
+item_name = "Green Mushroom"
+ID = 14
+texture = ExtResource("2_en1bq")
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

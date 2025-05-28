@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://csux4s406a8jk"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_bc3oj"]
+[ext_resource type="Texture2D" uid="uid://bklihnnw1xoj" path="res://assets/sprites/Environment/ingredients/plants/chanterelle mushroom 32.png" id="2_tq6qe"]
+
+[resource]
+script = ExtResource("1_bc3oj")
+item_name = "Chanterelle Mushroom"
+ID = 12
+texture = ExtResource("2_tq6qe")
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

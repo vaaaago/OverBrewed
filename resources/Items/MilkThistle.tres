@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bkq22mo4lssca"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_j4vdh"]
+[ext_resource type="Texture2D" uid="uid://b36fmoah3k356" path="res://assets/sprites/Environment/ingredients/plants/milk thistle 32.png" id="2_unre0"]
+
+[resource]
+script = ExtResource("1_j4vdh")
+item_name = "Milk Thistle"
+ID = 15
+texture = ExtResource("2_unre0")
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

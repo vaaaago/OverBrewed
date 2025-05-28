@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://j4xlr2mvknlr"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_31uq7"]
+[ext_resource type="Texture2D" uid="uid://bmhpn31288ay5" path="res://assets/sprites/Environment/ingredients/plants/basil 32.png" id="2_5djji"]
+
+[resource]
+script = ExtResource("1_31uq7")
+item_name = "Basil"
+ID = 5
+texture = ExtResource("2_5djji")
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

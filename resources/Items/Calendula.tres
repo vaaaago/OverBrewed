@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://d0x2ben4hq4r8"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_rio0p"]
+[ext_resource type="Texture2D" uid="uid://ctc5ju7cq1k7w" path="res://assets/sprites/Environment/ingredients/plants/calendula 32.png" id="2_phltp"]
+
+[resource]
+script = ExtResource("1_rio0p")
+item_name = "Calendula"
+ID = 10
+texture = ExtResource("2_phltp")
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bxqx45k8tc540"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_yl3sv"]
+[ext_resource type="Texture2D" uid="uid://dud3aroblsnm4" path="res://assets/sprites/Environment/ingredients/plants/chamomile 32.png" id="2_c8lh0"]
+
+[resource]
+script = ExtResource("1_yl3sv")
+item_name = "Chamomile"
+ID = 11
+texture = ExtResource("2_c8lh0")
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

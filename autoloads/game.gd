@@ -5,6 +5,8 @@ signal player_updated(id)
 signal vote_updated(id)
 signal player_index_received()
 
+@export var item_register: Array[Item]
+
 @export var multiplayer_test = false
 @export var use_roles = true
 @export var unique_roles = true # won't start with repeated roles

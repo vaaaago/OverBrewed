@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b6iqkhqqq7ldm"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_80qik"]
+[ext_resource type="Texture2D" uid="uid://brul846un65cl" path="res://assets/sprites/Environment/ingredients/plants/senna 32.png" id="2_52ah4"]
+
+[resource]
+script = ExtResource("1_80qik")
+item_name = "Senna"
+ID = 3
+texture = ExtResource("2_52ah4")
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

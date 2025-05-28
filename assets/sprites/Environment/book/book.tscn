@@ -1,0 +1,190 @@
+[gd_scene load_steps=13 format=3 uid="uid://bieegw68igah3"]
+
+[ext_resource type="Script" uid="uid://2gd0kljdd5jv" path="res://assets/sprites/Environment/book/book.gd" id="1_4oemj"]
+[ext_resource type="Texture2D" uid="uid://cy2n3b4lfa2bi" path="res://assets/sprites/Environment/book/book_image_13.png" id="2_gkogt"]
+[ext_resource type="Texture2D" uid="uid://q4fq1ul2jhkl" path="res://assets/sprites/Environment/book/book_middle.png" id="3_rebn7"]
+[ext_resource type="Texture2D" uid="uid://gyfse6eb1tjk" path="res://assets/sprites/Environment/book/next01.png" id="4_fmxqs"]
+[ext_resource type="Texture2D" uid="uid://cxms118pk847d" path="res://assets/sprites/Environment/book/back01.png" id="5_87n2p"]
+[ext_resource type="Texture2D" uid="uid://bsy0cfyunjerk" path="res://assets/sprites/Environment/book/return_hover.png" id="6_ehtt4"]
+[ext_resource type="FontFile" uid="uid://bbh6nsse8pp3b" path="res://assets/fonts/smallburg-Italic.ttf" id="7_87n2p"]
+[ext_resource type="FontFile" uid="uid://8rki88vs3glq" path="res://assets/fonts/smallburg-Italic.otf" id="8_ehtt4"]
+
+[sub_resource type="Animation" id="Animation_ehtt4"]
+resource_name = "brillar"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.3, 1.3, 1.3, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g2pr3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_doijq"]
+_data = {
+&"RESET": SubResource("Animation_g2pr3"),
+&"brillar": SubResource("Animation_ehtt4")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gkogt"]
+
+[node name="Book" type="Node2D"]
+script = ExtResource("1_4oemj")
+
+[node name="book" type="Sprite2D" parent="."]
+texture = ExtResource("2_gkogt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="book"]
+libraries = {
+&"": SubResource("AnimationLibrary_doijq")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-3, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(-19, 21)
+rotation = -2.15723
+scale = Vector2(4, 4)
+shape = SubResource("CapsuleShape2D_gkogt")
+
+[node name="LibroUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="LibroUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.10352e-05
+offset_top = 3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.666667)
+
+[node name="Control" type="Control" parent="LibroUI"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+
+[node name="TextureRect" type="TextureRect" parent="LibroUI/Control"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -240.0
+offset_top = -120.0
+offset_right = 240.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_rebn7")
+
+[node name="NextPage" type="Button" parent="LibroUI/Control"]
+layout_mode = 0
+offset_left = 92.8
+offset_top = 76.0
+offset_right = 890.8
+offset_bottom = 427.0
+scale = Vector2(0.05, 0.05)
+icon = ExtResource("4_fmxqs")
+
+[node name="PreviousPage" type="Button" parent="LibroUI/Control"]
+layout_mode = 0
+offset_left = -132.0
+offset_top = 75.2
+offset_right = 666.0
+offset_bottom = 426.2
+scale = Vector2(0.05, 0.05)
+icon = ExtResource("5_87n2p")
+
+[node name="CloseButton" type="Button" parent="LibroUI/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 114.0
+offset_top = -106.8
+offset_right = 186.0
+offset_bottom = -34.8
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("6_ehtt4")
+
+[node name="Control" type="Control" parent="LibroUI/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="pagIzq" type="RichTextLabel" parent="LibroUI/Control/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -143.0
+offset_top = -131.0
+offset_right = -28.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
+theme_override_fonts/normal_font = ExtResource("7_87n2p")
+bbcode_enabled = true
+
+[node name="Control2" type="Control" parent="LibroUI/Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="pagDer" type="RichTextLabel" parent="LibroUI/Control/Control2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -130.0
+offset_right = 109.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_ehtt4")
+bbcode_enabled = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]

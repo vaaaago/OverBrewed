@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bdw437x0kjv0u"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_7lghc"]
+[ext_resource type="Texture2D" uid="uid://c2e0weigk7e" path="res://assets/sprites/Environment/ingredients/plants/dandelion 32.png" id="2_7lghc"]
+
+[resource]
+script = ExtResource("1_7lghc")
+item_name = "Dandelion"
+ID = 1
+texture = ExtResource("2_7lghc")
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

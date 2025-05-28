@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://151p2wp14a3p"]
 
-[ext_resource type="Script" uid="uid://d07c4yajf0r8t" path="res://scenes/pickable_object.gd" id="1_0l3f1"]
+[ext_resource type="Script" uid="uid://d07c4yajf0r8t" path="res://scripts/pickable_object.gd" id="1_0l3f1"]
 [ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="1_thpd4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0l3f1"]
@@ -14,7 +14,7 @@ gravity_scale = 0.0
 script = ExtResource("1_0l3f1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_thpd4")
 
 [node name="CollisionAreaShape" type="CollisionShape2D" parent="."]

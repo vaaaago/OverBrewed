@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://4qcw2bieh8jw"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_3u1g6"]
+[ext_resource type="Texture2D" uid="uid://3bitbdqvd6kn" path="res://assets/sprites/Environment/ingredients/plants/moringa 32.png" id="2_dbkct"]
+
+[resource]
+script = ExtResource("1_3u1g6")
+item_name = "Moringa"
+ID = 16
+texture = ExtResource("2_dbkct")
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://vxorgpim1tl2"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_es111"]
+[ext_resource type="Texture2D" uid="uid://bd24466ghe8pa" path="res://assets/sprites/Environment/ingredients/plants/blue  mushroom2 32.png" id="2_yibyy"]
+
+[resource]
+script = ExtResource("1_es111")
+item_name = "Blue Mushroom"
+ID = 7
+texture = ExtResource("2_yibyy")
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

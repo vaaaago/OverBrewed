@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CraftingIngredient" load_steps=3 format=3 uid="uid://0k33n42e6p4c"]
+
+[ext_resource type="Resource" uid="uid://b2x8uytac3fx7" path="res://resources/Items/BlackElder.tres" id="1_bavbv"]
+[ext_resource type="Script" uid="uid://bty3ya1s3l6ij" path="res://resources/definitions/crafting_ingredient.gd" id="1_hx0to"]
+
+[resource]
+script = ExtResource("1_hx0to")
+item = ExtResource("1_bavbv")
+count = 1
+metadata/_custom_type_script = "uid://bty3ya1s3l6ij"

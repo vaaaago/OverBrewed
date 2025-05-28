@@ -1,11 +1,11 @@
 [gd_scene load_steps=30 format=3 uid="uid://c4gscsf85ohu4"]
 
-[ext_resource type="Script" uid="uid://raqwhy26vr3r" path="res://scenes/player.gd" id="1_v6fml"]
+[ext_resource type="Script" uid="uid://raqwhy26vr3r" path="res://scripts/player.gd" id="1_v6fml"]
 [ext_resource type="Texture2D" uid="uid://boewvvl6tdewu" path="res://assets/sprites/CalicoKitty/calicoKitty_walk.png" id="2_3li8b"]
 [ext_resource type="Texture2D" uid="uid://c7h5ukpdxlmov" path="res://assets/sprites/CalicoKitty/calicoKitty_curiousIdleBreaker.png" id="2_v6fml"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mdl7e"]
-radius = 28.6356
+radius = 21.2132
 
 [sub_resource type="Animation" id="Animation_70d11"]
 length = 0.001

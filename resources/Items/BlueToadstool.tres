@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://d2b8n2sluush2"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_4r8nr"]
+[ext_resource type="Texture2D" uid="uid://cdsyi11lq86op" path="res://assets/sprites/Environment/ingredients/plants/blue  toadstool 32.png" id="2_jupei"]
+
+[resource]
+script = ExtResource("1_4r8nr")
+item_name = "Blue Toadstool"
+ID = 8
+texture = ExtResource("2_jupei")
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

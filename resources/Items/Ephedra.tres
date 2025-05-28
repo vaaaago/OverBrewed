@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cau2bw0isgpyj"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_ji5jm"]
+[ext_resource type="Texture2D" uid="uid://dqjn70kcr6cxh" path="res://assets/sprites/Environment/ingredients/plants/ephedra 32.png" id="2_qw66t"]
+
+[resource]
+script = ExtResource("1_ji5jm")
+item_name = "Ephedra"
+ID = 13
+texture = ExtResource("2_qw66t")
+metadata/_custom_type_script = "uid://du7m4ony33aw4"
