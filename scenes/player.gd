@@ -12,7 +12,6 @@ var picked_object: PickableObject = null
 @onready var playback = animation_tree["parameters/playback"]
 @onready var pivot: Node2D = $Pivot
 @onready var pickup_area: Area2D = $PickupArea
-
 @onready var marker_down: Marker2D = $PickUpMarkers/MarkerDown
 
 
@@ -52,7 +51,8 @@ func _input(event: InputEvent) -> void:
 			elif picked_object:
 				Debug.log("Objeto soltado")
 				configure_picked_object(picked_object, false)
-				pickable_objects.push_front(picked_object)
+				#pickable_objects.push_front(picked_object)
+				#is_on_pickup_area = true
 				picked_object = null
 
 
