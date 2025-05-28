@@ -8,14 +8,14 @@ var time_passed := 0.0
 var is_dialog_open := false
 var dialog_instance = null
 
-@onready var wait_bar = $ProgressBar
+@onready var wait_bar_sprite: Sprite2D = $WaitBar
 @onready var interaction_area = $Area2D
 @export var dialog_scene: PackedScene 
 var player_in_range := false
+var bar_total_frames := 12
 
 func _ready():
-	wait_bar.max_value = customer_wait_time
-	wait_bar.value = customer_wait_time
+
 	interaction_area.body_entered.connect(_on_body_entered)
 	interaction_area.body_exited.connect(_on_body_exited)
 	
@@ -24,7 +24,11 @@ func _process(delta):
 		return
 
 	time_passed += delta
-	wait_bar.value = customer_wait_time - time_passed
+	# Calcular el índice del frame según el tiempo restante
+	var progress_ratio :float = clamp(time_passed / customer_wait_time, 0.0, 1.0)
+	var frame_index := int(progress_ratio * (bar_total_frames - 1))
+
+	wait_bar_sprite.frame = frame_index
 
 	if time_passed >= customer_wait_time:
 		leave_store()

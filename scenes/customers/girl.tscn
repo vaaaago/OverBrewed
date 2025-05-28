@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ywfm0jkl7xbc"]
+[gd_scene load_steps=6 format=3 uid="uid://ywfm0jkl7xbc"]
 
 [ext_resource type="Script" uid="uid://o1f7ywijm7ep" path="res://scenes/customers/customer.gd" id="1_br6wk"]
 [ext_resource type="PackedScene" uid="uid://c14d4haoeoxui" path="res://scenes/customers/girlChat.tscn" id="2_br6wk"]
 [ext_resource type="Texture2D" uid="uid://b416xc50y0mns" path="res://assets/sprites/customers/greengrocer.png" id="3_br6wk"]
+[ext_resource type="Texture2D" uid="uid://b3qla4qumkhq1" path="res://assets/progressBar.png" id="4_hdbds"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2nac"]
 size = Vector2(61, 148)
@@ -21,9 +22,8 @@ texture = ExtResource("3_br6wk")
 position = Vector2(0.5, 119)
 shape = SubResource("RectangleShape2D_s2nac")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -33.0
-offset_top = -61.0
-offset_right = 36.0
-offset_bottom = -50.0
-show_percentage = false
+[node name="WaitBar" type="Sprite2D" parent="."]
+position = Vector2(0, -54)
+scale = Vector2(2.09375, 1.375)
+texture = ExtResource("4_hdbds")
+hframes = 12
