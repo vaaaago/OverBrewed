@@ -4229,3 +4229,4 @@ item_type = ExtResource("46_8urdu")
 
 [node name="cleric" parent="." instance=ExtResource("42_bn3hj")]
 position = Vector2(570, 124)
+script = null
