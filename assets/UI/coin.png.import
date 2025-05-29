@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3qla4qumkhq1"
-path="res://.godot/imported/progressBar.png-e1ea4d34749b3c53df4e110d76b75806.ctex"
+uid="uid://clevb5qgnv24v"
+path="res://.godot/imported/coin.png-8286e9862ca3afe7c882ebf4bced5feb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/progressBar.png"
-dest_files=["res://.godot/imported/progressBar.png-e1ea4d34749b3c53df4e110d76b75806.ctex"]
+source_file="res://assets/UI/coin.png"
+dest_files=["res://.godot/imported/coin.png-8286e9862ca3afe7c882ebf4bced5feb.ctex"]
 
 [params]
 

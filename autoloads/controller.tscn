@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ja7803m8dtdg"]
+[gd_scene load_steps=8 format=3 uid="uid://ja7803m8dtdg"]
 
 [ext_resource type="Script" uid="uid://b60a6bnewxybt" path="res://autoloads/controller.gd" id="1_hibc4"]
 [ext_resource type="PackedScene" uid="uid://b3vaown7ssk8j" path="res://scenes/customers/cleric.tscn" id="2_wx675"]
 [ext_resource type="PackedScene" uid="uid://ywfm0jkl7xbc" path="res://scenes/customers/girl.tscn" id="3_p3mc6"]
 [ext_resource type="PackedScene" uid="uid://cpjmmsli0r0h3" path="res://scenes/customers/jester.tscn" id="4_wxsdk"]
 [ext_resource type="PackedScene" uid="uid://baru6ibwgdgls" path="res://scenes/customers/smith.tscn" id="5_yurpw"]
+[ext_resource type="FontFile" uid="uid://cr76aq2ordawm" path="res://assets/fonts/Letterstyle(1).otf" id="6_wxsdk"]
+[ext_resource type="Texture2D" uid="uid://clevb5qgnv24v" path="res://assets/UI/coin.png" id="7_yurpw"]
 
 [node name="Controller" type="Control"]
 layout_mode = 3
@@ -15,3 +17,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hibc4")
 customer_scenes = Array[PackedScene]([ExtResource("2_wx675"), ExtResource("3_p3mc6"), ExtResource("4_wxsdk"), ExtResource("5_yurpw")])
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 9.0
+offset_right = 208.0
+offset_bottom = 74.0
+
+[node name="Coin" type="Sprite2D" parent="Panel"]
+position = Vector2(22, 32.5)
+scale = Vector2(1.875, 2.0625)
+texture = ExtResource("7_yurpw")
+
+[node name="ScoreLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 18.0
+offset_right = 188.0
+offset_bottom = 59.0
+theme_override_fonts/font = ExtResource("6_wxsdk")
+theme_override_font_sizes/font_size = 21

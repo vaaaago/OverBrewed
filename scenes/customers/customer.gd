@@ -1,6 +1,7 @@
 extends Node2D
 
 signal despawned
+signal received_product
 
 var customer_wait_time: float =  30.0
 var waiting := true
@@ -64,6 +65,7 @@ func close_dialog():
 	is_dialog_open = false
 
 func receive_product():
+	received_product.emit()
 	waiting = false
 	leave_store()
 

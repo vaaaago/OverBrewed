@@ -10,11 +10,15 @@ var customer_array := []
 var spawners: Array = []  # Spawner nodes
 var occupied_spawners: Dictionary = {}  # spawner_node -> cliente
 
+var score: int = 0
+@onready var score_label: Label = $Panel/ScoreLabel
+
+
 func _ready():
 	# Obtener todos los spawners hijos del nodo "Spawners"
 	var spawner_parent = get_node("../CustomerSpawns")  # ajusta si estás en otro nivel
 	spawners = spawner_parent.get_children()
-	
+	update_score()
 	spawn_customers_loop()
 
 func spawn_customers_loop():
@@ -40,8 +44,14 @@ func spawn_client():
 
 	# Configurar tiempo de espera
 	client_instance.customer_wait_time = max_wait_time
-
-# Cuando el cliente se vaya, limpiar
+	
+	# Cuando reciba el producto, sumar puntaje
+	if client_instance.has_signal("received_product"):
+		client_instance.received_product.connect(func(_c):
+			score += 100
+			update_score()
+		)
+	# Cuando el cliente se vaya, limpiar
 	client_instance.despawned.connect(func(_c):
 		customer_array.erase(client_instance)
 		occupied_spawners.erase(spawner)
@@ -52,3 +62,6 @@ func get_available_spawner() -> Node2D:
 		if not occupied_spawners.has(spawner):
 			return spawner
 	return null
+	
+func update_score():
+	score_label.text = "%d" % score
