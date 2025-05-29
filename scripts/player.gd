@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var max_speed = 450
@@ -40,30 +41,48 @@ func setup(player_object: Statics.PlayerData):
 	set_multiplayer_authority(player_object.id)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		if pickable_objects and not picked_object:
-			Debug.log("Objeto Recogido")
-			var object = pickable_objects.pop_front()
-			
-			if not object.picked_up:
-				picked_object = object
-				configure_picked_object(object, true)
-			else:
-				pickable_objects.push_front(object)
+	if is_multiplayer_authority():
 		
-		elif picked_object:
-			Debug.log("Objeto soltado")
-			configure_picked_object(picked_object, false)
-			picked_object = null
-	
-	if event.is_action_pressed("deposit_ingredient"):
-		if nearby_tool and picked_object:
-			Debug.log("Objeto depositado")
-			#nearby_tool.add_ingredient.rpc(picked_object.item_type)
-			nearby_tool.rpc("add_ingredient", picked_object.item_type)
+		# Recogida de items
+		if event.is_action_pressed("ui_accept"):
 			
-			picked_object.destroy.rpc()
-			picked_object = null
+			# Si hay objetos alrededor y no tengo uno en la mano:
+			if pickable_objects and not picked_object:
+				Debug.log("Objeto Recogido")
+				var object = pickable_objects.pop_front()
+				
+				# Si el objeto no estaba recogido, lo recogemos
+				if not object.picked_up:
+					picked_object = object
+					configure_picked_object(object, true)
+				else:
+					# No recuerdo si este else es necesario o que hacia
+					Debug.log("Caso extraño")
+					pickable_objects.push_front(object)
+
+			elif picked_object:
+				Debug.log("Objeto soltado")
+				configure_picked_object(picked_object, false)
+				picked_object = null
+		
+		# Deposito de items en utensilios
+		if event.is_action_pressed("deposit_ingredient"):
+			if nearby_tool and picked_object:
+				Debug.log("Solicitud de deposito de " + str(picked_object.item_type) + " enviada al server")
+				nearby_tool.rpc_id(1, "request_server_add_ingredient", picked_object.item_type.ID, multiplayer.get_unique_id())
+
+@rpc("any_peer", "call_local", "reliable")
+func confirm_object_deposited():
+	# Si tenemos un objeto, ahora lo eliminamos
+	# Implementar logica de destruccion aqui
+	Debug.log("Objeto destruido")
+	picked_object.destroy.rpc()
+	pass
+
+@rpc("any_peer", "call_local", "reliable")
+func reject_object_deposited():
+	# Objeto fue rechazado
+	pass
 
 func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():

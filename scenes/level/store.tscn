@@ -1,23 +1,32 @@
-[gd_scene load_steps=67 format=4 uid="uid://cr5ci8phiwilr"]
+[gd_scene load_steps=82 format=4 uid="uid://cr5ci8phiwilr"]
 
 [ext_resource type="Texture2D" uid="uid://t5ol6nipy8xs" path="res://assets/sprites/Environment/ambience/tiles/Paneling With Stone.png" id="1_ceyww"]
 [ext_resource type="Script" uid="uid://ddari88vi5rti" path="res://scripts/main.gd" id="1_ixixb"]
 [ext_resource type="Texture2D" uid="uid://cpebbroi27d40" path="res://assets/sprites/Environment/ambience/tiles/Floors.png" id="2_3bino"]
 [ext_resource type="Texture2D" uid="uid://rfo8258o0i2i" path="res://assets/sprites/Environment/ambience/tiles/libassetpack-tiled.png" id="2_rfcbn"]
 [ext_resource type="Texture2D" uid="uid://f7wbh7x8i4hk" path="res://assets/sprites/Environment/ambience/tiles/Exterior Border.png" id="3_mlbse"]
+[ext_resource type="Resource" uid="uid://cr6e3k64qfpog" path="res://resources/Items/AloeVera.tres" id="4_f5n31"]
 [ext_resource type="Texture2D" uid="uid://vct5f4dycuxk" path="res://assets/sprites/Environment/ambience/tiles/All Furniture.png" id="4_mlbse"]
+[ext_resource type="Resource" uid="uid://bdw437x0kjv0u" path="res://resources/Items/Dandelion.tres" id="5_iw3xo"]
 [ext_resource type="Texture2D" uid="uid://bnul4v1sp0ca0" path="res://assets/sprites/Environment/ambience/tiles/tileset-indoor-plants.png" id="6_jdstt"]
 [ext_resource type="PackedScene" uid="uid://dcxkmyuo0wdyx" path="res://scenes/tools/cauldron.tscn" id="6_kbjg7"]
 [ext_resource type="Texture2D" uid="uid://6v5ls27v72pb" path="res://assets/sprites/Environment/ambience/tiles/Fondo de pantalla negro.jpeg" id="6_klu5n"]
+[ext_resource type="Resource" uid="uid://b6iqkhqqq7ldm" path="res://resources/Items/Senna.tres" id="7_ba25o"]
 [ext_resource type="PackedScene" uid="uid://c4gscsf85ohu4" path="res://scenes/Player.tscn" id="8_2ov5w"]
+[ext_resource type="Resource" uid="uid://80ws0l75w5bx" path="res://resources/Items/ToflyAgaric.tres" id="8_8urdu"]
+[ext_resource type="Resource" uid="uid://j4xlr2mvknlr" path="res://resources/Items/Basil.tres" id="9_8urdu"]
 [ext_resource type="PackedScene" uid="uid://cp2pguc1pav03" path="res://scenes/item_sources/flower.tscn" id="9_ekvhi"]
 [ext_resource type="Texture2D" uid="uid://bw0eb2uujafg5" path="res://assets/sprites/Environment/ambience/tiles/list.png" id="9_p21c8"]
 [ext_resource type="Resource" uid="uid://b2x8uytac3fx7" path="res://resources/Items/BlackElder.tres" id="10_61ux7"]
 [ext_resource type="Texture2D" uid="uid://dolrujyntfrvq" path="res://assets/sprites/Environment/ambience/instruments/tile039.png" id="10_yb33p"]
 [ext_resource type="Texture2D" uid="uid://c214512bcek0m" path="res://assets/sprites/Environment/ambience/instruments/tile043.png" id="11_3phgk"]
 [ext_resource type="Texture2D" uid="uid://c7ffjfsqfhp3r" path="res://assets/sprites/Environment/ambience/decoration/tile038.png" id="12_8nqjd"]
+[ext_resource type="Resource" uid="uid://vxorgpim1tl2" path="res://resources/Items/BlueMushroom.tres" id="12_8urdu"]
+[ext_resource type="Resource" uid="uid://d2b8n2sluush2" path="res://resources/Items/BlueToadstool.tres" id="12_f5n31"]
+[ext_resource type="Resource" uid="uid://cogegceif5ke2" path="res://resources/Items/BlueLotus.tres" id="13_8urdu"]
 [ext_resource type="Texture2D" uid="uid://bgwrglaoh56xy" path="res://assets/sprites/Environment/ingredients/plants/aloe vera 32.png" id="13_gvuuc"]
 [ext_resource type="Texture2D" uid="uid://c2e0weigk7e" path="res://assets/sprites/Environment/ingredients/plants/dandelion 32.png" id="14_4dgby"]
+[ext_resource type="Resource" uid="uid://d0x2ben4hq4r8" path="res://resources/Items/Calendula.tres" id="14_8urdu"]
 [ext_resource type="Texture2D" uid="uid://0xcmckh41jda" path="res://assets/sprites/Environment/ingredients/plants/sage 32.png" id="15_s1qti"]
 [ext_resource type="Texture2D" uid="uid://brul846un65cl" path="res://assets/sprites/Environment/ingredients/plants/senna 32.png" id="16_2qe67"]
 [ext_resource type="Texture2D" uid="uid://cg0yvj22pqbg1" path="res://assets/sprites/Environment/ingredients/plants/ tofly agaric 32.png" id="17_s60dh"]
@@ -30,17 +39,23 @@
 [ext_resource type="Texture2D" uid="uid://bklihnnw1xoj" path="res://assets/sprites/Environment/ingredients/plants/chanterelle mushroom 32.png" id="25_bn3hj"]
 [ext_resource type="Texture2D" uid="uid://dqjn70kcr6cxh" path="res://assets/sprites/Environment/ingredients/plants/ephedra 32.png" id="26_sh1vm"]
 [ext_resource type="Texture2D" uid="uid://ci6h5jb3kscc1" path="res://assets/sprites/Environment/ingredients/plants/green mushroom 32.png" id="27_ekvhi"]
+[ext_resource type="Resource" uid="uid://csux4s406a8jk" path="res://resources/Items/ChanterelleMushroom.tres" id="28_jcky3"]
 [ext_resource type="PackedScene" uid="uid://3xu7psp5nyey" path="res://scenes/item_sources/chests.tscn" id="28_sh1vm"]
 [ext_resource type="Texture2D" uid="uid://b36fmoah3k356" path="res://assets/sprites/Environment/ingredients/plants/milk thistle 32.png" id="28_v6jl5"]
 [ext_resource type="Texture2D" uid="uid://3bitbdqvd6kn" path="res://assets/sprites/Environment/ingredients/plants/moringa 32.png" id="29_lacuj"]
 [ext_resource type="Texture2D" uid="uid://cnntnnqn6pplu" path="res://assets/sprites/Environment/ingredients/plants/white toadstool 32.png" id="30_1ncn8"]
+[ext_resource type="Resource" uid="uid://cau2bw0isgpyj" path="res://resources/Items/Ephedra.tres" id="30_mhfux"]
 [ext_resource type="Texture2D" uid="uid://cfo274xmy4pp3" path="res://assets/sprites/Environment/ambience/decoration/tile013.png" id="31_3vlko"]
+[ext_resource type="Resource" uid="uid://etj4qjfvb4r7" path="res://resources/Items/GreenMushroom.tres" id="32_nqdyx"]
 [ext_resource type="Texture2D" uid="uid://dgm51xmig8uwh" path="res://assets/sprites/Environment/ambience/decoration/tile019.png" id="32_p21c8"]
 [ext_resource type="Texture2D" uid="uid://cjamc1lxle7bk" path="res://assets/sprites/Environment/ambience/decoration/tile020.png" id="33_ixixb"]
 [ext_resource type="Texture2D" uid="uid://dqc4lbg2s4sqe" path="res://assets/sprites/Environment/ambience/decoration/tile021.png" id="34_mwkp2"]
+[ext_resource type="Resource" uid="uid://bkq22mo4lssca" path="res://resources/Items/MilkThistle.tres" id="34_w343f"]
 [ext_resource type="Texture2D" uid="uid://w83cvsqree6j" path="res://assets/sprites/Environment/ambience/decoration/tile022.png" id="35_bn3hj"]
 [ext_resource type="Texture2D" uid="uid://cpipvsipenkp4" path="res://assets/sprites/Environment/ambience/decoration/tile028.png" id="36_sh1vm"]
+[ext_resource type="Resource" uid="uid://4qcw2bieh8jw" path="res://resources/Items/Moringa.tres" id="36_w343f"]
 [ext_resource type="Texture2D" uid="uid://diy6ly52sk3oy" path="res://assets/sprites/Environment/ambience/decoration/tile029.png" id="37_ekvhi"]
+[ext_resource type="Resource" uid="uid://bxewl4fwmtvky" path="res://resources/Items/WhiteToadstool.tres" id="38_rwuct"]
 [ext_resource type="Texture2D" uid="uid://b4vlpiuv22j6q" path="res://assets/sprites/Environment/ambience/decoration/tile030.png" id="38_v6jl5"]
 [ext_resource type="PackedScene" uid="uid://bieegw68igah3" path="res://assets/sprites/Environment/book/book.tscn" id="39_bn3hj"]
 [ext_resource type="PackedScene" uid="uid://151p2wp14a3p" path="res://scenes/pickable_object.tscn" id="39_p21c8"]
@@ -3928,105 +3943,101 @@ y_sort_enabled = true
 [node name="Ingredients" type="Node2D" parent="Map"]
 y_sort_enabled = true
 
-[node name="AloeVera" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
+[node name="AloeVera" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(38, 653)
-scale = Vector2(1.5, 1.5)
 texture = ExtResource("13_gvuuc")
+item_type = ExtResource("4_f5n31")
 
-[node name="Dandelion" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
-position = Vector2(136, 652)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("14_4dgby")
-
-[node name="Sage" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
-position = Vector2(233, 651)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("15_s1qti")
-
-[node name="Senna" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
-position = Vector2(330, 648)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("16_2qe67")
-
-[node name="ToflyAgaric" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
-position = Vector2(26, 243)
-texture = ExtResource("17_s60dh")
-
-[node name="Basil32" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
+[node name="Basil" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(203, 231)
-scale = Vector2(1.5, 1.5)
 texture = ExtResource("18_rfvsr")
+item_type = ExtResource("9_8urdu")
 
 [node name="BlackElder" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(268, 516)
 item_type = ExtResource("10_61ux7")
 
-[node name="BlueMushroom" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
-position = Vector2(63, 244)
-texture = ExtResource("20_nbajs")
-
-[node name="BlueToadstool" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
-position = Vector2(108, 242)
-texture = ExtResource("21_3vlko")
-
-[node name="BlueLotus" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
+[node name="BlueLotus" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(209, 522)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("22_p21c8")
+item_type = ExtResource("13_8urdu")
 
-[node name="Calendula" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
+[node name="BlueMushroom" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
+position = Vector2(63, 244)
+scale = Vector2(1, 1)
+texture = ExtResource("20_nbajs")
+item_type = ExtResource("12_8urdu")
+
+[node name="BlueToadstool" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
+position = Vector2(108, 242)
+scale = Vector2(1, 1)
+texture = ExtResource("21_3vlko")
+item_type = ExtResource("12_f5n31")
+
+[node name="Calendula" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(266, 379)
-scale = Vector2(1.5, 1.5)
 texture = ExtResource("23_ixixb")
+item_type = ExtResource("14_8urdu")
 
-[node name="Chamomile" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
+[node name="Chamomile" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(212, 379)
-scale = Vector2(1.5, 1.5)
 texture = ExtResource("24_mwkp2")
+item_type = ExtResource("45_ba25o")
 
-[node name="ChanterelleMushroom" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
+[node name="ChanterelleMushroom" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(32, 387)
+scale = Vector2(1, 1)
 texture = ExtResource("25_bn3hj")
+item_type = ExtResource("28_jcky3")
 
-[node name="Ephedra" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
+[node name="Dandelion" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
+position = Vector2(136, 652)
+texture = ExtResource("14_4dgby")
+item_type = ExtResource("5_iw3xo")
+
+[node name="Ephedra" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(274, 232)
-scale = Vector2(1.5, 1.5)
 texture = ExtResource("26_sh1vm")
+item_type = ExtResource("30_mhfux")
 
-[node name="GreenMushroom" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
+[node name="GreenMushroom" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(70, 389)
+scale = Vector2(1, 1)
 texture = ExtResource("27_ekvhi")
+item_type = ExtResource("32_nqdyx")
 
-[node name="MilkThistle" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
+[node name="MilkThistle" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(97, 519)
-scale = Vector2(1.5, 1.5)
 texture = ExtResource("28_v6jl5")
+item_type = ExtResource("34_w343f")
 
-[node name="Moringa" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
+[node name="Moringa" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(37, 521)
-scale = Vector2(1.5, 1.5)
 texture = ExtResource("29_lacuj")
+item_type = ExtResource("36_w343f")
 
-[node name="WhiteToadstool" type="Sprite2D" parent="Map/Ingredients"]
-y_sort_enabled = true
+[node name="Sage" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
+position = Vector2(233, 651)
+texture = ExtResource("15_s1qti")
+item_type = ExtResource("46_8urdu")
+
+[node name="Senna" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
+position = Vector2(330, 648)
+texture = ExtResource("16_2qe67")
+item_type = ExtResource("7_ba25o")
+
+[node name="ToflyAgaric" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
+position = Vector2(26, 243)
+scale = Vector2(1, 1)
+texture = ExtResource("17_s60dh")
+item_type = ExtResource("8_8urdu")
+
+[node name="WhiteToadstool2" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(108, 383)
+scale = Vector2(1, 1)
 texture = ExtResource("30_1ncn8")
+item_type = ExtResource("38_rwuct")
 
 [node name="Tilesets" type="Node2D" parent="Map"]
 
@@ -4055,7 +4066,7 @@ metadata/_edit_lock_ = true
 [node name="decoration_1" type="TileMapLayer" parent="Map/Tilesets"]
 y_sort_enabled = true
 scale = Vector2(1.2, 1.2)
-tile_map_data = PackedByteArray("AABBABQAAAATAA0AAABCABQAAAAUAA0AAABBABUAAAATAA4AAABBABYAAAATAA8AAABBABcAAAATABAAAABBABgAAAATABEAAABBABkAAAATABIAAABBABoAAAATABMAAABBABsAAAATABQAAABBABwAAAATABUAAABCABUAAAAUAA4AAABCABYAAAAUAA8AAABCABcAAAAUABAAAABCABgAAAAUABEAAABCABkAAAAUABIAAABCABoAAAAUABMAAABCABsAAAAUABQAAABCABwAAAAUABUAAABBAB0AAAATAA0AAABBAB4AAAATAA4AAABBAB8AAAATAA8AAABBACAAAAATABAAAABBACEAAAATABEAAABBACIAAAATABIAAABBACMAAAATABMAAABBACQAAAATABQAAABBACUAAAATABUAAABBACYAAAATABYAAABCAB0AAAAUAA0AAABCAB4AAAAUAA4AAABCAB8AAAAUAA8AAABCACAAAAAUABAAAABCACEAAAAUABEAAABCACIAAAAUABIAAABCACMAAAAUABMAAABCACQAAAAUABQAAABCACUAAAAUABUAAABCACYAAAAUABYAAAAVAAEAAAAYAAMAAAAVAAIAAAAYAAQAAAAVAAMAAAAYAAUAAAAWAAEAAAAZAAMAAAAWAAIAAAAZAAQAAAAWAAMAAAAZAAUAAAAXAAEAAAAaAAMAAAAXAAIAAAAaAAQAAAAXAAMAAAAaAAUAAAAYAAgAAAAnAAcAAAAYAAoAAAAnAAkAAAAYAAsAAAAnAAoAAAAZAAgAAAAoAAcAAAAZAAkAAAAoAAgAAAAZAAoAAAAoAAkAAAAZAAsAAAAoAAoAAAAXAB8AAAAYAA0AAAAXACAAAAAYAA4AAAAXACEAAAAYAA8AAAAXACIAAAAYABAAAAAXACMAAAAYABEAAAAXACQAAAAYABIAAAAXACUAAAAYABMAAAAYAB8AAAAZAA0AAAAYACAAAAAZAA4AAAAYACEAAAAZAA8AAAAYACIAAAAZABAAAAAYACMAAAAZABEAAAAYACQAAAAZABIAAAAYACUAAAAZABMAAAAZAB8AAAAaAA0AAAAZACAAAAAaAA4AAAAZACEAAAAaAA8AAAAZACIAAAAaABAAAAAZACMAAAAaABEAAAAZACQAAAAaABIAAAAZACUAAAAaABMAAAAaAB8AAAAbAA0AAAAaACAAAAAbAA4AAAAaACEAAAAbAA8AAAAaACIAAAAbABAAAAAaACMAAAAbABEAAAAaACQAAAAbABIAAAAaACUAAAAbABMAAAAbAB8AAAAcAA0AAAAbACAAAAAcAA4AAAAbACEAAAAcAA8AAAAbACIAAAAcABAAAAAbACMAAAAcABEAAAAbACQAAAAcABIAAAAbACUAAAAcABMAAAAcAB8AAAAdAA0AAAAcACAAAAAdAA4AAAAcACEAAAAdAA8AAAAcACIAAAAdABAAAAAcACMAAAAdABEAAAAcACQAAAAdABIAAAAcACUAAAAdABMAAAAdAB8AAAAeAA0AAAAdACAAAAAeAA4AAAAdACEAAAAeAA8AAAAdACIAAAAeABAAAAAdACMAAAAeABEAAAAdACQAAAAeABIAAAAdACUAAAAeABMAAAAeAB8AAAAfAA0AAAAeACAAAAAfAA4AAAAeACEAAAAfAA8AAAAeACIAAAAfABAAAAAeACMAAAAfABEAAAAeACQAAAAfABIAAAAeACUAAAAfABMAAAAfAB8AAAAgAA0AAAAfACAAAAAgAA4AAAAfACEAAAAgAA8AAAAfACIAAAAgABAAAAAfACMAAAAgABEAAAAfACQAAAAgABIAAAAfACUAAAAgABMAAAAhAB8AAAAWAA0AAAAhACAAAAAWAA4AAAAhACEAAAAWAA8AAAAhACIAAAAWABAAAAAhACMAAAAWABEAAAAhACQAAAAWABIAAAAhACUAAAAWABMAAAAjAB8AAAAYAA0AAAAjACAAAAAYAA4AAAAjACEAAAAYAA8AAAAjACIAAAAYABAAAAAjACMAAAAYABEAAAAjACQAAAAYABIAAAAjACUAAAAYABMAAAAkAB8AAAAZAA0AAAAkACAAAAAZAA4AAAAkACEAAAAZAA8AAAAkACIAAAAZABAAAAAkACMAAAAZABEAAAAkACQAAAAZABIAAAAkACUAAAAZABMAAAAlAB8AAAAaAA0AAAAlACAAAAAaAA4AAAAlACEAAAAaAA8AAAAlACIAAAAaABAAAAAlACMAAAAaABEAAAAlACQAAAAaABIAAAAlACUAAAAaABMAAAAmAB8AAAAbAA0AAAAmACAAAAAbAA4AAAAmACEAAAAbAA8AAAAmACIAAAAbABAAAAAmACMAAAAbABEAAAAmACQAAAAbABIAAAAmACUAAAAbABMAAAAnAB8AAAAcAA0AAAAnACAAAAAcAA4AAAAnACEAAAAcAA8AAAAnACIAAAAcABAAAAAnACMAAAAcABEAAAAnACQAAAAcABIAAAAnACUAAAAcABMAAAAoAB8AAAAdAA0AAAAoACAAAAAdAA4AAAAoACEAAAAdAA8AAAAoACIAAAAdABAAAAAoACMAAAAdABEAAAAoACQAAAAdABIAAAAoACUAAAAdABMAAAApAB8AAAAeAA0AAAApACAAAAAeAA4AAAApACEAAAAeAA8AAAApACIAAAAeABAAAAApACMAAAAeABEAAAApACQAAAAeABIAAAApACUAAAAeABMAAAAqAB8AAAAfAA0AAAAqACAAAAAfAA4AAAAqACEAAAAfAA8AAAAqACIAAAAfABAAAAAqACMAAAAfABEAAAAqACQAAAAfABIAAAAqACUAAAAfABMAAAArAB8AAAAgAA0AAAArACAAAAAgAA4AAAArACEAAAAgAA8AAAArACIAAAAgABAAAAArACMAAAAgABEAAAArACQAAAAgABIAAAArACUAAAAgABMAAAAVAB8AAAAWAA0AAAAVACAAAAAWAA4AAAAVACEAAAAWAA8AAAAVACIAAAAWABAAAAAVACMAAAAWABEAAAAVACQAAAAWABIAAAAVACUAAAAWABMAAAAWAB8AAAAXAA0AAAAWACAAAAAXAA4AAAAWACEAAAAXAA8AAAAWACIAAAAXABAAAAAWACMAAAAXABEAAAAWACQAAAAXABIAAAAWACUAAAAXABMAAAAiAB8AAAAXAA0AAAAiACAAAAAXAA4AAAAiACEAAAAXAA8AAAAiACIAAAAXABAAAAAiACMAAAAXABEAAAAiACQAAAAXABIAAAAiACUAAAAXABMAAABBAAoAAAATAA0AAABBAAsAAAATAA4AAABBAAwAAAATAA8AAABBAA0AAAATABAAAABBAA4AAAATABEAAABBAA8AAAATABIAAABBABAAAAATABMAAABBABEAAAATABQAAABBABIAAAATABUAAABBABMAAAATABYAAABCAAoAAAAUAA0AAABCAAsAAAAUAA4AAABCAAwAAAAUAA8AAABCAA0AAAAUABAAAABCAA4AAAAUABEAAABCAA8AAAAUABIAAABCABAAAAAUABMAAABCABEAAAAUABQAAABCABIAAAAUABUAAABCABMAAAAUABYAAAA=")
+tile_map_data = PackedByteArray("AABBABQAAAATAA0AAABCABQAAAAUAA0AAABBABUAAAATAA4AAABBABYAAAATAA8AAABBABcAAAATABAAAABBABgAAAATABEAAABBABkAAAATABIAAABBABoAAAATABMAAABBABsAAAATABQAAABBABwAAAATABUAAABCABUAAAAUAA4AAABCABYAAAAUAA8AAABCABcAAAAUABAAAABCABgAAAAUABEAAABCABkAAAAUABIAAABCABoAAAAUABMAAABCABsAAAAUABQAAABCABwAAAAUABUAAABBAB0AAAATAA0AAABBAB4AAAATAA4AAABBAB8AAAATAA8AAABBACAAAAATABAAAABBACEAAAATABEAAABBACIAAAATABIAAABBACMAAAATABMAAABBACQAAAATABQAAABBACUAAAATABUAAABBACYAAAATABYAAABCAB0AAAAUAA0AAABCAB4AAAAUAA4AAABCAB8AAAAUAA8AAABCACAAAAAUABAAAABCACEAAAAUABEAAABCACIAAAAUABIAAABCACMAAAAUABMAAABCACQAAAAUABQAAABCACUAAAAUABUAAABCACYAAAAUABYAAAAVAAEAAAAYAAMAAAAVAAIAAAAYAAQAAAAVAAMAAAAYAAUAAAAWAAEAAAAZAAMAAAAWAAIAAAAZAAQAAAAWAAMAAAAZAAUAAAAXAAEAAAAaAAMAAAAXAAIAAAAaAAQAAAAXAAMAAAAaAAUAAAAYAAgAAAAnAAcAAAAYAAoAAAAnAAkAAAAYAAsAAAAnAAoAAAAZAAgAAAAoAAcAAAAZAAkAAAAoAAgAAAAZAAoAAAAoAAkAAAAZAAsAAAAoAAoAAAAXAB8AAAAYAA0AAAAXACAAAAAYAA4AAAAXACEAAAAYAA8AAAAXACIAAAAYABAAAAAXACMAAAAYABEAAAAXACQAAAAYABIAAAAXACUAAAAYABMAAAAYAB8AAAAZAA0AAAAYACAAAAAZAA4AAAAYACEAAAAZAA8AAAAYACIAAAAZABAAAAAYACMAAAAZABEAAAAYACQAAAAZABIAAAAYACUAAAAZABMAAAAZAB8AAAAaAA0AAAAZACAAAAAaAA4AAAAZACEAAAAaAA8AAAAZACIAAAAaABAAAAAZACMAAAAaABEAAAAZACQAAAAaABIAAAAZACUAAAAaABMAAAAaAB8AAAAbAA0AAAAaACAAAAAbAA4AAAAaACEAAAAbAA8AAAAaACIAAAAbABAAAAAaACMAAAAbABEAAAAaACQAAAAbABIAAAAaACUAAAAbABMAAAAbAB8AAAAcAA0AAAAbACAAAAAcAA4AAAAbACEAAAAcAA8AAAAbACIAAAAcABAAAAAbACMAAAAcABEAAAAbACQAAAAcABIAAAAbACUAAAAcABMAAAAcAB8AAAAdAA0AAAAcACAAAAAdAA4AAAAcACEAAAAdAA8AAAAcACIAAAAdABAAAAAcACMAAAAdABEAAAAcACQAAAAdABIAAAAcACUAAAAdABMAAAAdAB8AAAAeAA0AAAAdACAAAAAeAA4AAAAdACEAAAAeAA8AAAAdACIAAAAeABAAAAAdACMAAAAeABEAAAAdACQAAAAeABIAAAAdACUAAAAeABMAAAAeAB8AAAAfAA0AAAAeACAAAAAfAA4AAAAeACEAAAAfAA8AAAAeACIAAAAfABAAAAAeACMAAAAfABEAAAAeACQAAAAfABIAAAAeACUAAAAfABMAAAAfAB8AAAAgAA0AAAAfACAAAAAgAA4AAAAfACEAAAAgAA8AAAAfACIAAAAgABAAAAAfACMAAAAgABEAAAAfACQAAAAgABIAAAAfACUAAAAgABMAAAAhAB8AAAAWAA0AAAAhACAAAAAWAA4AAAAhACEAAAAWAA8AAAAhACIAAAAWABAAAAAhACMAAAAWABEAAAAhACQAAAAWABIAAAAhACUAAAAWABMAAAAjAB8AAAAYAA0AAAAjACAAAAAYAA4AAAAjACEAAAAYAA8AAAAjACIAAAAYABAAAAAjACMAAAAYABEAAAAjACQAAAAYABIAAAAjACUAAAAYABMAAAAkAB8AAAAZAA0AAAAkACAAAAAZAA4AAAAkACEAAAAZAA8AAAAkACIAAAAZABAAAAAkACMAAAAZABEAAAAkACQAAAAZABIAAAAkACUAAAAZABMAAAAlAB8AAAAaAA0AAAAlACAAAAAaAA4AAAAlACEAAAAaAA8AAAAlACIAAAAaABAAAAAlACMAAAAaABEAAAAlACQAAAAaABIAAAAlACUAAAAaABMAAAAmAB8AAAAbAA0AAAAmACAAAAAbAA4AAAAmACEAAAAbAA8AAAAmACIAAAAbABAAAAAmACMAAAAbABEAAAAmACQAAAAbABIAAAAmACUAAAAbABMAAAAnAB8AAAAcAA0AAAAnACAAAAAcAA4AAAAnACEAAAAcAA8AAAAnACIAAAAcABAAAAAnACMAAAAcABEAAAAnACQAAAAcABIAAAAnACUAAAAcABMAAAAoAB8AAAAdAA0AAAAoACAAAAAdAA4AAAAoACEAAAAdAA8AAAAoACIAAAAdABAAAAAoACMAAAAdABEAAAAoACQAAAAdABIAAAAoACUAAAAdABMAAAApAB8AAAAeAA0AAAApACAAAAAeAA4AAAApACEAAAAeAA8AAAApACIAAAAeABAAAAApACMAAAAeABEAAAApACQAAAAeABIAAAApACUAAAAeABMAAAAqAB8AAAAfAA0AAAAqACAAAAAfAA4AAAAqACEAAAAfAA8AAAAqACIAAAAfABAAAAAqACMAAAAfABEAAAAqACQAAAAfABIAAAAqACUAAAAfABMAAAArAB8AAAAgAA0AAAArACAAAAAgAA4AAAArACEAAAAgAA8AAAArACIAAAAgABAAAAArACMAAAAgABEAAAArACQAAAAgABIAAAArACUAAAAgABMAAAAVAB8AAAAWAA0AAAAVACAAAAAWAA4AAAAVACEAAAAWAA8AAAAVACIAAAAWABAAAAAVACMAAAAWABEAAAAVACQAAAAWABIAAAAVACUAAAAWABMAAAAWAB8AAAAXAA0AAAAWACAAAAAXAA4AAAAWACEAAAAXAA8AAAAWACIAAAAXABAAAAAWACMAAAAXABEAAAAWACQAAAAXABIAAAAWACUAAAAXABMAAAAiAB8AAAAXAA0AAAAiACAAAAAXAA4AAAAiACEAAAAXAA8AAAAiACIAAAAXABAAAAAiACMAAAAXABEAAAAiACQAAAAXABIAAAAiACUAAAAXABMAAABBAAoAAAATAA0AAABBAAsAAAATAA4AAABBAAwAAAATAA8AAABBAA0AAAATABAAAABBAA4AAAATABEAAABBAA8AAAATABIAAABBABAAAAATABMAAABBABEAAAATABQAAABBABIAAAATABUAAABBABMAAAATABYAAABCAAoAAAAUAA0AAABCAAsAAAAUAA4AAABCAAwAAAAUAA8AAABCAA0AAAAUABAAAABCAA4AAAAUABEAAABCAA8AAAAUABIAAABCABAAAAAUABMAAABCABEAAAAUABQAAABCABIAAAAUABUAAABCABMAAAAUABYAAAAYAAkAAAAnAAgAAAA=")
 tile_set = SubResource("TileSet_w62k0")
 metadata/_edit_lock_ = true
 

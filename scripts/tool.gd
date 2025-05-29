@@ -12,6 +12,7 @@ extends StaticBody2D
 @onready var animation_tree: AnimationTree = $Sprite2D/AnimationTree
 @onready var playback = animation_tree["parameters/playback"]
 
+# Variables sobre las que el server tiene autoridad
 var ingredient_array: Array[Item]
 var ingredient_dict: Dictionary
 var ingredient_count = 0
@@ -32,59 +33,78 @@ func _ready() -> void:
 	for frame: TextureRect in icon_container.get_children():
 		frame.visible = false
 
-func get_ingredient_count() -> int:
-	return ingredient_count
-
-func get_max_ingredients() -> int:
-	return total_ingredients
-
-func request_add_ingredient(ingredient: Item):
-	# Implementaremos logica para enviar solicitud al servidor, y que el se 
-	# encarge de gestionar el estado del caldero, y llamar a rpc en todos los peers.
-	# en obsidian deje el primer resultado que me dio chatGPT
+@rpc("any_peer","call_local", "reliable")
+func request_server_add_ingredient(ingredient_ID: int, request_peer_id: int):
+	# Este metodo se ejecuta en el server, y valida una solicitud de un peer para 
+	# depositar un item
+	var ingredient = Game.item_dict[ingredient_ID]
 	
-	# Quiza conviene hacerse un diagrama
-	pass
-
-@rpc("any_peer", "call_local", "unreliable_ordered")
-func add_ingredient(ingredient: Item) -> void:
-	Debug.log("Ingrediente agregado")
+	if !is_multiplayer_authority():
+		# Si no es el server, ignoramos
+		return
 	
+	Debug.log("Recibida petición de " + Game.get_player(request_peer_id).name + " para añadir " + ingredient.item_name)
+	
+	# Chequeamos si el total de ingredientes se ha superado:
 	if ingredient_count < total_ingredients:
-		var frame: TextureRect = icon_container.get_child(ingredient_count)
-		var sprite: TextureRect = frame.get_child(0).get_child(0)
+		Debug.log("Ingrediente " + ingredient.item_name + " aceptado.")
 		
-		sprite.texture = ingredient.texture
-		frame.visible = true
+		# Como fue aceptado, actualizamos el estado de todos los peers
+		rpc("sync_client_ingredient_state", ingredient.ID)
 		
-		var sync_dict: Dictionary = {}
+		# Ahora debemos notificar al jugador/peer que hizo la request que el objeto se deposito
+		# Para que lo pueda eliminar
+		var player: Player = Game.get_player(request_peer_id).instance
+		player.rpc_id(request_peer_id, "confirm_object_deposited")
 		
-		ingredient_dict[ingredient] += 1
-		ingredient_array.append(ingredient)
-		ingredient_count += 1
-		
-		Debug.log(ingredient_dict)
-		
-		if get_ingredient_count() == get_max_ingredients():
+		# Si tras actualizar el estado, se tienen los ingredientes totales, iniciamos crafteo
+		if ingredient_count == total_ingredients:
 			Debug.log("Momento de craftear")
 			
 			timer.start()
 			await timer.timeout
-			playback.travel("red_cauldron_smoke")
+			
+			var anim: String = "red_cauldron_smoke"
+			sync_animation.rpc(anim)
 			
 			item_ready = true
-			
-			for ig in ingredient_array:
-				ingredient_dict[ig] = 0
-			
-			for fr: TextureRect in icon_container.get_children():
-				fr.visible = false
+			reset_state.rpc()
+		
+	else:
+		Debug.log("Ingrediente " + ingredient.item_name + " rechazado (caldero lleno).")
+		rpc_id(request_peer_id, "reject_object_deposited")
+
+@rpc("authority", "call_local", "reliable")
+func sync_client_ingredient_state(ingredient_added_ID: int):
+	var ingredient_added = Game.item_dict[ingredient_added_ID]
+	
+	# Si no es el server, actualizamos variables
+	ingredient_dict[ingredient_added] += 1
+	ingredient_array.append(ingredient_added)
+	ingredient_count += 1
+	
+	var frame: TextureRect = icon_container.get_child(ingredient_count - 1)
+	var sprite: TextureRect = frame.get_child(0).get_child(0)
+		
+	sprite.texture = ingredient_added.texture
+	frame.visible = true
+
+@rpc("authority", "call_local", "reliable")
+func reset_state():
+	while ingredient_array.size() > 0:
+		var ig = ingredient_array.pop_back()
+		ingredient_dict[ig] = 0
+		ingredient_count -= 1
+		
+		for fr: TextureRect in icon_container.get_children():
+			fr.visible = false
+
+@rpc("authority", "call_local", "reliable")
+func sync_animation(anim: String):
+	playback.travel(anim)
 
 func pickup_item() -> PickableObject:
 	# Asumiendo que hay un objeto listo para recoger
 	var object_instance = object_scene.instantiate()
 	object_instance.item_type = output_item
 	return object_instance
-
-func sync_instances(sync_dict: Dictionary) -> void:
-	pass

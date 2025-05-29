@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8x8dx"]
 size = Vector2(5, 63.3333)
 
-[node name="ItemSource" type="Sprite2D"]
+[node name="Flower" type="Sprite2D"]
 y_sort_enabled = true
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_ss2g4")

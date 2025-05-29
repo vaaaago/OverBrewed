@@ -6,6 +6,7 @@ signal vote_updated(id)
 signal player_index_received()
 
 @export var item_register: Array[Item]
+var item_dict: Dictionary[int, Item]
 
 @export var multiplayer_test = false
 @export var use_roles = true
@@ -44,6 +45,10 @@ func _ready() -> void:
 	if not OS.is_debug_build():
 		multiplayer_test = false
 		player_id.hide()
+		
+	# Inicializamos item dict:
+	for item in item_register:
+		item_dict[item.ID] = item
 
 
 func sort_players() -> void:

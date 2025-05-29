@@ -25,6 +25,6 @@ func pickup_and_disable_interaction(state: bool) -> void:
 func sync_picked_position(pos: Vector2) -> void:
 	set_position(pos)
 
-@rpc("any_peer", "call_local", "unreliable_ordered")
+@rpc("any_peer", "call_local", "reliable")
 func destroy() -> void:
 	self.queue_free()
