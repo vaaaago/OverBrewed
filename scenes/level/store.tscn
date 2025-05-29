@@ -59,9 +59,9 @@
 [ext_resource type="Texture2D" uid="uid://b4vlpiuv22j6q" path="res://assets/sprites/Environment/ambience/decoration/tile030.png" id="38_v6jl5"]
 [ext_resource type="PackedScene" uid="uid://bieegw68igah3" path="res://assets/sprites/Environment/book/book.tscn" id="39_bn3hj"]
 [ext_resource type="PackedScene" uid="uid://151p2wp14a3p" path="res://scenes/pickable_object.tscn" id="39_p21c8"]
-[ext_resource type="PackedScene" uid="uid://b3vaown7ssk8j" path="res://scenes/customers/cleric.tscn" id="42_bn3hj"]
 [ext_resource type="Resource" uid="uid://bxqx45k8tc540" path="res://resources/Items/Chamomile.tres" id="45_ba25o"]
 [ext_resource type="Resource" uid="uid://cnk6vk18ycyls" path="res://resources/Items/Sage.tres" id="46_8urdu"]
+[ext_resource type="PackedScene" uid="uid://ja7803m8dtdg" path="res://autoloads/controller.tscn" id="62_rwuct"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_caao4"]
 texture = ExtResource("2_3bino")
@@ -4227,6 +4227,18 @@ item_type = ExtResource("45_ba25o")
 position = Vector2(396, 486)
 item_type = ExtResource("46_8urdu")
 
-[node name="cleric" parent="." instance=ExtResource("42_bn3hj")]
-position = Vector2(570, 124)
-script = null
+[node name="CustomerSpawns" type="Node2D" parent="."]
+
+[node name="customer1" type="Marker2D" parent="CustomerSpawns"]
+position = Vector2(553, 120)
+
+[node name="customer2" type="Marker2D" parent="CustomerSpawns"]
+position = Vector2(725, 120)
+
+[node name="customer3" type="Marker2D" parent="CustomerSpawns"]
+position = Vector2(923, 120)
+
+[node name="customer4" type="Marker2D" parent="CustomerSpawns"]
+position = Vector2(1119, 120)
+
+[node name="Controller" parent="." instance=ExtResource("62_rwuct")]

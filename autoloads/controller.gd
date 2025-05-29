@@ -3,7 +3,7 @@ extends Control
 
 @export var max_customers: int = 4
 @export var spawn_delay: float = 10.0
-@export var customer_wait_time: float =  60.0
+@export var max_wait_time: float =  60.0
 @export var customer_scenes: Array[PackedScene] # contiene 4 escenas diferentes
 
 var customer_array := []
@@ -12,7 +12,7 @@ var occupied_spawners: Dictionary = {}  # spawner_node -> cliente
 
 func _ready():
 	# Obtener todos los spawners hijos del nodo "Spawners"
-	var spawner_parent = get_node("../Spawners")  # ajusta si estás en otro nivel
+	var spawner_parent = get_node("../CustomerSpawns")  # ajusta si estás en otro nivel
 	spawners = spawner_parent.get_children()
 	
 	spawn_customers_loop()
@@ -39,8 +39,7 @@ func spawn_client():
 	occupied_spawners[spawner] = client_instance
 
 	# Configurar tiempo de espera
-	if client_instance.has_variable("max_wait_time"):
-		client_instance.max_wait_time = customer_wait_time
+	client_instance.customer_wait_time = max_wait_time
 
 # Cuando el cliente se vaya, limpiar
 	client_instance.despawned.connect(func(_c):
