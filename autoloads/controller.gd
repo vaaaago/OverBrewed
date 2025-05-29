@@ -11,10 +11,17 @@ var spawners: Array = []  # Spawner nodes
 var occupied_spawners: Dictionary = {}  # spawner_node -> cliente
 
 var score: int = 0
-@onready var score_label: Label = $Panel/ScoreLabel
+@onready var score_label: Label = $ScorePanel/ScoreLabel
 
+@export var level_duration: int = 120  # 5 minutos
+@export var required_score: int = 300
+var time_left: int = level_duration
+var level_ended := false
 
 func _ready():
+	$LevelTimer.start()
+	start_timer_update()
+	
 	# Obtener todos los spawners hijos del nodo "Spawners"
 	var spawner_parent = get_node("../CustomerSpawns")  # ajusta si estás en otro nivel
 	spawners = spawner_parent.get_children()
@@ -76,3 +83,30 @@ func get_available_spawner() -> Array:
 	
 func update_score():
 	score_label.text = "%d" % score
+	
+func start_timer_update():
+	# Actualiza el reloj visual cada segundo
+	var ticker := Timer.new()
+	ticker.wait_time = 1.0
+	ticker.one_shot = false
+	ticker.autostart = true
+	ticker.timeout.connect(update_time)
+	add_child(ticker)
+
+func update_time():
+	if level_ended:
+		return
+	time_left -= 1
+	var minutes = time_left / 60
+	var seconds = time_left % 60
+	$TimePanel/TimeLabel.text = "%02d:%02d" % [minutes, seconds]
+	if time_left <= 0:
+		end_level()
+		
+func end_level():
+	level_ended = true
+	$LevelTimer.stop()
+	if score >= required_score:
+		print("win")
+	else:
+		print("lose")
