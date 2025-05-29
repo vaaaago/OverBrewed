@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c14d4haoeoxui"]
 
-[ext_resource type="Script" uid="uid://3glx2hm5m7wk" path="res://scenes/customers/cleric_chat.gd" id="1_rbp3r"]
+[ext_resource type="Script" uid="uid://3glx2hm5m7wk" path="res://scenes/customers/dialog.gd" id="1_rbp3r"]
 [ext_resource type="Texture2D" uid="uid://cda7bxqkmpo41" path="res://assets/sprites/customers/greengrocer_portrait.png" id="2_rbp3r"]
 [ext_resource type="FontFile" uid="uid://cr76aq2ordawm" path="res://assets/fonts/Letterstyle(1).otf" id="3_gakad"]
 
