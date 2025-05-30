@@ -6,6 +6,8 @@
 [resource]
 script = ExtResource("1_4r8nr")
 item_name = "Blue Toadstool"
-ID = 8
+ID = 5
 texture = ExtResource("2_jupei")
+texture_scale = 1.0
+pickable_texture_scale = 2.0
 metadata/_custom_type_script = "uid://du7m4ony33aw4"

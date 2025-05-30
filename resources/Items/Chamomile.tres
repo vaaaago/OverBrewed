@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_yl3sv")
 item_name = "Chamomile"
-ID = 11
+ID = 7
 texture = ExtResource("2_c8lh0")
 texture_scale = 1.5
 pickable_texture_scale = 2.0

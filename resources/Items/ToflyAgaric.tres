@@ -6,6 +6,8 @@
 [resource]
 script = ExtResource("1_c3hpx")
 item_name = "Tofly Agaric"
-ID = 4
+ID = 17
 texture = ExtResource("2_neyy7")
+texture_scale = 1.0
+pickable_texture_scale = 2.0
 metadata/_custom_type_script = "uid://du7m4ony33aw4"

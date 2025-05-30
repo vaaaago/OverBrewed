@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_3u1g6")
 item_name = "Moringa"
-ID = 16
+ID = 13
 texture = ExtResource("2_dbkct")
 texture_scale = 1.5
 pickable_texture_scale = 2.0

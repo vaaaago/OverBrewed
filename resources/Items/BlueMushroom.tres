@@ -6,6 +6,8 @@
 [resource]
 script = ExtResource("1_es111")
 item_name = "Blue Mushroom"
-ID = 7
+ID = 4
 texture = ExtResource("2_yibyy")
+texture_scale = 1.0
+pickable_texture_scale = 2.0
 metadata/_custom_type_script = "uid://du7m4ony33aw4"

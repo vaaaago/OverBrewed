@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_7lghc")
 item_name = "Dandelion"
-ID = 1
+ID = 9
 texture = ExtResource("2_7lghc")
 texture_scale = 1.5
 pickable_texture_scale = 2.0

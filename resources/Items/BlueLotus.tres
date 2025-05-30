@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_5okmw")
 item_name = "Blue Lotus"
-ID = 9
+ID = 3
 texture = ExtResource("2_2i7tc")
 texture_scale = 1.2
 pickable_texture_scale = 2.0

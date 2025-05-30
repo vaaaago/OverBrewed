@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cqdipvslf1803"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_e4fcb"]
+[ext_resource type="Texture2D" uid="uid://g4nerpkof1qj" path="res://assets/sprites/Environment/ambience/instruments/Small Vial - RED - 0000.png" id="2_wlsc7"]
+
+[resource]
+script = ExtResource("1_e4fcb")
+item_name = "Healing Potion"
+ID = 997
+texture = ExtResource("2_wlsc7")
+texture_scale = 1.0
+pickable_texture_scale = 2.0
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

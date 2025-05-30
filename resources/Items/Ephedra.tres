@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ji5jm")
 item_name = "Ephedra"
-ID = 13
+ID = 10
 texture = ExtResource("2_qw66t")
 texture_scale = 1.5
 pickable_texture_scale = 2.0

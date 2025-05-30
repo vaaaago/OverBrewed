@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://d0pdht7s2j6yr" path="res://scenes/item_sources/end_game_screen.tscn" id="45_61ux7"]
 [ext_resource type="Resource" uid="uid://bxqx45k8tc540" path="res://resources/Items/Chamomile.tres" id="45_ba25o"]
 [ext_resource type="Resource" uid="uid://cnk6vk18ycyls" path="res://resources/Items/Sage.tres" id="46_8urdu"]
+[ext_resource type="Resource" uid="uid://bgyldey20asse" path="res://resources/Items/GoldOre.tres" id="46_ba25o"]
 [ext_resource type="PackedScene" uid="uid://ja7803m8dtdg" path="res://autoloads/controller.tscn" id="62_rwuct"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_caao4"]
@@ -4175,16 +4176,24 @@ position = Vector2(624, 320)
 y_sort_enabled = true
 
 [node name="Prueba_1" parent="PickableObjects" instance=ExtResource("39_p21c8")]
-position = Vector2(776, 372)
+position = Vector2(1195, 399)
 item_type = ExtResource("10_61ux7")
 
 [node name="Prueba_2" parent="PickableObjects" instance=ExtResource("39_p21c8")]
-position = Vector2(865, 474)
+position = Vector2(1199, 486)
 item_type = ExtResource("45_ba25o")
 
 [node name="Prueba_3" parent="PickableObjects" instance=ExtResource("39_p21c8")]
-position = Vector2(396, 486)
+position = Vector2(1191, 312)
 item_type = ExtResource("46_8urdu")
+
+[node name="Prueba_Unicornio" parent="PickableObjects" instance=ExtResource("39_p21c8")]
+position = Vector2(411, 465)
+item_type = ExtResource("45_61ux7")
+
+[node name="Prueba_Oro" parent="PickableObjects" instance=ExtResource("39_p21c8")]
+position = Vector2(852, 465)
+item_type = ExtResource("46_ba25o")
 
 [node name="CustomerSpawns" type="Node2D" parent="."]
 

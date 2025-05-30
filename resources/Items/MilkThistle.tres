@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_j4vdh")
 item_name = "Milk Thistle"
-ID = 15
+ID = 12
 texture = ExtResource("2_unre0")
 texture_scale = 1.5
 pickable_texture_scale = 2.0
