@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_rio0p")
 item_name = "Calendula"
-ID = 10
+ID = 6
 texture = ExtResource("2_phltp")
 texture_scale = 1.5
 pickable_texture_scale = 2.0

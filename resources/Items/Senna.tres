@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_80qik")
 item_name = "Senna"
-ID = 3
+ID = 15
 texture = ExtResource("2_52ah4")
 texture_scale = 1.5
 pickable_texture_scale = 2.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b6cfq0qe7ynw6"]
+[gd_scene load_steps=31 format=3 uid="uid://b6cfq0qe7ynw6"]
 
 [ext_resource type="Script" uid="uid://c8lsyb801m532" path="res://autoloads/game.gd" id="1_fmbhi"]
 [ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="2_bqigb"]
@@ -24,6 +24,9 @@
 [ext_resource type="Resource" uid="uid://bxewl4fwmtvky" path="res://resources/Items/WhiteToadstool.tres" id="20_5jvyu"]
 [ext_resource type="Resource" uid="uid://hho3x2rd241w" path="res://resources/Items/Missing_texture.tres" id="21_vgdns"]
 [ext_resource type="Resource" uid="uid://dfcvs3cjc0i1l" path="res://resources/Product/test_potion_item.tres" id="22_1evte"]
+[ext_resource type="Resource" uid="uid://bgyldey20asse" path="res://resources/Items/GoldOre.tres" id="23_sbw1w"]
+[ext_resource type="Resource" uid="uid://citvq7s5vdwd7" path="res://resources/Items/UnicornHorn.tres" id="24_8g76q"]
+[ext_resource type="Resource" uid="uid://cqdipvslf1803" path="res://resources/Product/Healing_potion_item.tres" id="25_8g76q"]
 
 [sub_resource type="Resource" id="Resource_nviqh"]
 script = ExtResource("2_xaonh")
@@ -43,7 +46,7 @@ metadata/_custom_type_script = "uid://bnqpng0o60r43"
 
 [node name="Game" type="Node"]
 script = ExtResource("1_fmbhi")
-item_register = Array[ExtResource("2_bqigb")]([ExtResource("3_vgdns"), ExtResource("4_1evte"), ExtResource("5_1sjqr"), ExtResource("6_sbw1w"), ExtResource("7_8g76q"), ExtResource("8_r7ab8"), ExtResource("9_fmwbl"), ExtResource("10_k10ym"), ExtResource("11_7v55g"), ExtResource("12_mhqnl"), ExtResource("13_lwbw8"), ExtResource("14_bi1qk"), ExtResource("15_obadj"), ExtResource("16_snf2n"), ExtResource("17_jm8pb"), ExtResource("18_osymb"), ExtResource("19_ub4hl"), ExtResource("20_5jvyu"), ExtResource("21_vgdns"), ExtResource("22_1evte")])
+item_register = Array[ExtResource("2_bqigb")]([ExtResource("3_vgdns"), ExtResource("4_1evte"), ExtResource("5_1sjqr"), ExtResource("6_sbw1w"), ExtResource("7_8g76q"), ExtResource("8_r7ab8"), ExtResource("9_fmwbl"), ExtResource("10_k10ym"), ExtResource("11_7v55g"), ExtResource("12_mhqnl"), ExtResource("13_lwbw8"), ExtResource("14_bi1qk"), ExtResource("15_obadj"), ExtResource("16_snf2n"), ExtResource("17_jm8pb"), ExtResource("18_osymb"), ExtResource("19_ub4hl"), ExtResource("20_5jvyu"), ExtResource("21_vgdns"), ExtResource("22_1evte"), ExtResource("23_sbw1w"), ExtResource("24_8g76q"), ExtResource("25_8g76q")])
 multiplayer_test = true
 all_roles = false
 min_players = 3

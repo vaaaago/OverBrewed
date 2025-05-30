@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_imou8")
 item_name = "Black Elder"
-ID = 6
+ID = 2
 texture = ExtResource("2_n282x")
 texture_scale = 1.5
 pickable_texture_scale = 2.0

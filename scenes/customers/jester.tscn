@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://40rjiy8ywxj" path="res://scenes/customers/jesterChat.tscn" id="2_n1kqs"]
 [ext_resource type="Texture2D" uid="uid://o1od3bicjok1" path="res://assets/sprites/customers/jester.png" id="3_fgg06"]
 [ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="3_lokul"]
-[ext_resource type="Resource" uid="uid://dfcvs3cjc0i1l" path="res://resources/Product/test_potion_item.tres" id="4_dbpbl"]
 [ext_resource type="Texture2D" uid="uid://b3qla4qumkhq1" path="res://assets/UI/progressBar.png" id="4_fgg06"]
+[ext_resource type="Resource" uid="uid://cqdipvslf1803" path="res://resources/Product/Healing_potion_item.tres" id="4_lokul"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2nac"]
 size = Vector2(61, 148)
@@ -13,7 +13,7 @@ size = Vector2(61, 148)
 [node name="jester" type="Node2D"]
 script = ExtResource("1_n1kqs")
 dialog_scene = ExtResource("2_n1kqs")
-accepted_products = Array[ExtResource("3_lokul")]([ExtResource("4_dbpbl")])
+accepted_products = Array[ExtResource("3_lokul")]([ExtResource("4_lokul")])
 
 [node name="sprite" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)

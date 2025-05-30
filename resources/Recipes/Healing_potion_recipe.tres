@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=7 format=3 uid="uid://s6ju4qx2jwjl"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_qjmd5"]
+[ext_resource type="Resource" uid="uid://citvq7s5vdwd7" path="res://resources/Items/UnicornHorn.tres" id="2_061j2"]
+[ext_resource type="Resource" uid="uid://bgyldey20asse" path="res://resources/Items/GoldOre.tres" id="3_2vrue"]
+[ext_resource type="Resource" uid="uid://bxqx45k8tc540" path="res://resources/Items/Chamomile.tres" id="4_q5wr5"]
+[ext_resource type="Resource" uid="uid://cqdipvslf1803" path="res://resources/Product/Healing_potion_item.tres" id="5_08h30"]
+[ext_resource type="Script" uid="uid://hywg3hs58nyv" path="res://resources/definitions/crafting_recipe.gd" id="6_me308"]
+
+[resource]
+script = ExtResource("6_me308")
+ingredients = Array[ExtResource("1_qjmd5")]([ExtResource("2_061j2"), ExtResource("3_2vrue"), ExtResource("4_q5wr5")])
+output = ExtResource("5_08h30")
+metadata/_custom_type_script = "uid://hywg3hs58nyv"

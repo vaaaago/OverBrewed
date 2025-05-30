@@ -6,6 +6,8 @@
 [resource]
 script = ExtResource("1_bc3oj")
 item_name = "Chanterelle Mushroom"
-ID = 12
+ID = 8
 texture = ExtResource("2_tq6qe")
+texture_scale = 1.0
+pickable_texture_scale = 2.0
 metadata/_custom_type_script = "uid://du7m4ony33aw4"
