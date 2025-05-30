@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://tco5w0a8mt2a" path="res://assets/UI/clock.png" id="8_yurpw"]
 
 [node name="Controller" type="Control"]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,6 +59,7 @@ scale = Vector2(0.0761719, 0.0820313)
 texture = ExtResource("8_yurpw")
 
 [node name="TimeLabel" type="Label" parent="TimePanel"]
+layout_mode = 0
 offset_left = 38.0
 offset_top = 17.0
 offset_right = 159.0
