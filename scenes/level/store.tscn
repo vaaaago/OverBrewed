@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://cr5ci8phiwilr"]
+[gd_scene load_steps=64 format=4 uid="uid://cr5ci8phiwilr"]
 
 [ext_resource type="Texture2D" uid="uid://t5ol6nipy8xs" path="res://assets/sprites/Environment/ambience/tiles/Paneling With Stone.png" id="1_ceyww"]
 [ext_resource type="Script" uid="uid://ddari88vi5rti" path="res://scripts/main.gd" id="1_ixixb"]
@@ -26,7 +26,6 @@
 [ext_resource type="Resource" uid="uid://cogegceif5ke2" path="res://resources/Items/BlueLotus.tres" id="13_8urdu"]
 [ext_resource type="Resource" uid="uid://d0x2ben4hq4r8" path="res://resources/Items/Calendula.tres" id="14_8urdu"]
 [ext_resource type="Resource" uid="uid://csux4s406a8jk" path="res://resources/Items/ChanterelleMushroom.tres" id="28_jcky3"]
-[ext_resource type="PackedScene" uid="uid://3xu7psp5nyey" path="res://scenes/item_sources/chest.tscn" id="28_sh1vm"]
 [ext_resource type="Resource" uid="uid://cau2bw0isgpyj" path="res://resources/Items/Ephedra.tres" id="30_mhfux"]
 [ext_resource type="Texture2D" uid="uid://cfo274xmy4pp3" path="res://assets/sprites/Environment/ambience/decoration/tile013.png" id="31_3vlko"]
 [ext_resource type="Resource" uid="uid://etj4qjfvb4r7" path="res://resources/Items/GreenMushroom.tres" id="32_nqdyx"]
@@ -4134,7 +4133,17 @@ metadata/_edit_lock_ = true
 
 [node name="Chests" type="Node2D" parent="Map"]
 
-[node name="Chest_1" parent="Map/Chests" instance=ExtResource("28_sh1vm")]
+[node name="Chest_1" parent="Map/Chests"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+script = null
 
 [node name="Tools" type="Node2D" parent="."]
 y_sort_enabled = true

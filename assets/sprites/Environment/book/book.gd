@@ -13,15 +13,15 @@ extends Node2D
 @onready var paginas_izq := [
 	$LibroUI/Control/Control/pagIzq_health,
 	$LibroUI/Control/Control/pagIzq_speed,
-	$LibroUI/Control/Control/pagIzq_health/TextureRect1,
+	$LibroUI/Control/Control/pagIzq_poison,
+	$LibroUI/Control/Control/pagIzq_sleep,
 ]
 
 @onready var paginas_der := [
 	$LibroUI/Control/Control2/pagDer_health,
 	$LibroUI/Control/Control2/pagDer_speed,
-	$LibroUI/Control/Control2/pagDer_health/TextureRect,
-	$LibroUI/Control/Control2/pagDer_health/TextureRect2,
-	$LibroUI/Control/Control2/pagDer_health/TextureRect3,
+	$LibroUI/Control/Control2/pagDer_poison,
+	$LibroUI/Control/Control2/pagDer_sleep,
 ]
 
 var player_in_range := false

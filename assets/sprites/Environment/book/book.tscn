@@ -190,7 +190,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("8_j75rt")
 
 [node name="pagIzq_speed" type="RichTextLabel" parent="LibroUI/Control/Control"]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -206,10 +205,9 @@ grow_vertical = 0
 theme_override_colors/default_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
 theme_override_fonts/normal_font = ExtResource("7_87n2p")
 bbcode_enabled = true
-text = "Coming soon..."
+text = "Coming soon... ⚡️"
 
 [node name="pagIzq_poison" type="RichTextLabel" parent="LibroUI/Control/Control"]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -225,10 +223,9 @@ grow_vertical = 0
 theme_override_colors/default_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
 theme_override_fonts/normal_font = ExtResource("7_87n2p")
 bbcode_enabled = true
-text = "Coming soon..."
+text = "Coming soon...☠️"
 
 [node name="pagIzq_sleep" type="RichTextLabel" parent="LibroUI/Control/Control"]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -244,7 +241,7 @@ grow_vertical = 0
 theme_override_colors/default_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
 theme_override_fonts/normal_font = ExtResource("7_87n2p")
 bbcode_enabled = true
-text = "Coming soon..."
+text = "Coming soon...😴"
 
 [node name="Control2" type="Control" parent="LibroUI/Control"]
 anchors_preset = 0
