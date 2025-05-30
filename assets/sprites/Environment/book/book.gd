@@ -10,20 +10,25 @@ extends Node2D
 @onready var boton_anterior := $LibroUI/Control/PreviousPage
 @onready var boton_cerrar := $LibroUI/Control/CloseButton
 
-@onready var textoIzq := $LibroUI/Control/Control/pagIzq
-@onready var textoDer := $LibroUI/Control/Control2/pagDer
+@onready var paginas_izq := [
+	$LibroUI/Control/Control/pagIzq_health,
+	$LibroUI/Control/Control/pagIzq_speed,
+	$LibroUI/Control/Control/pagIzq_health/TextureRect1,
+]
+
+@onready var paginas_der := [
+	$LibroUI/Control/Control2/pagDer_health,
+	$LibroUI/Control/Control2/pagDer_speed,
+	$LibroUI/Control/Control2/pagDer_health/TextureRect,
+	$LibroUI/Control/Control2/pagDer_health/TextureRect2,
+	$LibroUI/Control/Control2/pagDer_health/TextureRect3,
+]
 
 var player_in_range := false
 var libro_abierto = false
 var pagina_actual := 0
 
 
-var paginas := [
-	["[center]Página 1 izquierda", "[center]Página 1 derecha"],
-	["[center]Página 2 izquierda", "[center]Página 2 derecha"],
-	["[center]Página 3 izquierda", "[center]Página 3 derecha"],
-	["[center]Página 4 izquierda", "[center]Página 4 derecha"]
-]
 
 func _ready():
 	libro_ui.visible = false
@@ -54,12 +59,18 @@ func _on_body_exited(body: Node2D):
 		
 		
 func _mostrar_pagina():
-	if pagina_actual >= 0 and pagina_actual < paginas.size():
-		textoIzq.text = paginas[pagina_actual][0]
-		textoDer.text = paginas[pagina_actual][1]
+	# Oculta todas las páginas
+	for i in paginas_izq.size():
+		paginas_izq[i].visible = false
+		paginas_der[i].visible = false
+	
+	# Muestra la página actual
+	if pagina_actual >= 0 and pagina_actual < paginas_izq.size():
+		paginas_izq[pagina_actual].visible = true
+		paginas_der[pagina_actual].visible = true
 
 func _on_boton_siguiente_pressed():
-	if pagina_actual < paginas.size() - 1:
+	if pagina_actual < paginas_izq.size() - 1:
 		pagina_actual += 1
 		_mostrar_pagina()
 
