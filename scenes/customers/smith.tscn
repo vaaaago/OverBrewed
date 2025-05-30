@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://o1f7ywijm7ep" path="res://scenes/customers/customer.gd" id="1_5qcyh"]
 [ext_resource type="PackedScene" uid="uid://c06eobgbbdha7" path="res://scenes/customers/smithChat.tscn" id="2_5qcyh"]
 [ext_resource type="Texture2D" uid="uid://cu6wil81gnc2j" path="res://assets/sprites/customers/blacksmith.png" id="3_pkvse"]
-[ext_resource type="Texture2D" uid="uid://b3qla4qumkhq1" path="res://assets/progressBar.png" id="4_pkvse"]
+[ext_resource type="Texture2D" uid="uid://b3qla4qumkhq1" path="res://assets/UI/progressBar.png" id="4_pkvse"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2nac"]
 size = Vector2(61, 148)

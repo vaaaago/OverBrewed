@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://o1f7ywijm7ep" path="res://scenes/customers/customer.gd" id="1_n1kqs"]
 [ext_resource type="PackedScene" uid="uid://40rjiy8ywxj" path="res://scenes/customers/jesterChat.tscn" id="2_n1kqs"]
 [ext_resource type="Texture2D" uid="uid://o1od3bicjok1" path="res://assets/sprites/customers/jester.png" id="3_fgg06"]
-[ext_resource type="Texture2D" uid="uid://b3qla4qumkhq1" path="res://assets/progressBar.png" id="4_fgg06"]
+[ext_resource type="Texture2D" uid="uid://b3qla4qumkhq1" path="res://assets/UI/progressBar.png" id="4_fgg06"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2nac"]
 size = Vector2(61, 148)
