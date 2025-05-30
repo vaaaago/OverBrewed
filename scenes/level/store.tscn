@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://cr5ci8phiwilr"]
+[gd_scene load_steps=67 format=4 uid="uid://cr5ci8phiwilr"]
 
 [ext_resource type="Texture2D" uid="uid://t5ol6nipy8xs" path="res://assets/sprites/Environment/ambience/tiles/Paneling With Stone.png" id="1_ceyww"]
 [ext_resource type="Script" uid="uid://ddari88vi5rti" path="res://scripts/main.gd" id="1_ixixb"]
@@ -41,6 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://b4vlpiuv22j6q" path="res://assets/sprites/Environment/ambience/decoration/tile030.png" id="38_v6jl5"]
 [ext_resource type="PackedScene" uid="uid://bieegw68igah3" path="res://assets/sprites/Environment/book/book.tscn" id="39_bn3hj"]
 [ext_resource type="PackedScene" uid="uid://151p2wp14a3p" path="res://scenes/pickable_object.tscn" id="39_p21c8"]
+[ext_resource type="Resource" uid="uid://citvq7s5vdwd7" path="res://resources/Items/UnicornHorn.tres" id="45_8urdu"]
 [ext_resource type="PackedScene" uid="uid://d0pdht7s2j6yr" path="res://scenes/item_sources/end_game_screen.tscn" id="45_61ux7"]
 [ext_resource type="Resource" uid="uid://bxqx45k8tc540" path="res://resources/Items/Chamomile.tres" id="45_ba25o"]
 [ext_resource type="Resource" uid="uid://cnk6vk18ycyls" path="res://resources/Items/Sage.tres" id="46_8urdu"]
@@ -4189,7 +4190,7 @@ item_type = ExtResource("46_8urdu")
 
 [node name="Prueba_Unicornio" parent="PickableObjects" instance=ExtResource("39_p21c8")]
 position = Vector2(411, 465)
-item_type = ExtResource("45_61ux7")
+item_type = ExtResource("45_8urdu")
 
 [node name="Prueba_Oro" parent="PickableObjects" instance=ExtResource("39_p21c8")]
 position = Vector2(852, 465)

@@ -17,6 +17,10 @@ var item_dict: Dictionary[int, Item]
 @export var test_players: Array[PlayerDataResource] = [] # first one is server
 @export var main_scene: PackedScene
 
+var victory_screen_node: CanvasLayer
+var defeat_screen_node: CanvasLayer
+
+
 var players: Array[Statics.PlayerData] = []
 var change_window_scale := true :
 	set(value):

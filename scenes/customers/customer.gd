@@ -4,7 +4,7 @@ extends Node2D
 signal despawned
 signal received_product
 
-var customer_wait_time: float =  30.0
+var customer_wait_time: float
 var waiting := true
 var time_passed := 0.0
 var is_dialog_open := false
@@ -84,7 +84,7 @@ func receive_product_request(product_id: int, request_peer_id: int) -> void:
 	if product_id != null and not product_received:
 		if product_id == current_product.ID:
 			# Producto es aceptado y es correcto
-			Debug.log("Producto correcto")
+			#Debug.log("Producto correcto")
 			product_received = true
 			accept_product.rpc()
 			
@@ -92,7 +92,7 @@ func receive_product_request(product_id: int, request_peer_id: int) -> void:
 			player.rpc_id(request_peer_id, "confirm_object_deposited")
 		else:
 			# Producto es aceptado pero es incorrecto
-			Debug.log("Producto incorrecto")
+			#Debug.log("Producto incorrecto")
 			product_received = true
 			
 			# A futuro cambiar esto a otro metodo reject_product()
@@ -102,13 +102,14 @@ func receive_product_request(product_id: int, request_peer_id: int) -> void:
 			var player: Player = Game.get_player(request_peer_id).instance
 			player.rpc_id(request_peer_id, "confirm_object_deposited")
 	else:
-		Debug.log("Producto no aceptado")
+		#Debug.log("Producto no aceptado")
+		return
 
 @rpc("authority", "call_local", "reliable")
 func accept_product() -> void:
 	if is_multiplayer_authority():
 		# Solo el server debe emitir la señal para incrementar puntaje
-		Debug.log("Emitida señal de producto recibido")
+		#Debug.log("Emitida señal de producto recibido")
 		received_product.emit()
 	
 	waiting = false

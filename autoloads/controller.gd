@@ -3,7 +3,7 @@ extends Control
 
 @export var max_customers: int = 4
 @export var spawn_delay: float = 10.0
-@export var max_wait_time: float =  60.0
+@export var max_wait_time: float =  25.0
 @export var customer_scenes: Array[PackedScene] # contiene 4 escenas diferentes
 
 var customer_array := []
@@ -13,7 +13,7 @@ var occupied_spawners: Dictionary = {}  # spawner_node -> cliente
 var score: int = 0
 @onready var score_label: Label = $ScorePanel/ScoreLabel
 
-@export var level_duration: int = 120  # 5 minutos
+@export var level_duration: int = 90  # 5 minutos
 @export var required_score: int = 300
 var time_left: int = level_duration
 var level_ended := false
@@ -62,7 +62,7 @@ func spawn_client_sync(client_index: int, spawn_name: String):
 		)
 
 func _received_product_signal_received():
-	Debug.log("Señal recibida")
+	#Debug.log("Señal recibida")
 	update_score.rpc(100)
 
 func spawn_client():
@@ -87,7 +87,7 @@ func get_available_spawner() -> Array:
 @rpc("any_peer", "call_local", "reliable")
 func update_score(score_value: int):
 	score += score_value
-	Debug.log("Score actualizado: " + str(score))
+	#Debug.log("Score actualizado: " + str(score))
 	score_label.text = "%d" % score
 	
 func start_timer_update():
@@ -113,6 +113,10 @@ func end_level():
 	level_ended = true
 	$LevelTimer.stop()
 	if score >= required_score:
-		print("win")
+		#Debug.log("win")
+		var victory: CanvasLayer = Game.victory_screen_node
+		victory.visible = true
 	else:
-		print("lose")
+		#Debug.log("lose")
+		var defeat: CanvasLayer = Game.defeat_screen_node
+		defeat.visible = true
