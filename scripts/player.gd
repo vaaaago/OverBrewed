@@ -72,14 +72,14 @@ func _input(event: InputEvent) -> void:
 			
 			elif nearby_item_sources and not picked_object:
 				# Hay un item source cerca y podemos recoger objeto nuevo
-				Debug.log("Solicitud de nuevo objeto enviada")
+				#Debug.log("Solicitud de nuevo objeto enviada")
 				var source: ItemSource = nearby_item_sources.pop_front()
 				source.request_object.rpc(object_root.get_path())
 				
 				nearby_item_sources.append(source)
 			
 			elif nearby_tool and not picked_object:
-				Debug.log("Solicitud de recogida de producto enviada al server")
+				#Debug.log("Solicitud de recogida de producto enviada al server")
 				nearby_tool.request_crafted_item.rpc_id(1)
 
 			elif picked_object:
@@ -90,18 +90,18 @@ func _input(event: InputEvent) -> void:
 		# Deposito de items en utensilios
 		if event.is_action_pressed("deposit_ingredient"):
 			if nearby_tool and picked_object:
-				Debug.log("Solicitud de deposito de " + str(picked_object.item_type) + " enviada al server")
+				#Debug.log("Solicitud de deposito de " + str(picked_object.item_type) + " enviada al server")
 				nearby_tool.rpc_id(1, "request_server_add_ingredient", picked_object.item_type.ID, multiplayer.get_unique_id())
 			
 			elif nearby_customer and picked_object:
-				Debug.log("Entregando " + picked_object.item_type.item_name + " al cliente")
+				#Debug.log("Entregando " + picked_object.item_type.item_name + " al cliente")
 				nearby_customer.receive_product_request.rpc_id(1, picked_object.item_type.ID, multiplayer.get_unique_id())
 
 @rpc("any_peer", "call_local", "reliable")
 func confirm_object_deposited():
 	# Si tenemos un objeto, ahora lo eliminamos
 	# Implementar logica de destruccion aqui
-	Debug.log("Objeto destruido")
+	#Debug.log("Objeto destruido")
 	picked_object.destroy.rpc()
 	pass
 
@@ -112,13 +112,13 @@ func reject_object_deposited():
 
 @rpc("any_peer", "call_local", "reliable")
 func receive_object(object_path: NodePath) -> void:
-	Debug.log("Objeto recibido")
+	#Debug.log("Objeto recibido")
 	Debug.log(object_path)
 	var object = get_node(object_path)
 	
 	if not object:
 		# Si por algun motivo el objeto es nulo, no hacemos nada
-		Debug.log("Error: Objeto nulo")
+		#Debug.log("Error: Objeto nulo")
 		return
 	
 	picked_object = object
@@ -126,7 +126,7 @@ func receive_object(object_path: NodePath) -> void:
 
 @rpc("any_peer", "call_local", "reliable")
 func receive_crafted_item(crafted_item_id: int) -> void:
-	Debug.log("Generando item")
+	#Debug.log("Generando item")
 	
 	var object_instance: PickableObject = pickable_object_scene.instantiate()
 	object_root.add_child(object_instance)
@@ -200,17 +200,17 @@ func _on_tool_interaction_area_area_exited(area: Area2D):
 	nearby_tool = null
 
 func _on_source_interaction_area_area_entered(area: Area2D):
-	Debug.log("Item Source detectado")
+	#Debug.log("Item Source detectado")
 	nearby_item_sources.append(area.get_parent())
 
 func _on_source_interaction_area_area_exited(area: Area2D):
-	Debug.log("Item source sale")
+	#Debug.log("Item source sale")
 	nearby_item_sources.erase(area.get_parent())
 
 func _on_customer_interaction_area_area_entered(area: Area2D):
-	Debug.log("Customer entra")
+	#Debug.log("Customer entra")
 	nearby_customer = area.get_parent()
 
 func _on_customer_interaction_area_area_exited(area: Area2D):
-	Debug.log("Customer sale")
+	#Debug.log("Customer sale")
 	nearby_customer = null

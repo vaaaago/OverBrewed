@@ -38,7 +38,7 @@ func request_server_add_ingredient(ingredient_ID: int, request_peer_id: int):
 		# Si no es el server, ignoramos
 		return
 	
-	Debug.log("Recibida petición de " + Game.get_player(request_peer_id).name + " para añadir " + ingredient.item_name)
+	#Debug.log("Recibida petición de " + Game.get_player(request_peer_id).name + " para añadir " + ingredient.item_name)
 	
 	# Chequeamos si el total de ingredientes se ha superado:
 	if ingredient_count < total_ingredients:
