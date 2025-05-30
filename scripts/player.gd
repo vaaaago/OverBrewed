@@ -3,27 +3,31 @@ extends CharacterBody2D
 
 @export var max_speed = 450
 @export var acceleration = 800
+@export var pickable_object_scene: PackedScene
 
 var pickable_objects: Array[PickableObject] = []
 var picked_object: PickableObject = null
-var nearby_tool: tool = null
+var nearby_tool: Tool = null
+var nearby_item_sources: Array[ItemSource] = []
 
 @onready var label: Label = $Label
 @onready var sprite: Sprite2D = $Pivot/Sprite2D
 @onready var animation_tree: AnimationTree = $Pivot/AnimationTree
 @onready var playback = animation_tree["parameters/playback"]
 @onready var pivot: Node2D = $Pivot
-@onready var pickup_area: Area2D = $PickupArea
-@onready var interaction_area: Area2D = $InteractionArea
+@onready var item_pickup_area: Area2D = $ItemPickupArea
+@onready var tool_interaction_area: Area2D = $ToolInteractionArea
+@onready var source_interaction_area: Area2D = $SourceInteractionArea
 @onready var marker_down: Marker2D = $PickUpMarkers/MarkerDown
-
-
+@onready var object_root: Node2D = self.find_parent("Store").get_child(5)
 
 func _ready() -> void:
-	pickup_area.area_entered.connect(_on_pickup_area_area_entered)
-	pickup_area.area_exited.connect(_on_pickup_area_area_exited)
-	interaction_area.area_entered.connect(_on_interaction_area_area_entered)
-	interaction_area.area_exited.connect(_on_interaction_area_area_exited)
+	item_pickup_area.area_entered.connect(_on_item_pickup_area_area_entered)
+	item_pickup_area.area_exited.connect(_on_item_pickup_area_area_exited)
+	tool_interaction_area.area_entered.connect(_on_tool_interaction_area_area_entered)
+	tool_interaction_area.area_exited.connect(_on_tool_interaction_area_area_exited)
+	source_interaction_area.area_entered.connect(_on_source_interaction_area_area_entered)
+	source_interaction_area.area_exited.connect(_on_source_interaction_area_area_exited)
 
 func setup(player_object: Statics.PlayerData):
 	# Seteamos el nombre del nodo de forma de que sea unico
@@ -48,7 +52,7 @@ func _input(event: InputEvent) -> void:
 			
 			# Si hay objetos alrededor y no tengo uno en la mano:
 			if pickable_objects and not picked_object:
-				Debug.log("Objeto Recogido")
+				#Debug.log("Objeto Recogido")
 				var object = pickable_objects.pop_front()
 				
 				# Si el objeto no estaba recogido, lo recogemos
@@ -58,10 +62,22 @@ func _input(event: InputEvent) -> void:
 				else:
 					# No recuerdo si este else es necesario o que hacia
 					Debug.log("Caso extraño")
-					pickable_objects.push_front(object)
+					pickable_objects.append(object)
+			
+			elif nearby_item_sources and not picked_object:
+				# Hay un item source cerca y podemos recoger objeto nuevo
+				Debug.log("Solicitud de nuevo objeto enviada")
+				var source: ItemSource = nearby_item_sources.pop_front()
+				source.request_object.rpc(object_root.get_path())
+				
+				nearby_item_sources.append(source)
+			
+			elif nearby_tool and not picked_object:
+				Debug.log("Solicitud de recogida de producto enviada al server")
+				nearby_tool.request_crafted_item.rpc_id(1)
 
 			elif picked_object:
-				Debug.log("Objeto soltado")
+				#Debug.log("Objeto soltado")
 				configure_picked_object(picked_object, false)
 				picked_object = null
 		
@@ -83,6 +99,31 @@ func confirm_object_deposited():
 func reject_object_deposited():
 	# Objeto fue rechazado
 	pass
+
+@rpc("any_peer", "call_local", "reliable")
+func receive_object(object_path: NodePath) -> void:
+	Debug.log("Objeto recibido")
+	Debug.log(object_path)
+	var object = get_node(object_path)
+	
+	if not object:
+		# Si por algun motivo el objeto es nulo, no hacemos nada
+		Debug.log("Error: Objeto nulo")
+		return
+	
+	picked_object = object
+	configure_picked_object(object, true)
+
+@rpc("any_peer", "call_local", "reliable")
+func receive_crafted_item(crafted_item_id: int) -> void:
+	Debug.log("Generando item")
+	
+	var object_instance: PickableObject = pickable_object_scene.instantiate()
+	object_root.add_child(object_instance)
+	object_instance.configure(crafted_item_id)
+	
+	configure_picked_object(object_instance, true)
+	picked_object = object_instance
 
 func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
@@ -130,18 +171,28 @@ func play_movement_animations(move_input: Vector2):
 func configure_picked_object(object: PickableObject, picked_up: bool) -> void:
 	object.pickup_and_disable_interaction.rpc(picked_up)
 
-func _on_pickup_area_area_entered(area: Area2D):
-	#Debug.log("Objeto detectado")
-	pickable_objects.append(area.get_parent())
-		
-func _on_pickup_area_area_exited(area: Area2D):
-	#Debug.log("Objeto sale")
-	pickable_objects.erase(area.get_parent())
+func _on_item_pickup_area_area_entered(area: Area2D):
+	if is_multiplayer_authority():
+		#Debug.log("Objeto detectado")
+		pickable_objects.append(area.get_parent())
 
-func _on_interaction_area_area_entered(area: Area2D):
+func _on_item_pickup_area_area_exited(area: Area2D):
+	if is_multiplayer_authority():
+		#Debug.log("Objeto sale")
+		pickable_objects.erase(area.get_parent())
+
+func _on_tool_interaction_area_area_entered(area: Area2D):
 	#Debug.log("Entra utensilio")
 	nearby_tool = area.get_parent()
 
-func _on_interaction_area_area_exited(area: Area2D):
+func _on_tool_interaction_area_area_exited(area: Area2D):
 	#Debug.log("Sale utensilio")
 	nearby_tool = null
+
+func _on_source_interaction_area_area_entered(area: Area2D):
+	Debug.log("Item Source detectado")
+	nearby_item_sources.append(area.get_parent())
+
+func _on_source_interaction_area_area_exited(area: Area2D):
+	Debug.log("Item source sale")
+	nearby_item_sources.erase(area.get_parent())

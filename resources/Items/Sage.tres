@@ -8,4 +8,6 @@ script = ExtResource("1_xfw01")
 item_name = "Sage"
 ID = 2
 texture = ExtResource("2_xfw01")
+texture_scale = 1.5
+pickable_texture_scale = 2.0
 metadata/_custom_type_script = "uid://du7m4ony33aw4"

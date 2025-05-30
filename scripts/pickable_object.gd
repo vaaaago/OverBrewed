@@ -12,8 +12,14 @@ var picked_up: bool = false
 
 func _ready() -> void:
 	if item_type:
-		sprite.texture = item_type.texture
-		sprite.scale = Vector2(2,2)
+		configure(item_type.ID)
+
+func configure(item_type_id: int):
+	#Debug.log("Configurando objeto")
+	item_type = Game.item_dict[item_type_id]
+	sprite.texture = item_type.texture
+	sprite.scale.x = item_type.pickable_texture_scale
+	sprite.scale.y = item_type.pickable_texture_scale
 
 @rpc("any_peer", "call_local", "unreliable_ordered")
 func pickup_and_disable_interaction(state: bool) -> void:

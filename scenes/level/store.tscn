@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=4 uid="uid://cr5ci8phiwilr"]
+[gd_scene load_steps=65 format=4 uid="uid://cr5ci8phiwilr"]
 
 [ext_resource type="Texture2D" uid="uid://t5ol6nipy8xs" path="res://assets/sprites/Environment/ambience/tiles/Paneling With Stone.png" id="1_ceyww"]
 [ext_resource type="Script" uid="uid://ddari88vi5rti" path="res://scripts/main.gd" id="1_ixixb"]
@@ -24,26 +24,9 @@
 [ext_resource type="Resource" uid="uid://vxorgpim1tl2" path="res://resources/Items/BlueMushroom.tres" id="12_8urdu"]
 [ext_resource type="Resource" uid="uid://d2b8n2sluush2" path="res://resources/Items/BlueToadstool.tres" id="12_f5n31"]
 [ext_resource type="Resource" uid="uid://cogegceif5ke2" path="res://resources/Items/BlueLotus.tres" id="13_8urdu"]
-[ext_resource type="Texture2D" uid="uid://bgwrglaoh56xy" path="res://assets/sprites/Environment/ingredients/plants/aloe vera 32.png" id="13_gvuuc"]
-[ext_resource type="Texture2D" uid="uid://c2e0weigk7e" path="res://assets/sprites/Environment/ingredients/plants/dandelion 32.png" id="14_4dgby"]
 [ext_resource type="Resource" uid="uid://d0x2ben4hq4r8" path="res://resources/Items/Calendula.tres" id="14_8urdu"]
-[ext_resource type="Texture2D" uid="uid://0xcmckh41jda" path="res://assets/sprites/Environment/ingredients/plants/sage 32.png" id="15_s1qti"]
-[ext_resource type="Texture2D" uid="uid://brul846un65cl" path="res://assets/sprites/Environment/ingredients/plants/senna 32.png" id="16_2qe67"]
-[ext_resource type="Texture2D" uid="uid://cg0yvj22pqbg1" path="res://assets/sprites/Environment/ingredients/plants/ tofly agaric 32.png" id="17_s60dh"]
-[ext_resource type="Texture2D" uid="uid://bmhpn31288ay5" path="res://assets/sprites/Environment/ingredients/plants/basil 32.png" id="18_rfvsr"]
-[ext_resource type="Texture2D" uid="uid://bd24466ghe8pa" path="res://assets/sprites/Environment/ingredients/plants/blue  mushroom2 32.png" id="20_nbajs"]
-[ext_resource type="Texture2D" uid="uid://cdsyi11lq86op" path="res://assets/sprites/Environment/ingredients/plants/blue  toadstool 32.png" id="21_3vlko"]
-[ext_resource type="Texture2D" uid="uid://425v1r8qx5mj" path="res://assets/sprites/Environment/ingredients/plants/blue lotus 32.png" id="22_p21c8"]
-[ext_resource type="Texture2D" uid="uid://ctc5ju7cq1k7w" path="res://assets/sprites/Environment/ingredients/plants/calendula 32.png" id="23_ixixb"]
-[ext_resource type="Texture2D" uid="uid://dud3aroblsnm4" path="res://assets/sprites/Environment/ingredients/plants/chamomile 32.png" id="24_mwkp2"]
-[ext_resource type="Texture2D" uid="uid://bklihnnw1xoj" path="res://assets/sprites/Environment/ingredients/plants/chanterelle mushroom 32.png" id="25_bn3hj"]
-[ext_resource type="Texture2D" uid="uid://dqjn70kcr6cxh" path="res://assets/sprites/Environment/ingredients/plants/ephedra 32.png" id="26_sh1vm"]
-[ext_resource type="Texture2D" uid="uid://ci6h5jb3kscc1" path="res://assets/sprites/Environment/ingredients/plants/green mushroom 32.png" id="27_ekvhi"]
 [ext_resource type="Resource" uid="uid://csux4s406a8jk" path="res://resources/Items/ChanterelleMushroom.tres" id="28_jcky3"]
-[ext_resource type="PackedScene" uid="uid://3xu7psp5nyey" path="res://scenes/item_sources/chests.tscn" id="28_sh1vm"]
-[ext_resource type="Texture2D" uid="uid://b36fmoah3k356" path="res://assets/sprites/Environment/ingredients/plants/milk thistle 32.png" id="28_v6jl5"]
-[ext_resource type="Texture2D" uid="uid://3bitbdqvd6kn" path="res://assets/sprites/Environment/ingredients/plants/moringa 32.png" id="29_lacuj"]
-[ext_resource type="Texture2D" uid="uid://cnntnnqn6pplu" path="res://assets/sprites/Environment/ingredients/plants/white toadstool 32.png" id="30_1ncn8"]
+[ext_resource type="PackedScene" uid="uid://3xu7psp5nyey" path="res://scenes/item_sources/chest.tscn" id="28_sh1vm"]
 [ext_resource type="Resource" uid="uid://cau2bw0isgpyj" path="res://resources/Items/Ephedra.tres" id="30_mhfux"]
 [ext_resource type="Texture2D" uid="uid://cfo274xmy4pp3" path="res://assets/sprites/Environment/ambience/decoration/tile013.png" id="31_3vlko"]
 [ext_resource type="Resource" uid="uid://etj4qjfvb4r7" path="res://resources/Items/GreenMushroom.tres" id="32_nqdyx"]
@@ -3937,6 +3920,8 @@ y_sort_enabled = true
 script = ExtResource("1_ixixb")
 player_scene = ExtResource("8_2ov5w")
 
+[node name="Controller" parent="." instance=ExtResource("62_rwuct")]
+
 [node name="Map" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -3945,12 +3930,10 @@ y_sort_enabled = true
 
 [node name="AloeVera" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(38, 653)
-texture = ExtResource("13_gvuuc")
 item_type = ExtResource("4_f5n31")
 
 [node name="Basil" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(203, 231)
-texture = ExtResource("18_rfvsr")
 item_type = ExtResource("9_8urdu")
 
 [node name="BlackElder" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
@@ -3959,84 +3942,62 @@ item_type = ExtResource("10_61ux7")
 
 [node name="BlueLotus" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(209, 522)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("22_p21c8")
 item_type = ExtResource("13_8urdu")
 
 [node name="BlueMushroom" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(63, 244)
-scale = Vector2(1, 1)
-texture = ExtResource("20_nbajs")
 item_type = ExtResource("12_8urdu")
 
 [node name="BlueToadstool" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(108, 242)
-scale = Vector2(1, 1)
-texture = ExtResource("21_3vlko")
 item_type = ExtResource("12_f5n31")
 
 [node name="Calendula" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(266, 379)
-texture = ExtResource("23_ixixb")
 item_type = ExtResource("14_8urdu")
 
 [node name="Chamomile" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(212, 379)
-texture = ExtResource("24_mwkp2")
 item_type = ExtResource("45_ba25o")
 
 [node name="ChanterelleMushroom" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(32, 387)
-scale = Vector2(1, 1)
-texture = ExtResource("25_bn3hj")
 item_type = ExtResource("28_jcky3")
 
 [node name="Dandelion" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(136, 652)
-texture = ExtResource("14_4dgby")
 item_type = ExtResource("5_iw3xo")
 
 [node name="Ephedra" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(274, 232)
-texture = ExtResource("26_sh1vm")
 item_type = ExtResource("30_mhfux")
 
 [node name="GreenMushroom" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(70, 389)
-scale = Vector2(1, 1)
-texture = ExtResource("27_ekvhi")
 item_type = ExtResource("32_nqdyx")
 
 [node name="MilkThistle" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(97, 519)
-texture = ExtResource("28_v6jl5")
 item_type = ExtResource("34_w343f")
 
 [node name="Moringa" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(37, 521)
-texture = ExtResource("29_lacuj")
 item_type = ExtResource("36_w343f")
 
 [node name="Sage" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(233, 651)
-texture = ExtResource("15_s1qti")
 item_type = ExtResource("46_8urdu")
 
 [node name="Senna" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(330, 648)
-texture = ExtResource("16_2qe67")
 item_type = ExtResource("7_ba25o")
 
 [node name="ToflyAgaric" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(26, 243)
-scale = Vector2(1, 1)
-texture = ExtResource("17_s60dh")
 item_type = ExtResource("8_8urdu")
 
 [node name="WhiteToadstool2" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
 position = Vector2(108, 383)
-scale = Vector2(1, 1)
-texture = ExtResource("30_1ncn8")
 item_type = ExtResource("38_rwuct")
 
 [node name="Tilesets" type="Node2D" parent="Map"]
@@ -4097,10 +4058,6 @@ scale = Vector2(1.5, 1.5)
 tile_map_data = PackedByteArray("AAAUAAAAAAAGAAsAAAAUAAEAAAAGAAwAAAAUAAIAAAAGAA0AAAAUAAMAAAAGAA4AAAAUAAQAAAAGAA8AAAAVAAAAAAAHAAsAAAAVAAEAAAAHAAwAAAAVAAIAAAAHAA0AAAAVAAMAAAAHAA4AAAAWAAAAAAAIAAsAAAAWAAIAAAAIAA0AAAAhAAAAAAAGAAsAABAgAAAAAAAHAAsAABAfAAAAAAAIAAsAABAhAAEAAAAGAAwAABAgAAEAAAAHAAwAABAhAAIAAAAGAA0AABAgAAIAAAAHAA0AABAfAAIAAAAIAA0AABAhAAMAAAAGAA4AABAgAAMAAAAHAA4AABAhAAQAAAAGAA8AABACAAAAAAAMAAEAAAACAAEAAAAMAAIAAAACAAIAAAAMAAMAAAADAAAAAAANAAEAAAADAAEAAAANAAIAAAADAAIAAAANAAMAAAADAAMAAAANAAQAAAADAAQAAAANAAUAAAAEAAAAAAAKABUAAAAEAAEAAAAKABYAAAAEAAIAAAAKABcAAAABAAAAAAAMAAEAABAAAAAAAAANAAEAABD//wAAAAAOAAEAABABAAEAAAAMAAIAABAAAAEAAAANAAIAABD//wEAAAAOAAIAABABAAIAAAAMAAMAABAAAAIAAAANAAMAABD//wIAAAAOAAMAABAAAAMAAAANAAQAABAAAAQAAAANAAUAABAEAAMAAAAKABgAAAAEAAQAAAAKABkAAAAFAAAAAAALABUAAAAFAAEAAAALABYAAAAFAAIAAAALABcAAAAFAAMAAAALABgAAAAHAAAAAAAKABUAABAGAAAAAAALABUAABAHAAEAAAAKABYAABAGAAEAAAALABYAABAHAAIAAAAKABcAABAGAAIAAAALABcAABAHAAMAAAAKABgAABAGAAMAAAALABgAABAHAAQAAAAKABkAABANAAAAAAANAAsAAAANAAEAAAANAAwAAAANAAIAAAANAA0AAAANAAMAAAANAA4AAAAOAAAAAAAOAAsAAAAOAAEAAAAOAAwAAAAOAAIAAAAOAA0AAAAOAAMAAAAOAA4AAAAIAAAAAAABAAsAAAAIAAEAAAABAAwAAAAIAAIAAAABAA0AAAAIAAMAAAABAA4AAAAJAAAAAAACAAsAAAAJAAEAAAACAAwAAAAJAAIAAAACAA0AAAAJAAMAAAACAA4AAAAKAAAAAAACAAsAAAAKAAEAAAACAAwAAAAKAAIAAAACAA0AAAAKAAMAAAACAA4AAAALAAAAAAACAAsAAAALAAEAAAACAAwAAAALAAIAAAACAA0AAAALAAMAAAACAA4AAAAMAAAAAAADAAsAAAAMAAEAAAAMAAwAAAAMAAIAAAAMAA0AAAAMAAMAAAAMAA4AAAA=")
 tile_set = SubResource("TileSet_mwkp2")
 metadata/_edit_lock_ = true
-
-[node name="chest" type="Node2D" parent="Map/Tilesets"]
-
-[node name="Chests" parent="Map/Tilesets/chest" instance=ExtResource("28_sh1vm")]
 
 [node name="decoration" type="Node2D" parent="Map"]
 y_sort_enabled = true
@@ -4166,7 +4123,7 @@ position = Vector2(1183, 477)
 rotation = -1.1973
 scale = Vector2(1.2, 1.2)
 
-[node name="FondoDePantallaNegro" type="Sprite2D" parent="Map"]
+[node name="FondoTienda" type="Sprite2D" parent="Map"]
 z_index = -3
 y_sort_enabled = true
 position = Vector2(650, 103)
@@ -4174,6 +4131,10 @@ rotation = 1.5708
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("6_klu5n")
 metadata/_edit_lock_ = true
+
+[node name="Chests" type="Node2D" parent="Map"]
+
+[node name="Chest_1" parent="Map/Chests" instance=ExtResource("28_sh1vm")]
 
 [node name="Tools" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -4240,5 +4201,3 @@ position = Vector2(923, 120)
 
 [node name="customer4" type="Marker2D" parent="CustomerSpawns"]
 position = Vector2(1119, 120)
-
-[node name="Controller" parent="." instance=ExtResource("62_rwuct")]

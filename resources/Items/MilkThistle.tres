@@ -8,4 +8,6 @@ script = ExtResource("1_j4vdh")
 item_name = "Milk Thistle"
 ID = 15
 texture = ExtResource("2_unre0")
+texture_scale = 1.5
+pickable_texture_scale = 2.0
 metadata/_custom_type_script = "uid://du7m4ony33aw4"

@@ -8,4 +8,6 @@ script = ExtResource("1_imou8")
 item_name = "Black Elder"
 ID = 6
 texture = ExtResource("2_n282x")
+texture_scale = 1.5
+pickable_texture_scale = 2.0
 metadata/_custom_type_script = "uid://du7m4ony33aw4"

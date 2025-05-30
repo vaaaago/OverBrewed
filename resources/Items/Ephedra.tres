@@ -8,4 +8,6 @@ script = ExtResource("1_ji5jm")
 item_name = "Ephedra"
 ID = 13
 texture = ExtResource("2_qw66t")
+texture_scale = 1.5
+pickable_texture_scale = 2.0
 metadata/_custom_type_script = "uid://du7m4ony33aw4"

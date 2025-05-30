@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="CraftingRecipe" load_steps=7 format=3 uid="uid://ble5qiec1cdxv"]
 
-[ext_resource type="Script" uid="uid://bty3ya1s3l6ij" path="res://resources/definitions/crafting_ingredient.gd" id="1_kd6tl"]
-[ext_resource type="Resource" uid="uid://0k33n42e6p4c" path="res://resources/Ingredients/single_black_elder.tres" id="2_064s6"]
-[ext_resource type="Resource" uid="uid://bmu3pypjsslhv" path="res://resources/Ingredients/single_chamomille.tres" id="3_hyrgw"]
-[ext_resource type="Resource" uid="uid://7os3s0ojh5fk" path="res://resources/Ingredients/single_sage.tres" id="4_7kykb"]
-[ext_resource type="Resource" uid="uid://ehlp6ocn0wkq" path="res://resources/Ingredients/test_potion.tres" id="5_p6kcn"]
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_kd6tl"]
+[ext_resource type="Resource" uid="uid://bxqx45k8tc540" path="res://resources/Items/Chamomile.tres" id="2_064s6"]
+[ext_resource type="Resource" uid="uid://b2x8uytac3fx7" path="res://resources/Items/BlackElder.tres" id="4_7kykb"]
+[ext_resource type="Resource" uid="uid://cnk6vk18ycyls" path="res://resources/Items/Sage.tres" id="4_kd6tl"]
+[ext_resource type="Resource" uid="uid://dfcvs3cjc0i1l" path="res://resources/Items/test_potion_item.tres" id="5_p6kcn"]
 [ext_resource type="Script" uid="uid://hywg3hs58nyv" path="res://resources/definitions/crafting_recipe.gd" id="6_5nlty"]
 
 [resource]
 script = ExtResource("6_5nlty")
-ingredients = Array[ExtResource("1_kd6tl")]([ExtResource("2_064s6"), ExtResource("3_hyrgw"), ExtResource("4_7kykb")])
+ingredients = Array[ExtResource("1_kd6tl")]([ExtResource("2_064s6"), ExtResource("4_7kykb"), ExtResource("4_kd6tl")])
 output = ExtResource("5_p6kcn")
 metadata/_custom_type_script = "uid://hywg3hs58nyv"

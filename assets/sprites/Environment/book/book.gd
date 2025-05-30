@@ -34,7 +34,7 @@ func _ready():
 	boton_anterior.pressed.connect(_on_boton_anterior_pressed)
 	boton_cerrar.pressed.connect(_on_boton_cerrar_pressed)
 
-func _process(delta):
+func _process(_delta):
 	if player_in_range and Input.is_action_just_pressed("interact"): 
 		libro_abierto = !libro_abierto
 		libro_ui.visible = libro_abierto
