@@ -167,9 +167,9 @@ scale = Vector2(0.4, 0.4)
 theme_override_colors/default_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
 theme_override_fonts/normal_font = ExtResource("7_87n2p")
 bbcode_enabled = true
-text = "In the ancient codices of the alchemists from the Golden Valley, this potion is known as the \"Elixir of Inner Calm.\" Its creation requires a delicate balance between the earthly, the ethereal, and the sacred.
+text = "         Potion of healing
 
-
+In the ancient codices of the alchemists from the Golden Valley, this potion is known as the \"Elixir of Inner Calm.\" Its creation requires a delicate balance between the earthly, the ethereal, and the sacred.
 
 
 
@@ -182,14 +182,15 @@ A single drop of this potion is enough to close open wounds, ease pain, and rest
 
 [node name="TextureRect1" type="TextureRect" parent="LibroUI/Control/Control/pagIzq_health"]
 layout_mode = 0
-offset_left = 92.0
-offset_top = 136.0
-offset_right = 132.0
-offset_bottom = 192.0
+offset_left = 89.0
+offset_top = 160.0
+offset_right = 129.0
+offset_bottom = 216.0
 scale = Vector2(2, 2)
 texture = ExtResource("8_j75rt")
 
 [node name="pagIzq_speed" type="RichTextLabel" parent="LibroUI/Control/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -208,6 +209,7 @@ bbcode_enabled = true
 text = "Coming soon... ⚡️"
 
 [node name="pagIzq_poison" type="RichTextLabel" parent="LibroUI/Control/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -226,6 +228,7 @@ bbcode_enabled = true
 text = "Coming soon...☠️"
 
 [node name="pagIzq_sleep" type="RichTextLabel" parent="LibroUI/Control/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
