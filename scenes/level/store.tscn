@@ -3937,7 +3937,7 @@ position = Vector2(203, 231)
 item_type = ExtResource("9_8urdu")
 
 [node name="BlackElder" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]
-position = Vector2(268, 516)
+position = Vector2(268, 522)
 item_type = ExtResource("10_61ux7")
 
 [node name="BlueLotus" parent="Map/Ingredients" instance=ExtResource("9_ekvhi")]

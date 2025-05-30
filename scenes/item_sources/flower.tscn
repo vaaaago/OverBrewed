@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://151p2wp14a3p" path="res://scenes/pickable_object.tscn" id="3_mk0ae"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8x8dx"]
-size = Vector2(5, 63.3333)
+size = Vector2(5, 79)
 
 [node name="Flower" type="Node2D"]
 y_sort_enabled = true
@@ -22,5 +22,5 @@ collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SourceInteractionArea"]
-position = Vector2(0, 15.6667)
+position = Vector2(0, 19.5)
 shape = SubResource("RectangleShape2D_8x8dx")

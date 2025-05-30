@@ -9,15 +9,19 @@ var pickable_objects: Array[PickableObject] = []
 var picked_object: PickableObject = null
 var nearby_tool: Tool = null
 var nearby_item_sources: Array[ItemSource] = []
+var nearby_customer: Customer
 
 @onready var label: Label = $Label
 @onready var sprite: Sprite2D = $Pivot/Sprite2D
 @onready var animation_tree: AnimationTree = $Pivot/AnimationTree
 @onready var playback = animation_tree["parameters/playback"]
 @onready var pivot: Node2D = $Pivot
+
 @onready var item_pickup_area: Area2D = $ItemPickupArea
 @onready var tool_interaction_area: Area2D = $ToolInteractionArea
 @onready var source_interaction_area: Area2D = $SourceInteractionArea
+@onready var customer_interaction_area: Area2D = $CustomerInteractionArea
+
 @onready var marker_down: Marker2D = $PickUpMarkers/MarkerDown
 @onready var object_root: Node2D = self.find_parent("Store").get_child(5)
 
@@ -28,6 +32,8 @@ func _ready() -> void:
 	tool_interaction_area.area_exited.connect(_on_tool_interaction_area_area_exited)
 	source_interaction_area.area_entered.connect(_on_source_interaction_area_area_entered)
 	source_interaction_area.area_exited.connect(_on_source_interaction_area_area_exited)
+	customer_interaction_area.area_entered.connect(_on_customer_interaction_area_area_entered)
+	customer_interaction_area.area_exited.connect(_on_customer_interaction_area_area_exited)
 
 func setup(player_object: Statics.PlayerData):
 	# Seteamos el nombre del nodo de forma de que sea unico
@@ -86,6 +92,10 @@ func _input(event: InputEvent) -> void:
 			if nearby_tool and picked_object:
 				Debug.log("Solicitud de deposito de " + str(picked_object.item_type) + " enviada al server")
 				nearby_tool.rpc_id(1, "request_server_add_ingredient", picked_object.item_type.ID, multiplayer.get_unique_id())
+			
+			elif nearby_customer and picked_object:
+				Debug.log("Entregando " + picked_object.item_type.item_name + " al cliente")
+				nearby_customer.receive_product_request.rpc_id(1, picked_object.item_type.ID, multiplayer.get_unique_id())
 
 @rpc("any_peer", "call_local", "reliable")
 func confirm_object_deposited():
@@ -196,3 +206,11 @@ func _on_source_interaction_area_area_entered(area: Area2D):
 func _on_source_interaction_area_area_exited(area: Area2D):
 	Debug.log("Item source sale")
 	nearby_item_sources.erase(area.get_parent())
+
+func _on_customer_interaction_area_area_entered(area: Area2D):
+	Debug.log("Customer entra")
+	nearby_customer = area.get_parent()
+
+func _on_customer_interaction_area_area_exited(area: Area2D):
+	Debug.log("Customer sale")
+	nearby_customer = null

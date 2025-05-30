@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c4gscsf85ohu4"]
+[gd_scene load_steps=33 format=3 uid="uid://c4gscsf85ohu4"]
 
 [ext_resource type="Script" uid="uid://raqwhy26vr3r" path="res://scripts/player.gd" id="1_v6fml"]
 [ext_resource type="Texture2D" uid="uid://boewvvl6tdewu" path="res://assets/sprites/CalicoKitty/calicoKitty_walk.png" id="2_3li8b"]
@@ -398,6 +398,9 @@ radius = 50.0899
 [sub_resource type="CircleShape2D" id="CircleShape2D_qu4a1"]
 radius = 21.1896
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_70d11"]
+radius = 21.587
+
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 motion_mode = 1
@@ -436,7 +439,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_3li8b")
 hframes = 4
 vframes = 4
-frame = 8
+frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot"]
 root_node = NodePath("../..")
@@ -472,6 +475,13 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SourceInteractionArea"]
 shape = SubResource("CircleShape2D_qu4a1")
+
+[node name="CustomerInteractionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CustomerInteractionArea"]
+shape = SubResource("CircleShape2D_70d11")
 
 [node name="PickUpMarkers" type="Node2D" parent="."]
 
