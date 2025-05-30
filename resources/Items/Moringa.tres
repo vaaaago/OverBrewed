@@ -8,4 +8,6 @@ script = ExtResource("1_3u1g6")
 item_name = "Moringa"
 ID = 16
 texture = ExtResource("2_dbkct")
+texture_scale = 1.5
+pickable_texture_scale = 2.0
 metadata/_custom_type_script = "uid://du7m4ony33aw4"

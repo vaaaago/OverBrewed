@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3vaown7ssk8j"]
+[gd_scene load_steps=8 format=3 uid="uid://b3vaown7ssk8j"]
 
 [ext_resource type="Script" uid="uid://o1f7ywijm7ep" path="res://scenes/customers/customer.gd" id="1_bfybl"]
 [ext_resource type="Texture2D" uid="uid://0a7rs5axjdb4" path="res://assets/sprites/customers/cleric.png" id="1_s2nac"]
 [ext_resource type="PackedScene" uid="uid://bdnchmbsq08hl" path="res://scenes/customers/clericChat.tscn" id="2_l6koq"]
-[ext_resource type="Texture2D" uid="uid://b3qla4qumkhq1" path="res://assets/progressBar.png" id="4_4u042"]
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="3_ie42b"]
+[ext_resource type="Texture2D" uid="uid://b3qla4qumkhq1" path="res://assets/UI/progressBar.png" id="4_4u042"]
+[ext_resource type="Resource" uid="uid://dfcvs3cjc0i1l" path="res://resources/Product/test_potion_item.tres" id="4_hx6sw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2nac"]
 size = Vector2(61, 148)
@@ -11,14 +13,16 @@ size = Vector2(61, 148)
 [node name="cleric" type="Node2D"]
 script = ExtResource("1_bfybl")
 dialog_scene = ExtResource("2_l6koq")
+accepted_products = Array[ExtResource("3_ie42b")]([ExtResource("4_hx6sw")])
 
 [node name="sprite" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
 texture = ExtResource("1_s2nac")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="PlayerInteractionArea" type="Area2D" parent="."]
+collision_layer = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerInteractionArea"]
 position = Vector2(0.5, 119)
 shape = SubResource("RectangleShape2D_s2nac")
 

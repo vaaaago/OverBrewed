@@ -8,4 +8,6 @@ script = ExtResource("1_5l1hc")
 item_name = "Aloe Vera"
 ID = 0
 texture = ExtResource("2_oe1s1")
+texture_scale = 1.5
+pickable_texture_scale = 2.0
 metadata/_custom_type_script = "uid://du7m4ony33aw4"

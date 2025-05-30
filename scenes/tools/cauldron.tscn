@@ -113,7 +113,7 @@ y_sort_enabled = true
 script = ExtResource("1_8jqlm")
 total_ingredients = 3
 recipe_array = Array[ExtResource("2_v0sq3")]([ExtResource("3_muemc")])
-object_scene = ExtResource("4_3xx01")
+pickable_object_scene = ExtResource("4_3xx01")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 5

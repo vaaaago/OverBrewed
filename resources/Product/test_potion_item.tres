@@ -6,6 +6,8 @@
 [resource]
 script = ExtResource("1_2peko")
 item_name = "Test Potion"
-ID = 100
+ID = 998
 texture = ExtResource("2_h3vfl")
+texture_scale = 0.5
+pickable_texture_scale = 0.5
 metadata/_custom_type_script = "uid://du7m4ony33aw4"

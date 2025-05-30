@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://151p2wp14a3p"]
+[gd_scene load_steps=6 format=3 uid="uid://151p2wp14a3p"]
 
 [ext_resource type="Script" uid="uid://d07c4yajf0r8t" path="res://scripts/pickable_object.gd" id="1_0l3f1"]
 [ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="1_thpd4"]
+[ext_resource type="Resource" uid="uid://hho3x2rd241w" path="res://resources/Items/Missing_texture.tres" id="2_gl7hy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0l3f1"]
 radius = 19.0
@@ -12,6 +13,7 @@ radius = 34.0147
 [node name="PickableObject" type="RigidBody2D"]
 gravity_scale = 0.0
 script = ExtResource("1_0l3f1")
+item_type = ExtResource("2_gl7hy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)

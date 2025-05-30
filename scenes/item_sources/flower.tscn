@@ -1,19 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp2pguc1pav03"]
+[gd_scene load_steps=6 format=3 uid="uid://cp2pguc1pav03"]
 
 [ext_resource type="Texture2D" uid="uid://5apt34g15ikb" path="res://assets/sprites/Environment/ingredients/plants/black elder 32.png" id="1_8x8dx"]
 [ext_resource type="Script" uid="uid://lwkrbb6qe3is" path="res://scripts/item_source.gd" id="2_yoh7s"]
+[ext_resource type="Resource" uid="uid://hho3x2rd241w" path="res://resources/Items/Missing_texture.tres" id="3_5wcss"]
+[ext_resource type="PackedScene" uid="uid://151p2wp14a3p" path="res://scenes/pickable_object.tscn" id="3_mk0ae"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8x8dx"]
-size = Vector2(5, 63.3333)
+size = Vector2(5, 79)
 
-[node name="ItemSource" type="Sprite2D"]
+[node name="Flower" type="Node2D"]
 y_sort_enabled = true
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_8x8dx")
 script = ExtResource("2_yoh7s")
+item_type = ExtResource("3_5wcss")
+pickable_object_scene = ExtResource("3_mk0ae")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_8x8dx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 15.6667)
+[node name="SourceInteractionArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SourceInteractionArea"]
+position = Vector2(0, 19.5)
 shape = SubResource("RectangleShape2D_8x8dx")
