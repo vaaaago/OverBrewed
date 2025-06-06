@@ -93,11 +93,11 @@ func receive_product_request(product_id: int, request_peer_id: int) -> void:
 		else:
 			# Producto es aceptado pero es incorrecto
 			#Debug.log("Producto incorrecto")
-			product_received = true
-			
+			product_received = true #no tocar
+			leave_store.rpc()
 			# A futuro cambiar esto a otro metodo reject_product()
 			# para por ejemplo descontar puntos
-			accept_product.rpc()
+			
 			
 			var player: Player = Game.get_player(request_peer_id).instance
 			player.rpc_id(request_peer_id, "confirm_object_deposited")
@@ -113,8 +113,9 @@ func accept_product() -> void:
 		received_product.emit()
 	
 	waiting = false
-	leave_store()
+	leave_store.rpc()
 
+@rpc("authority", "call_local", "reliable")
 func leave_store():
 	despawned.emit(self)
 	queue_free()
