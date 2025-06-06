@@ -59,7 +59,7 @@ func request_server_add_ingredient(ingredient_ID: int, request_peer_id: int):
 			timer.start()
 			await timer.timeout
 			
-			var anim: String = "red_cauldron_smoke"
+			var anim: String = "crafted_state"
 			sync_animation.rpc(anim)
 			
 			craft_item()
@@ -104,9 +104,10 @@ func craft_item():
 		Debug.log(recipe.can_craft(ingredient_id_array))
 		if recipe.can_craft(ingredient_id_array):
 			output_item = recipe.output
-			#Debug.log(output_item.item_name + " ha sido crafteado")
+			Debug.log(output_item.item_name + " ha sido crafteado")
 			return
-	#Debug.log("Crafteo fallido")
+	
+	Debug.log("Crafteo fallido")
 	return
 
 @rpc("any_peer", "call_local", "reliable")
@@ -123,7 +124,7 @@ func request_crafted_item() -> void:
 		var output_item_id = output_item.ID
 		output_item = null
 		
-		var anim: String = "red_cauldron"
+		var anim: String = "idle_state"
 		sync_animation.rpc(anim)
 		player.receive_crafted_item.rpc(output_item_id)
 	else:

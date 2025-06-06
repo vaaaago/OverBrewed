@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://cr5ci8phiwilr"]
+[gd_scene load_steps=64 format=4 uid="uid://cr5ci8phiwilr"]
 
 [ext_resource type="Texture2D" uid="uid://t5ol6nipy8xs" path="res://assets/sprites/Environment/ambience/tiles/Paneling With Stone.png" id="1_ceyww"]
 [ext_resource type="Script" uid="uid://ddari88vi5rti" path="res://scripts/main.gd" id="1_ixixb"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://cp2pguc1pav03" path="res://scenes/item_sources/flower.tscn" id="9_ekvhi"]
 [ext_resource type="Texture2D" uid="uid://bw0eb2uujafg5" path="res://assets/sprites/Environment/ambience/tiles/list.png" id="9_p21c8"]
 [ext_resource type="Resource" uid="uid://b2x8uytac3fx7" path="res://resources/Items/BlackElder.tres" id="10_61ux7"]
-[ext_resource type="Texture2D" uid="uid://dolrujyntfrvq" path="res://assets/sprites/Environment/ambience/instruments/tile039.png" id="10_yb33p"]
 [ext_resource type="Texture2D" uid="uid://c214512bcek0m" path="res://assets/sprites/Environment/ambience/instruments/tile043.png" id="11_3phgk"]
 [ext_resource type="Texture2D" uid="uid://c7ffjfsqfhp3r" path="res://assets/sprites/Environment/ambience/decoration/tile038.png" id="12_8nqjd"]
 [ext_resource type="Resource" uid="uid://vxorgpim1tl2" path="res://resources/Items/BlueMushroom.tres" id="12_8urdu"]
@@ -41,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://b4vlpiuv22j6q" path="res://assets/sprites/Environment/ambience/decoration/tile030.png" id="38_v6jl5"]
 [ext_resource type="PackedScene" uid="uid://bieegw68igah3" path="res://assets/sprites/Environment/book/book.tscn" id="39_bn3hj"]
 [ext_resource type="PackedScene" uid="uid://151p2wp14a3p" path="res://scenes/pickable_object.tscn" id="39_p21c8"]
+[ext_resource type="PackedScene" uid="uid://c88pblemonfgv" path="res://scenes/tools/mortar.tscn" id="41_8urdu"]
 [ext_resource type="Resource" uid="uid://citvq7s5vdwd7" path="res://resources/Items/UnicornHorn.tres" id="45_8urdu"]
 [ext_resource type="PackedScene" uid="uid://d0pdht7s2j6yr" path="res://scenes/item_sources/end_game_screen.tscn" id="45_61ux7"]
 [ext_resource type="Resource" uid="uid://bxqx45k8tc540" path="res://resources/Items/Chamomile.tres" id="45_ba25o"]
@@ -3879,44 +3879,6 @@ texture = ExtResource("9_p21c8")
 [sub_resource type="TileSet" id="TileSet_mwkp2"]
 sources/0 = SubResource("TileSetAtlasSource_ixixb")
 
-[sub_resource type="Animation" id="Animation_sh1vm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -5)]
-}
-
-[sub_resource type="Animation" id="Animation_bn3hj"]
-resource_name = "flying"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -15), Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ekvhi"]
-_data = {
-&"RESET": SubResource("Animation_sh1vm"),
-&"flying": SubResource("Animation_bn3hj")
-}
-
 [node name="Store" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ixixb")
@@ -4139,18 +4101,8 @@ metadata/_edit_lock_ = true
 [node name="Tools" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="mortar" type="Sprite2D" parent="Tools"]
+[node name="mortar" parent="Tools" instance=ExtResource("41_8urdu")]
 position = Vector2(510, 609)
-scale = Vector2(0.4, 0.4)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Tools/mortar"]
-libraries = {
-&"": SubResource("AnimationLibrary_ekvhi")
-}
-
-[node name="Sprite2D" type="Sprite2D" parent="Tools/mortar"]
-position = Vector2(0, -5)
-texture = ExtResource("10_yb33p")
 
 [node name="Cauldron" parent="Tools" instance=ExtResource("6_kbjg7")]
 position = Vector2(626, 435)
@@ -4195,6 +4147,9 @@ item_type = ExtResource("45_8urdu")
 [node name="Prueba_Oro" parent="PickableObjects" instance=ExtResource("39_p21c8")]
 position = Vector2(852, 465)
 item_type = ExtResource("46_ba25o")
+
+[node name="Prueba_Mortero" parent="PickableObjects" instance=ExtResource("39_p21c8")]
+position = Vector2(747, 555)
 
 [node name="CustomerSpawns" type="Node2D" parent="."]
 

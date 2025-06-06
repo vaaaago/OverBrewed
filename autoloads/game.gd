@@ -4,9 +4,14 @@ signal players_updated
 signal player_updated(id)
 signal vote_updated(id)
 signal player_index_received()
+signal item_register_ready
 
-@export var item_register: Array[Item]
-var item_dict: Dictionary[int, Item]
+var item_folder_path: String = "res://resources/Items/"
+var product_folder_path: String = "res://resources/Product/"
+var item_register: Array[Item] = []
+var item_dict: Dictionary[int, Item] = {}
+var register_ready: bool = false
+
 
 @export var multiplayer_test = false
 @export var use_roles = true
@@ -37,6 +42,18 @@ var _initial_window_scale_aspect
 
 @onready var player_id: Label = %PlayerId
 
+func _init() -> void:
+	# Cargamos recursos de items 
+	load_resources_from_directory(item_folder_path)
+	load_resources_from_directory(product_folder_path)
+	
+	# Inicializamos item dict:
+	for item in item_register:
+		item_dict[item.ID] = item
+	
+	print(item_register.size())
+	register_ready = true
+	item_register_ready.emit()
 
 func _ready() -> void:
 	_initial_window_scale_mode = get_window().content_scale_mode
@@ -49,10 +66,39 @@ func _ready() -> void:
 	if not OS.is_debug_build():
 		multiplayer_test = false
 		player_id.hide()
+
+## Itera sobre una carpeta y carga todos los archivos de recursos válidos.
+func load_resources_from_directory(path: String) -> void:
+	# Asegúrate de que la ruta no esté vacía.
+	if path.is_empty():
+		printerr("La ruta de la carpeta de recursos no ha sido establecida.")
+		return
+
+	# Intenta abrir el directorio especificado.
+	var dir = DirAccess.open(path)
+	if dir:
+		# Comienza a listar los archivos en el directorio.
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
 		
-	# Inicializamos item dict:
-	for item in item_register:
-		item_dict[item.ID] = item
+		# Itera sobre cada archivo hasta que no queden más.
+		while file_name != "":
+			# Omitir directorios y archivos ocultos (como los .import)
+			if not dir.current_is_dir() and not file_name.begins_with("."):
+				# Construye la ruta completa del recurso.
+				var full_path = path.path_join(file_name)
+				
+				# Carga el recurso usando la ruta completa.
+				var resource = load(full_path)
+				
+				# Si la carga fue exitosa, añádelo al array.
+				if resource:
+					item_register.append(resource)
+			
+			# Pasa al siguiente archivo.
+			file_name = dir.get_next()
+	else:
+		printerr("No se pudo abrir el directorio: ", path)
 
 
 func sort_players() -> void:

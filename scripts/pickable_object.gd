@@ -15,6 +15,9 @@ func _ready() -> void:
 		configure(item_type.ID)
 
 func configure(item_type_id: int):
+	if not Game.register_ready:
+		await Game.item_register_ready
+	
 	#Debug.log("Configurando objeto")
 	item_type = Game.item_dict[item_type_id]
 	sprite.texture = item_type.texture
