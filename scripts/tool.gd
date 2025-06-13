@@ -32,7 +32,7 @@ func _ready() -> void:
 func request_server_add_ingredient(ingredient_ID: int, request_peer_id: int):
 	# Este metodo se ejecuta en el server, y valida una solicitud de un peer para 
 	# depositar un item
-	var ingredient = Game.item_dict[ingredient_ID]
+	var ingredient = Game.item_register[ingredient_ID]
 	
 	if !is_multiplayer_authority():
 		# Si no es el server, ignoramos
@@ -59,7 +59,7 @@ func request_server_add_ingredient(ingredient_ID: int, request_peer_id: int):
 			timer.start()
 			await timer.timeout
 			
-			var anim: String = "red_cauldron_smoke"
+			var anim: String = "crafted_state"
 			sync_animation.rpc(anim)
 			
 			craft_item()
@@ -72,7 +72,7 @@ func request_server_add_ingredient(ingredient_ID: int, request_peer_id: int):
 
 @rpc("authority", "call_local", "reliable")
 func sync_client_ingredient_state(ingredient_added_ID: int):
-	var ingredient_added = Game.item_dict[ingredient_added_ID]
+	var ingredient_added = Game.item_register[ingredient_added_ID]
 	
 	# Si no es el server, actualizamos variables
 	#ingredient_dict[ingredient_added] += 1
@@ -88,7 +88,7 @@ func sync_client_ingredient_state(ingredient_added_ID: int):
 @rpc("authority", "call_local", "reliable")
 func reset_state():
 	while ingredient_id_array.size() > 0:
-		var ig = Game.item_dict[ingredient_id_array.pop_back()]
+		var ig = Game.item_register[ingredient_id_array.pop_back()]
 		#ingredient_dict[ig] = 0
 		ingredient_count -= 1
 		
@@ -104,9 +104,10 @@ func craft_item():
 		Debug.log(recipe.can_craft(ingredient_id_array))
 		if recipe.can_craft(ingredient_id_array):
 			output_item = recipe.output
-			#Debug.log(output_item.item_name + " ha sido crafteado")
+			Debug.log(output_item.item_name + " ha sido crafteado")
 			return
-	#Debug.log("Crafteo fallido")
+	
+	Debug.log("Crafteo fallido")
 	return
 
 @rpc("any_peer", "call_local", "reliable")
@@ -123,7 +124,7 @@ func request_crafted_item() -> void:
 		var output_item_id = output_item.ID
 		output_item = null
 		
-		var anim: String = "red_cauldron"
+		var anim: String = "idle_state"
 		sync_animation.rpc(anim)
 		player.receive_crafted_item.rpc(output_item_id)
 	else:

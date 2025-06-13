@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://nvx2wu73giy"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_2rxrh"]
+[ext_resource type="Texture2D" uid="uid://cqplgpp7gd5g" path="res://assets/sprites/frame.svg" id="2_pwyvw"]
+
+[resource]
+script = ExtResource("1_2rxrh")
+item_name = "Test product"
+ID = 1000
+texture = ExtResource("2_pwyvw")
+texture_scale = 0.3
+pickable_texture_scale = 0.2
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

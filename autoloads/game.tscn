@@ -1,32 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://b6cfq0qe7ynw6"]
+[gd_scene load_steps=7 format=3 uid="uid://b6cfq0qe7ynw6"]
 
 [ext_resource type="Script" uid="uid://c8lsyb801m532" path="res://autoloads/game.gd" id="1_fmbhi"]
-[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="2_bqigb"]
 [ext_resource type="Script" uid="uid://bnqpng0o60r43" path="res://scripts/player_data_resource.gd" id="2_xaonh"]
 [ext_resource type="PackedScene" uid="uid://cr5ci8phiwilr" path="res://scenes/level/store.tscn" id="3_du0e2"]
-[ext_resource type="Resource" uid="uid://cr6e3k64qfpog" path="res://resources/Items/AloeVera.tres" id="3_vgdns"]
-[ext_resource type="Resource" uid="uid://j4xlr2mvknlr" path="res://resources/Items/Basil.tres" id="4_1evte"]
-[ext_resource type="Resource" uid="uid://b2x8uytac3fx7" path="res://resources/Items/BlackElder.tres" id="5_1sjqr"]
-[ext_resource type="Resource" uid="uid://cogegceif5ke2" path="res://resources/Items/BlueLotus.tres" id="6_sbw1w"]
-[ext_resource type="Resource" uid="uid://vxorgpim1tl2" path="res://resources/Items/BlueMushroom.tres" id="7_8g76q"]
-[ext_resource type="Resource" uid="uid://d2b8n2sluush2" path="res://resources/Items/BlueToadstool.tres" id="8_r7ab8"]
-[ext_resource type="Resource" uid="uid://d0x2ben4hq4r8" path="res://resources/Items/Calendula.tres" id="9_fmwbl"]
-[ext_resource type="Resource" uid="uid://bxqx45k8tc540" path="res://resources/Items/Chamomile.tres" id="10_k10ym"]
-[ext_resource type="Resource" uid="uid://csux4s406a8jk" path="res://resources/Items/ChanterelleMushroom.tres" id="11_7v55g"]
-[ext_resource type="Resource" uid="uid://bdw437x0kjv0u" path="res://resources/Items/Dandelion.tres" id="12_mhqnl"]
-[ext_resource type="Resource" uid="uid://cau2bw0isgpyj" path="res://resources/Items/Ephedra.tres" id="13_lwbw8"]
-[ext_resource type="Resource" uid="uid://etj4qjfvb4r7" path="res://resources/Items/GreenMushroom.tres" id="14_bi1qk"]
-[ext_resource type="Resource" uid="uid://bkq22mo4lssca" path="res://resources/Items/MilkThistle.tres" id="15_obadj"]
-[ext_resource type="Resource" uid="uid://4qcw2bieh8jw" path="res://resources/Items/Moringa.tres" id="16_snf2n"]
-[ext_resource type="Resource" uid="uid://cnk6vk18ycyls" path="res://resources/Items/Sage.tres" id="17_jm8pb"]
-[ext_resource type="Resource" uid="uid://b6iqkhqqq7ldm" path="res://resources/Items/Senna.tres" id="18_osymb"]
-[ext_resource type="Resource" uid="uid://80ws0l75w5bx" path="res://resources/Items/ToflyAgaric.tres" id="19_ub4hl"]
-[ext_resource type="Resource" uid="uid://bxewl4fwmtvky" path="res://resources/Items/WhiteToadstool.tres" id="20_5jvyu"]
-[ext_resource type="Resource" uid="uid://hho3x2rd241w" path="res://resources/Items/Missing_texture.tres" id="21_vgdns"]
-[ext_resource type="Resource" uid="uid://dfcvs3cjc0i1l" path="res://resources/Product/test_potion_item.tres" id="22_1evte"]
-[ext_resource type="Resource" uid="uid://bgyldey20asse" path="res://resources/Items/GoldOre.tres" id="23_sbw1w"]
-[ext_resource type="Resource" uid="uid://citvq7s5vdwd7" path="res://resources/Items/UnicornHorn.tres" id="24_8g76q"]
-[ext_resource type="Resource" uid="uid://cqdipvslf1803" path="res://resources/Product/Healing_potion_item.tres" id="25_8g76q"]
 
 [sub_resource type="Resource" id="Resource_nviqh"]
 script = ExtResource("2_xaonh")
@@ -46,7 +22,6 @@ metadata/_custom_type_script = "uid://bnqpng0o60r43"
 
 [node name="Game" type="Node"]
 script = ExtResource("1_fmbhi")
-item_register = Array[ExtResource("2_bqigb")]([ExtResource("3_vgdns"), ExtResource("4_1evte"), ExtResource("5_1sjqr"), ExtResource("6_sbw1w"), ExtResource("7_8g76q"), ExtResource("8_r7ab8"), ExtResource("9_fmwbl"), ExtResource("10_k10ym"), ExtResource("11_7v55g"), ExtResource("12_mhqnl"), ExtResource("13_lwbw8"), ExtResource("14_bi1qk"), ExtResource("15_obadj"), ExtResource("16_snf2n"), ExtResource("17_jm8pb"), ExtResource("18_osymb"), ExtResource("19_ub4hl"), ExtResource("20_5jvyu"), ExtResource("21_vgdns"), ExtResource("22_1evte"), ExtResource("23_sbw1w"), ExtResource("24_8g76q"), ExtResource("25_8g76q")])
 multiplayer_test = true
 all_roles = false
 min_players = 3

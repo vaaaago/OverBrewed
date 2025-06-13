@@ -29,7 +29,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_sugp2"]
-resource_name = "red_cauldron"
+resource_name = "idle_state"
 length = 9.0
 loop_mode = 1
 step = 0.33
@@ -47,7 +47,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_muemc"]
-resource_name = "red_cauldron_smoke"
+resource_name = "crafted_state"
 length = 9.0
 loop_mode = 1
 step = 0.33
@@ -67,15 +67,15 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tbgi4"]
 _data = {
 &"RESET": SubResource("Animation_jyhfs"),
-&"red_cauldron": SubResource("Animation_sugp2"),
-&"red_cauldron_smoke": SubResource("Animation_muemc")
+&"crafted_state": SubResource("Animation_muemc"),
+&"idle_state": SubResource("Animation_sugp2")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bi80w"]
-animation = &"red_cauldron"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_muemc"]
-animation = &"red_cauldron_smoke"
+animation = &"crafted_state"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bi80w"]
+animation = &"idle_state"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8jqlm"]
 advance_mode = 2
@@ -86,11 +86,12 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_l3ke8"]
 states/Start/position = Vector2(229, 100)
-states/red_cauldron/node = SubResource("AnimationNodeAnimation_bi80w")
-states/red_cauldron/position = Vector2(560, 100)
-states/red_cauldron_smoke/node = SubResource("AnimationNodeAnimation_muemc")
-states/red_cauldron_smoke/position = Vector2(581, 255)
-transitions = ["Start", "red_cauldron", SubResource("AnimationNodeStateMachineTransition_8jqlm"), "red_cauldron", "red_cauldron_smoke", SubResource("AnimationNodeStateMachineTransition_3xx01"), "red_cauldron_smoke", "red_cauldron", SubResource("AnimationNodeStateMachineTransition_ckcv7")]
+states/crafted_state/node = SubResource("AnimationNodeAnimation_muemc")
+states/crafted_state/position = Vector2(581, 255)
+states/idle_state/node = SubResource("AnimationNodeAnimation_bi80w")
+states/idle_state/position = Vector2(560, 100)
+transitions = ["Start", "idle_state", SubResource("AnimationNodeStateMachineTransition_8jqlm"), "idle_state", "crafted_state", SubResource("AnimationNodeStateMachineTransition_3xx01"), "crafted_state", "idle_state", SubResource("AnimationNodeStateMachineTransition_ckcv7")]
+graph_offset = Vector2(0, 65.4525)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bi80w"]
 radius = 30.0167

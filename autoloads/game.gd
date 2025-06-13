@@ -4,9 +4,14 @@ signal players_updated
 signal player_updated(id)
 signal vote_updated(id)
 signal player_index_received()
+signal register_ready_signal
 
-@export var item_register: Array[Item]
-var item_dict: Dictionary[int, Item]
+var item_folder_path: String = "res://resources/Items/"
+var product_folder_path: String = "res://resources/Product/"
+
+var item_register: Dictionary[int, Item] = {}
+var register_ready: bool = false
+
 
 @export var multiplayer_test = false
 @export var use_roles = true
@@ -37,6 +42,14 @@ var _initial_window_scale_aspect
 
 @onready var player_id: Label = %PlayerId
 
+func _init() -> void:
+	# Cargamos recursos de items y productos
+	load_resources_to_registers()
+	
+	print(item_register.size())
+	print(item_register)
+	register_ready = true
+	register_ready_signal.emit()
 
 func _ready() -> void:
 	_initial_window_scale_mode = get_window().content_scale_mode
@@ -49,11 +62,22 @@ func _ready() -> void:
 	if not OS.is_debug_build():
 		multiplayer_test = false
 		player_id.hide()
-		
-	# Inicializamos item dict:
-	for item in item_register:
-		item_dict[item.ID] = item
 
+func get_all_files_from_directory(path : String, files := []):
+	var resources = ResourceLoader.list_directory(path)
+	for res in resources:
+		#print(str(path+res))
+		files.append(path+res)
+	return files
+
+func load_resources_to_registers():
+	for file in get_all_files_from_directory(item_folder_path):
+		var item: Item = load(file)
+		item_register[item.ID] = item
+	
+	for file in get_all_files_from_directory(product_folder_path):
+		var product: Item = load(file)
+		item_register[product.ID] = product
 
 func sort_players() -> void:
 	players.sort_custom(func(a, b): return a.index < b.index)

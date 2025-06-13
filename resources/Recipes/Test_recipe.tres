@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=5 format=3 uid="uid://bjjajudejiyso"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_2ma1q"]
+[ext_resource type="Resource" uid="uid://hho3x2rd241w" path="res://resources/Items/Missing_texture.tres" id="2_7bg7h"]
+[ext_resource type="Script" uid="uid://hywg3hs58nyv" path="res://resources/definitions/crafting_recipe.gd" id="2_d8qme"]
+[ext_resource type="Resource" uid="uid://nvx2wu73giy" path="res://resources/Product/Test_product.tres" id="3_kjghh"]
+
+[resource]
+script = ExtResource("2_d8qme")
+ingredients = Array[ExtResource("1_2ma1q")]([ExtResource("2_7bg7h")])
+output = ExtResource("3_kjghh")
+metadata/_custom_type_script = "uid://hywg3hs58nyv"

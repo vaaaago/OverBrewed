@@ -20,4 +20,4 @@ func _ready() -> void:
 		player_object.instance = player_instance
 		
 		# Animaciones:
-		mortarAnim.play("flying")
+		#mortarAnim.play("flying")
