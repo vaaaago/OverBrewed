@@ -62,8 +62,7 @@ y_sort_enabled = true
 script = ExtResource("1_2d6o4")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(47, 153)
-scale = Vector2(4, 4)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("2_6bnc6")
 hframes = 9
 vframes = 4
@@ -77,6 +76,5 @@ libraries = {
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(47, 158)
 scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_v6jl5")
