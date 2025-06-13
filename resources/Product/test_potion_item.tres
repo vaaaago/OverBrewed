@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_2peko")
 item_name = "Test Potion"
-ID = 998
+ID = 1001
 texture = ExtResource("2_h3vfl")
 texture_scale = 0.5
 pickable_texture_scale = 0.5

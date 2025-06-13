@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_2rxrh")
 item_name = "Test product"
-ID = 997
+ID = 1000
 texture = ExtResource("2_pwyvw")
 texture_scale = 0.3
 pickable_texture_scale = 0.2

@@ -32,7 +32,7 @@ func _ready() -> void:
 func request_server_add_ingredient(ingredient_ID: int, request_peer_id: int):
 	# Este metodo se ejecuta en el server, y valida una solicitud de un peer para 
 	# depositar un item
-	var ingredient = Game.item_dict[ingredient_ID]
+	var ingredient = Game.item_register[ingredient_ID]
 	
 	if !is_multiplayer_authority():
 		# Si no es el server, ignoramos
@@ -72,7 +72,7 @@ func request_server_add_ingredient(ingredient_ID: int, request_peer_id: int):
 
 @rpc("authority", "call_local", "reliable")
 func sync_client_ingredient_state(ingredient_added_ID: int):
-	var ingredient_added = Game.item_dict[ingredient_added_ID]
+	var ingredient_added = Game.item_register[ingredient_added_ID]
 	
 	# Si no es el server, actualizamos variables
 	#ingredient_dict[ingredient_added] += 1
@@ -88,7 +88,7 @@ func sync_client_ingredient_state(ingredient_added_ID: int):
 @rpc("authority", "call_local", "reliable")
 func reset_state():
 	while ingredient_id_array.size() > 0:
-		var ig = Game.item_dict[ingredient_id_array.pop_back()]
+		var ig = Game.item_register[ingredient_id_array.pop_back()]
 		#ingredient_dict[ig] = 0
 		ingredient_count -= 1
 		

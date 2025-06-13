@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_e4fcb")
 item_name = "Healing Potion"
-ID = 997
+ID = 1002
 texture = ExtResource("2_wlsc7")
 texture_scale = 1.0
 pickable_texture_scale = 2.0

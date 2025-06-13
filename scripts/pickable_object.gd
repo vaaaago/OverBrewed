@@ -16,10 +16,10 @@ func _ready() -> void:
 
 func configure(item_type_id: int):
 	if not Game.register_ready:
-		await Game.item_register_ready
+		await Game.register_ready_signal
 	
 	#Debug.log("Configurando objeto")
-	item_type = Game.item_dict[item_type_id]
+	item_type = Game.item_register[item_type_id]
 	sprite.texture = item_type.texture
 	sprite.scale.x = item_type.pickable_texture_scale
 	sprite.scale.y = item_type.pickable_texture_scale
