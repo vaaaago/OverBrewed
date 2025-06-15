@@ -40,7 +40,12 @@ func _process(delta):
 	var frame_index := int(progress_ratio * (bar_total_frames - 1))
 
 	wait_bar_sprite.frame = frame_index
-
+	
+	#poner animacion cuando lleva mas de la mitad del tiempo
+	if time_passed >= customer_wait_time/2: 
+		$AnimationPlayer.play("shake")
+		
+	
 	if time_passed >= customer_wait_time:
 		leave_store()
 		
