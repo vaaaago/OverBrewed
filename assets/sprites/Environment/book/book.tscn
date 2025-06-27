@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bieegw68igah3"]
+[gd_scene load_steps=25 format=3 uid="uid://bieegw68igah3"]
 
 [ext_resource type="Script" uid="uid://2gd0kljdd5jv" path="res://assets/sprites/Environment/book/book.gd" id="1_4oemj"]
 [ext_resource type="Texture2D" uid="uid://cy2n3b4lfa2bi" path="res://assets/sprites/Environment/book/book_image_13.png" id="2_gkogt"]
@@ -11,11 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://g4nerpkof1qj" path="res://assets/sprites/Environment/ambience/instruments/Small Vial - RED - 0000.png" id="8_j75rt"]
 [ext_resource type="Texture2D" uid="uid://dir1bek17kh04" path="res://assets/sprites/Environment/ambience/instruments/Small Bottle - BLACK_GOLD - 0006.png" id="9_55ft4"]
 [ext_resource type="Texture2D" uid="uid://cvxyfxyuhf3mp" path="res://assets/sprites/Environment/ingredients/others/tile004.png" id="10_a3osd"]
+[ext_resource type="Texture2D" uid="uid://ck87fxmumqktd" path="res://assets/sprites/Environment/ambience/instruments/Bubbly Brew Bottle Rising - GREEN - 0017.png" id="10_yhhq4"]
 [ext_resource type="Texture2D" uid="uid://dud3aroblsnm4" path="res://assets/sprites/Environment/ingredients/plants/chamomile 32.png" id="11_bchlu"]
 [ext_resource type="Texture2D" uid="uid://dehimt0j62c07" path="res://assets/sprites/Environment/ingredients/others/gold_ore.png" id="12_wh87u"]
 [ext_resource type="Texture2D" uid="uid://brul846un65cl" path="res://assets/sprites/Environment/ingredients/plants/senna 32.png" id="14_igc1g"]
 [ext_resource type="Texture2D" uid="uid://c4edpcr8cjnya" path="res://assets/sprites/Environment/ingredients/others/tile003.png" id="15_shv2o"]
 [ext_resource type="Texture2D" uid="uid://dqjn70kcr6cxh" path="res://assets/sprites/Environment/ingredients/plants/ephedra 32.png" id="16_0g7oe"]
+[ext_resource type="Texture2D" uid="uid://5apt34g15ikb" path="res://assets/sprites/Environment/ingredients/plants/black elder 32.png" id="18_e7wot"]
+[ext_resource type="Texture2D" uid="uid://cnntnnqn6pplu" path="res://assets/sprites/Environment/ingredients/plants/white toadstool 32.png" id="19_pygtd"]
+[ext_resource type="Texture2D" uid="uid://dkgkjkjnsy8p1" path="res://assets/sprites/Environment/ingredients/others/tile007.png" id="20_ps1yp"]
 
 [sub_resource type="Animation" id="Animation_g2pr3"]
 length = 0.001
@@ -241,16 +245,37 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -143.0
-offset_top = -131.0
-offset_right = -28.0
-offset_bottom = 31.0
+offset_left = -144.0
+offset_top = -130.0
+offset_right = 138.0
+offset_bottom = 281.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.4, 0.4)
 theme_override_colors/default_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
 theme_override_fonts/normal_font = ExtResource("7_87n2p")
 bbcode_enabled = true
-text = "Coming soon...☠️"
+text = "         Whisper of the night
+
+A brew reserved for silent assassins and alchemists of questionable morals. Its preparation demands precision and cold blood, for a single mistake may poison the maker before the victim.
+
+
+
+
+
+
+
+
+A single drop of this poison is enough to bring even a giant to their deathbed within hours. It should never be handled within bare skin. Some alchemists store it in vials sealed with black wax and warning sigils."
+
+[node name="TextureRect1" type="TextureRect" parent="LibroUI/Control/Control/pagIzq_poison"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 155.0
+offset_right = 128.0
+offset_bottom = 211.0
+scale = Vector2(2, 2)
+texture = ExtResource("10_yhhq4")
 
 [node name="pagIzq_sleep" type="RichTextLabel" parent="LibroUI/Control/Control"]
 visible = false
@@ -403,16 +428,56 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -7.0
-offset_top = -130.0
-offset_right = 109.0
-offset_bottom = 35.0
+offset_left = -8.8
+offset_top = -130.4
+offset_right = 289.2
+offset_bottom = 320.6
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.4, 0.4)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("8_ehtt4")
 bbcode_enabled = true
-text = "Coming soon..."
+text = "Ingredients
+
+    White mushroom of Liria: Though they appear harmless, their sap contains a paralyzing toxin that halts breath with a single sip. Must be fermented for three days before being crushed.
+
+    Black Elder: Its berries must be added raw, unprocessed, to release their volatile essence. upon ingestion, they induce visions and internal unrest that slowly erodes the body from within.
+
+    Eye of an unknown creature: From beasts that dwell between realms. It's inclusion activates the poison full lethality. When boiled whole, the eye turns the mixture a sickly green and gives off a sweet scent that masks its danger.
+
+
+"
+
+[node name="TextureRect" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_poison"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 145.0
+offset_right = 38.0
+offset_bottom = 185.0
+rotation = -0.300197
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("18_e7wot")
+
+[node name="TextureRect2" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_poison"]
+layout_mode = 0
+offset_left = -1.5
+offset_top = 27.0
+offset_right = 38.5
+offset_bottom = 67.0
+rotation = -0.0296706
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("19_pygtd")
+flip_h = true
+
+[node name="TextureRect3" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_poison"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 251.0
+offset_right = 34.0
+offset_bottom = 292.0
+rotation = 0.214676
+texture = ExtResource("20_ps1yp")
 
 [node name="pagDer_sleep" type="RichTextLabel" parent="LibroUI/Control/Control2"]
 visible = false
