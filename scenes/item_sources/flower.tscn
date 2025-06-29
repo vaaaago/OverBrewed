@@ -1,21 +1,61 @@
-[gd_scene load_steps=6 format=3 uid="uid://cp2pguc1pav03"]
+[gd_scene load_steps=8 format=3 uid="uid://cp2pguc1pav03"]
 
 [ext_resource type="Texture2D" uid="uid://5apt34g15ikb" path="res://assets/sprites/Environment/ingredients/plants/black elder 32.png" id="1_8x8dx"]
-[ext_resource type="Script" uid="uid://lwkrbb6qe3is" path="res://scripts/item_source.gd" id="2_yoh7s"]
-[ext_resource type="Resource" uid="uid://hho3x2rd241w" path="res://resources/Items/Missing_texture.tres" id="3_5wcss"]
+[ext_resource type="Script" uid="uid://bmjuj8dvltva" path="res://scripts/flower.gd" id="1_sqrw3"]
 [ext_resource type="PackedScene" uid="uid://151p2wp14a3p" path="res://scenes/pickable_object.tscn" id="3_mk0ae"]
+
+[sub_resource type="Animation" id="Animation_kf4js"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5wcss"]
+resource_name = "flower_pickup"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(3, 0), Vector2(0, 0), Vector2(-3, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ntrfd"]
+_data = {
+&"RESET": SubResource("Animation_kf4js"),
+&"flower_pickup": SubResource("Animation_5wcss")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8x8dx"]
 size = Vector2(5, 79)
 
 [node name="Flower" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("2_yoh7s")
-item_type = ExtResource("3_5wcss")
+script = ExtResource("1_sqrw3")
 pickable_object_scene = ExtResource("3_mk0ae")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_8x8dx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ntrfd")
+}
 
 [node name="SourceInteractionArea" type="Area2D" parent="."]
 collision_layer = 8

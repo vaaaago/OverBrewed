@@ -4110,6 +4110,7 @@ position = Vector2(238, 140)
 
 [node name="Chest_4" parent="Map/Chests" instance=ExtResource("41_f5n31")]
 position = Vector2(336, 140)
+item_type = ExtResource("45_8urdu")
 
 [node name="Tools" type="Node2D" parent="."]
 y_sort_enabled = true
