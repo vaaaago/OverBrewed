@@ -46,8 +46,8 @@ func _init() -> void:
 	# Cargamos recursos de items y productos
 	load_resources_to_registers()
 	
-	print(item_register.size())
-	print(item_register)
+	#print(item_register.size())
+	#print(item_register)
 	register_ready = true
 	register_ready_signal.emit()
 

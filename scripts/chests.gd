@@ -1,29 +1,4 @@
-extends Node2D
+extends ItemSource
 
-@onready var anim = $AnimationPlayer
-@onready var area = $Area2D
-
-var player_in_area = false
-var is_open = false
-
-func _ready():
-	area.body_entered.connect(_on_body_entered)
-	area.body_exited.connect(_on_body_exited)
-
-func _on_body_entered(body):
-	Debug.log(body.get_class())
-	if body.is_class("CharacterBody2D"):  # Asegurate de que tu jugador se llame "Player"
-		player_in_area = true
-
-func _on_body_exited(body):
-	if body.is_class("CharacterBody2D"):
-		player_in_area = false
-		if is_open:
-			anim.play("close_chest")
-			is_open = false
-
-func _process(_delta):
-	if player_in_area and Input.is_action_just_pressed("interact"):  # "interact" = tecla E
-		if not is_open:
-			anim.play("open_chest")
-			is_open = true
+func play_pickup_animation() -> void:
+	anim.play("open_chest")

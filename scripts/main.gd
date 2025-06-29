@@ -18,6 +18,3 @@ func _ready() -> void:
 		
 		# Guardamos una referencia al nodo del jugador en su PlayerData
 		player_object.instance = player_instance
-		
-		# Animaciones:
-		#mortarAnim.play("flying")

@@ -113,7 +113,7 @@ func reject_object_deposited():
 @rpc("any_peer", "call_local", "reliable")
 func receive_object(object_path: NodePath) -> void:
 	#Debug.log("Objeto recibido")
-	Debug.log(object_path)
+	#Debug.log(object_path)
 	var object = get_node(object_path)
 	
 	if not object:

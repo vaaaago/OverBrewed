@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://3xu7psp5nyey"]
+[gd_scene load_steps=9 format=3 uid="uid://3xu7psp5nyey"]
 
 [ext_resource type="Script" uid="uid://bs6xl7vd1h0ma" path="res://scripts/chests.gd" id="1_2d6o4"]
+[ext_resource type="PackedScene" uid="uid://151p2wp14a3p" path="res://scenes/pickable_object.tscn" id="2_1ucgv"]
 [ext_resource type="Texture2D" uid="uid://b5ll8wva0b22e" path="res://assets/sprites/Environment/ambience/tiles/RPG Chests.png" id="2_6bnc6"]
 
 [sub_resource type="Animation" id="Animation_1ucgv"]
@@ -42,10 +43,10 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.266667),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.266667, 0.5, 0.666667, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [6, 24, 33]
+"values": [6, 24, 33, 33, 24, 15]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b1r13"]
@@ -60,6 +61,7 @@ _data = {
 [node name="Chest" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_2d6o4")
+pickable_object_scene = ExtResource("2_1ucgv")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(3.5, 3.5)
@@ -73,8 +75,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_b1r13")
 }
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="SourceInteractionArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SourceInteractionArea"]
 scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_v6jl5")
