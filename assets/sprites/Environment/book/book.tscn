@@ -162,6 +162,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="pagIzq_health" type="RichTextLabel" parent="LibroUI/Control/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -201,6 +202,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("8_j75rt")
 
 [node name="pagIzq_speed" type="RichTextLabel" parent="LibroUI/Control/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -238,6 +240,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("9_55ft4")
 
 [node name="pagIzq_poison" type="RichTextLabel" parent="LibroUI/Control/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -277,12 +280,13 @@ scale = Vector2(2, 2)
 texture = ExtResource("10_yhhq4")
 
 [node name="pagIzq_sleep" type="RichTextLabel" parent="LibroUI/Control/Control"]
+visible = false
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.509999
+anchor_top = 0.94
+anchor_right = 0.509999
+anchor_bottom = 0.99
 offset_left = -144.4
 offset_top = -134.4
 offset_right = 137.6
@@ -305,6 +309,7 @@ Whispered among nocturnal herbalists and dreamwardens, this potion is dedicated 
 
 It was once used by priestesses of forgotten temples to induce prophetic visions or soothe kings tormented by nightmares. However, overuse may lead the drinker into an unbreakable slumber from wich few awaken.
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect1" type="TextureRect" parent="LibroUI/Control/Control/pagIzq_sleep"]
 layout_mode = 0
@@ -321,6 +326,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="pagDer_health" type="RichTextLabel" parent="LibroUI/Control/Control2"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -329,7 +335,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -7.0
 offset_top = -130.0
-offset_right = 288.0
+offset_right = 292.0
 offset_bottom = 276.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -379,6 +385,7 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("12_wh87u")
 
 [node name="pagDer_speed" type="RichTextLabel" parent="LibroUI/Control/Control2"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -387,8 +394,8 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -7.0
 offset_top = -130.0
-offset_right = 288.0
-offset_bottom = 276.0
+offset_right = 296.0
+offset_bottom = 281.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.4, 0.4)
@@ -438,16 +445,17 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("16_0g7oe")
 
 [node name="pagDer_poison" type="RichTextLabel" parent="LibroUI/Control/Control2"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -8.8
-offset_top = -130.4
-offset_right = 289.2
-offset_bottom = 320.6
+offset_left = -11.2
+offset_top = -132.0
+offset_right = 306.8
+offset_bottom = 287.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.4, 0.4)
@@ -488,24 +496,24 @@ flip_h = true
 
 [node name="TextureRect3" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_poison"]
 layout_mode = 0
-offset_left = 2.0
-offset_top = 251.0
-offset_right = 34.0
-offset_bottom = 292.0
+offset_top = 247.0
+offset_right = 32.0
+offset_bottom = 288.0
 rotation = 0.214676
 texture = ExtResource("20_ps1yp")
 
 [node name="pagDer_sleep" type="RichTextLabel" parent="LibroUI/Control/Control2"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -7.0
-offset_top = -132.0
-offset_right = 288.0
-offset_bottom = 284.0
+offset_left = -8.0
+offset_top = -129.2
+offset_right = 287.0
+offset_bottom = 271.8
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.4, 0.4)
@@ -513,7 +521,6 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("8_ehtt4")
 bbcode_enabled = true
 text = "Ingredients
-
 
     Blue lotus flower: Blossoms in still ponds under moonlight. Its petals are dried and gently brewed, releasing an aroma that calms the mind and opens the gates of the subconscious.
 
@@ -526,30 +533,30 @@ text = "Ingredients
 
 [node name="TextureRect" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_sleep"]
 layout_mode = 0
-offset_left = -0.5
-offset_top = 164.0
-offset_right = 39.5
-offset_bottom = 204.0
+offset_left = 1.0
+offset_top = 140.0
+offset_right = 41.0
+offset_bottom = 180.0
 rotation = -0.171042
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("22_gijxt")
 
 [node name="TextureRect2" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_sleep"]
 layout_mode = 0
-offset_left = -0.5
-offset_top = 47.0
-offset_right = 39.5
-offset_bottom = 87.0
+offset_left = 2.0
+offset_top = 28.0
+offset_right = 42.0
+offset_bottom = 68.0
 rotation = -0.0418879
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("23_siqcq")
 
 [node name="TextureRect3" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_sleep"]
 layout_mode = 0
-offset_left = 4.5
-offset_top = 273.0
-offset_right = 44.5
-offset_bottom = 313.0
+offset_left = 6.0
+offset_top = 235.0
+offset_right = 46.0
+offset_bottom = 275.0
 rotation = 0.214676
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("18_e7wot")
