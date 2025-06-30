@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CustomerRequest" load_steps=4 format=3 uid="uid://cuwdvqky58nkb"]
+
+[ext_resource type="Script" uid="uid://br16brkyu8kao" path="res://resources/definitions/customer_request.gd" id="1_lme4u"]
+[ext_resource type="Resource" uid="uid://cqdipvslf1803" path="res://resources/Product/Healing_potion_item.tres" id="1_mw78l"]
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_wiymd"]
+
+[resource]
+script = ExtResource("1_lme4u")
+ID = 0
+customer_dialog = "Hi! I've been getting really bad headaches lately. Do you have anything that could help?"
+wait_time = 25
+requested_items = Array[ExtResource("1_wiymd")]([ExtResource("1_mw78l")])
+metadata/_custom_type_script = "uid://br16brkyu8kao"

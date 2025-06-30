@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CustomerResource" load_steps=4 format=3 uid="uid://ds3b0e5al1yyx"]
+
+[ext_resource type="Texture2D" uid="uid://cda7bxqkmpo41" path="res://assets/sprites/customers/greengrocer_portrait.png" id="1_u3apu"]
+[ext_resource type="Script" uid="uid://7q21e05x2dg3" path="res://resources/definitions/customer_resource.gd" id="2_tw0qr"]
+[ext_resource type="Texture2D" uid="uid://b416xc50y0mns" path="res://assets/sprites/customers/greengrocer.png" id="3_tw0qr"]
+
+[resource]
+script = ExtResource("2_tw0qr")
+ID = 1
+texture = ExtResource("3_tw0qr")
+portrait_texture = ExtResource("1_u3apu")
+metadata/_custom_type_script = "uid://7q21e05x2dg3"

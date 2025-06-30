@@ -1,10 +1,11 @@
 extends Control
 
+@export var customer_scene: PackedScene
 
 @export var max_customers: int = 4
 @export var spawn_delay: float = 10.0
 @export var max_wait_time: float =  25.0
-@export var customer_scenes: Array[PackedScene] # contiene 4 escenas diferentes
+#@export var customer_scenes: Array[PackedScene] # contiene 4 escenas diferentes
 
 var customer_array := []
 var spawners: Array = []  # Spawner nodes
@@ -32,21 +33,22 @@ func _ready():
 		spawn_customers_loop()
 
 func spawn_customers_loop():
-	await get_tree().create_timer(spawn_delay).timeout
-	while true:
-		if customer_array.size() < max_customers and get_available_spawner():
-			spawn_client()
+	if is_multiplayer_authority():
 		await get_tree().create_timer(spawn_delay).timeout
+		while true:
+			if customer_array.size() < max_customers and get_available_spawner():
+				spawn_client()
+			await get_tree().create_timer(spawn_delay).timeout
 
 @rpc("call_local")
-func spawn_client_sync(client_index: int, spawn_name: String):	
-	var client_scene = customer_scenes[client_index]
-	var client_instance = client_scene.instantiate()
+func spawn_client_sync(customer_id: int, request_id: int, spawn_name: String):	
+	var client_instance: Customer = customer_scene.instantiate()
 	
 	# Agregar el cliente al spawner correspondiente
 	var spawner = $"../CustomerSpawns".get_node(spawn_name)
 	spawner.add_child(client_instance)
 	client_instance.global_position = spawner.global_position
+	client_instance.configure(customer_id, request_id)
 
 	# Configurar tiempo de espera
 	client_instance.customer_wait_time = max_wait_time
@@ -72,10 +74,11 @@ func spawn_client():
 
 	var spawn_node = available_spawners.pick_random()
 	var spawn_name = spawn_node.name
-
-	var random_index = randi() % customer_scenes.size()
+	
+	var customer_id = randi() % Game.customer_register.size()
+	var request_id = randi() % Game.customer_request_register.size()
 	# Llamar a todos los clientes para que spawneen lo mismo
-	spawn_client_sync.rpc(random_index, spawn_name)
+	spawn_client_sync.rpc(customer_id, request_id, spawn_name)
 
 func get_available_spawner() -> Array:
 	var available := []

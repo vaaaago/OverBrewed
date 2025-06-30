@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdnchmbsq08hl"]
+[gd_scene load_steps=6 format=3 uid="uid://d3i6jnvspcuno"]
 
-[ext_resource type="Script" uid="uid://3glx2hm5m7wk" path="res://scenes/customers/dialog.gd" id="1_kqq01"]
-[ext_resource type="Texture2D" uid="uid://br7u2x8jshjwb" path="res://assets/sprites/customers/cleric_portrait.png" id="1_lwkm2"]
-[ext_resource type="FontFile" uid="uid://cr76aq2ordawm" path="res://assets/fonts/Letterstyle(1).otf" id="3_yeylb"]
+[ext_resource type="Script" uid="uid://3glx2hm5m7wk" path="res://scripts/dialog.gd" id="1_jbx4e"]
+[ext_resource type="Texture2D" uid="uid://br7u2x8jshjwb" path="res://assets/sprites/customers/cleric_portrait.png" id="2_f03jp"]
+[ext_resource type="FontFile" uid="uid://cr76aq2ordawm" path="res://assets/fonts/Letterstyle(1).otf" id="3_ef158"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqq01"]
 bg_color = Color(0.239216, 0, 0.247059, 0.643137)
@@ -18,7 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_kqq01")
+script = ExtResource("1_jbx4e")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 2
@@ -33,7 +33,7 @@ offset_left = 1.0
 offset_top = -126.0
 offset_right = 240.0
 offset_bottom = 176.0
-texture = ExtResource("1_lwkm2")
+texture = ExtResource("2_f03jp")
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 0
@@ -41,7 +41,7 @@ offset_left = 1082.0
 offset_top = 44.0
 offset_right = 1206.0
 offset_bottom = 101.0
-theme_override_fonts/font = ExtResource("3_yeylb")
+theme_override_fonts/font = ExtResource("3_ef158")
 text = "Ok!"
 
 [node name="Label" type="Label" parent="Panel"]
@@ -50,7 +50,7 @@ offset_left = 281.0
 offset_top = 41.0
 offset_right = 1104.0
 offset_bottom = 120.0
-theme_override_fonts/font = ExtResource("3_yeylb")
+theme_override_fonts/font = ExtResource("3_ef158")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_lwkm2")
 text = "Hi! I've been getting really bad headaches lately. Do you have anything that could help?"

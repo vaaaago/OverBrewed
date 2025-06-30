@@ -8,27 +8,42 @@ var customer_wait_time: float
 var waiting := true
 var time_passed := 0.0
 var is_dialog_open := false
-var dialog_instance = null
+var dialog_instance: CustomerChat = null
+
+var customer_type: CustomerResource
+var customer_request: CustomerRequest
+var accepted_products: Array[Item]
 
 @onready var wait_bar_sprite: Sprite2D = $WaitBar
 @onready var interaction_area = $PlayerInteractionArea
+@onready var sprite: Sprite2D = $Sprite
 
 @export var dialog_scene: PackedScene 
-@export var accepted_products: Array[Item]
 
 var player_in_range := false
 var bar_total_frames := 12
 var current_product: Item = null
 var product_received: bool = false
 
-func _ready():
-	set_multiplayer_authority(1) #Server tendra la autoridad
-	interaction_area.body_entered.connect(_on_body_entered)
-	interaction_area.body_exited.connect(_on_body_exited)
+func configure(customer_id: int, request_id: int) -> void:
+	if not Game.customer_register_ready:
+		await Game.customer_register_ready_signal
+	
+	#Debug.log("Configurando objeto")
+	customer_type = Game.customer_register[customer_id]
+	customer_request = Game.customer_request_register[request_id]
+	
+	sprite.texture = customer_type.texture
+	accepted_products = customer_request.requested_items
 	
 	# Aca elegimos el producto del cliente de entre los disponibles en su lista
 	# Por ahora solo hay uno, cambiar a futuro
 	current_product = accepted_products.pick_random()
+	
+func _ready():
+	set_multiplayer_authority(1) #Server tendra la autoridad
+	interaction_area.body_entered.connect(_on_body_entered)
+	interaction_area.body_exited.connect(_on_body_exited)
 
 func _process(delta):
 	if not waiting:
@@ -72,6 +87,8 @@ func open_dialog():
 	dialog_instance = dialog_scene.instantiate()
 	dialog_instance.ok_pressed.connect(close_dialog)
 	get_tree().current_scene.add_child(dialog_instance)
+	
+	dialog_instance.configure(customer_request.ID, customer_type.ID)
 	is_dialog_open = true
 
 func close_dialog():
@@ -102,7 +119,6 @@ func receive_product_request(product_id: int, request_peer_id: int) -> void:
 			leave_store.rpc()
 			# A futuro cambiar esto a otro metodo reject_product()
 			# para por ejemplo descontar puntos
-			
 			
 			var player: Player = Game.get_player(request_peer_id).instance
 			player.rpc_id(request_peer_id, "confirm_object_deposited")

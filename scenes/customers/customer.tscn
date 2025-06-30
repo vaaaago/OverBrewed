@@ -1,11 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3vaown7ssk8j"]
+[gd_scene load_steps=9 format=3 uid="uid://v3iv36h2d8xm"]
 
-[ext_resource type="Script" uid="uid://o1f7ywijm7ep" path="res://scenes/customers/customer.gd" id="1_bfybl"]
-[ext_resource type="Texture2D" uid="uid://0a7rs5axjdb4" path="res://assets/sprites/customers/cleric.png" id="1_s2nac"]
-[ext_resource type="PackedScene" uid="uid://bdnchmbsq08hl" path="res://scenes/customers/clericChat.tscn" id="2_l6koq"]
-[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="3_ie42b"]
-[ext_resource type="Texture2D" uid="uid://b3qla4qumkhq1" path="res://assets/UI/progressBar.png" id="4_4u042"]
-[ext_resource type="Resource" uid="uid://cqdipvslf1803" path="res://resources/Product/Healing_potion_item.tres" id="4_ie42b"]
+[ext_resource type="Script" uid="uid://o1f7ywijm7ep" path="res://scripts/customer.gd" id="1_lc1ie"]
+[ext_resource type="PackedScene" uid="uid://d3i6jnvspcuno" path="res://scenes/customers/CustomerChat.tscn" id="2_h1lfo"]
+[ext_resource type="Texture2D" uid="uid://0a7rs5axjdb4" path="res://assets/sprites/customers/cleric.png" id="5_ynqaf"]
+[ext_resource type="Texture2D" uid="uid://b3qla4qumkhq1" path="res://assets/UI/progressBar.png" id="6_tpn71"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2nac"]
 size = Vector2(61, 148)
@@ -15,7 +13,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:position")
+tracks/0/path = NodePath("Sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -32,7 +30,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:position")
+tracks/0/path = NodePath("Sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -48,14 +46,13 @@ _data = {
 &"shake": SubResource("Animation_ie42b")
 }
 
-[node name="cleric" type="Node2D"]
-script = ExtResource("1_bfybl")
-dialog_scene = ExtResource("2_l6koq")
-accepted_products = Array[ExtResource("3_ie42b")]([ExtResource("4_ie42b")])
+[node name="Customer" type="Node2D"]
+script = ExtResource("1_lc1ie")
+dialog_scene = ExtResource("2_h1lfo")
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
-texture = ExtResource("1_s2nac")
+texture = ExtResource("5_ynqaf")
 
 [node name="PlayerInteractionArea" type="Area2D" parent="."]
 collision_layer = 16
@@ -67,7 +64,7 @@ shape = SubResource("RectangleShape2D_s2nac")
 [node name="WaitBar" type="Sprite2D" parent="."]
 position = Vector2(0, -54)
 scale = Vector2(2.09375, 1.375)
-texture = ExtResource("4_4u042")
+texture = ExtResource("6_tpn71")
 hframes = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

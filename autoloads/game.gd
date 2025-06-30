@@ -4,13 +4,24 @@ signal players_updated
 signal player_updated(id)
 signal vote_updated(id)
 signal player_index_received()
+
 signal register_ready_signal
+signal customer_register_ready_signal
+signal customer_request_register_ready_signal
 
 var item_folder_path: String = "res://resources/Items/"
 var product_folder_path: String = "res://resources/Product/"
+var customer_folder_path: String = "res://resources/Customers/"
+var customer_request_folder_path: String = "res://resources/Customer_requests/"
 
 var item_register: Dictionary[int, Item] = {}
 var register_ready: bool = false
+
+var customer_register: Dictionary[int, CustomerResource] = {}
+var customer_register_ready: bool = false
+
+var customer_request_register: Dictionary[int, CustomerRequest] = {}
+var customer_request_register_ready: bool = false
 
 
 @export var multiplayer_test = false
@@ -44,12 +55,18 @@ var _initial_window_scale_aspect
 
 func _init() -> void:
 	# Cargamos recursos de items y productos
-	load_resources_to_registers()
+	load_item_resources_to_registers()
+	load_customer_resources_to_register()
+	load_customer_request_resources_to_register()
 	
-	#print(item_register.size())
-	#print(item_register)
 	register_ready = true
 	register_ready_signal.emit()
+	
+	customer_register_ready = true
+	customer_register_ready_signal.emit()
+	
+	customer_request_register_ready = true
+	customer_request_register_ready_signal.emit()
 
 func _ready() -> void:
 	_initial_window_scale_mode = get_window().content_scale_mode
@@ -70,7 +87,7 @@ func get_all_files_from_directory(path : String, files := []):
 		files.append(path+res)
 	return files
 
-func load_resources_to_registers():
+func load_item_resources_to_registers():
 	for file in get_all_files_from_directory(item_folder_path):
 		var item: Item = load(file)
 		item_register[item.ID] = item
@@ -79,9 +96,19 @@ func load_resources_to_registers():
 		var product: Item = load(file)
 		item_register[product.ID] = product
 
+func load_customer_resources_to_register():
+	for file in get_all_files_from_directory(customer_folder_path):
+		var customer: CustomerResource = load(file)
+		customer_register[customer.ID] = customer
+
+func load_customer_request_resources_to_register():
+	for file in get_all_files_from_directory(customer_request_folder_path):
+		print(file)
+		var request: CustomerRequest = load(file)
+		customer_request_register[request.ID] = request
+
 func sort_players() -> void:
 	players.sort_custom(func(a, b): return a.index < b.index)
-
 
 func add_player(player: Statics.PlayerData) -> void:
 	var existing_player: Statics.PlayerData = null

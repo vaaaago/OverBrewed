@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://baru6ibwgdgls"]
 
-[ext_resource type="Script" uid="uid://o1f7ywijm7ep" path="res://scenes/customers/customer.gd" id="1_5qcyh"]
-[ext_resource type="PackedScene" uid="uid://c06eobgbbdha7" path="res://scenes/customers/smithChat.tscn" id="2_5qcyh"]
+[ext_resource type="Script" uid="uid://o1f7ywijm7ep" path="res://scripts/customer.gd" id="1_5qcyh"]
+[ext_resource type="PackedScene" uid="uid://c06eobgbbdha7" path="res://scenes/customers/old/smithChat.tscn" id="2_5qcyh"]
 [ext_resource type="Texture2D" uid="uid://cu6wil81gnc2j" path="res://assets/sprites/customers/blacksmith.png" id="3_pkvse"]
 [ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="3_t5v4s"]
 [ext_resource type="Texture2D" uid="uid://b3qla4qumkhq1" path="res://assets/UI/progressBar.png" id="4_pkvse"]
