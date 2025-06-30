@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_71f31")
 item_name = "Gold Ore"
-ID = 18
+ID = 11
 texture = ExtResource("2_b86py")
 texture_scale = 1.5
 pickable_texture_scale = 2.0

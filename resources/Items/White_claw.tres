@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://b0a2qhjig58go"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_r23go"]
+[ext_resource type="Texture2D" uid="uid://c4edpcr8cjnya" path="res://assets/sprites/Environment/ingredients/others/tile003.png" id="2_a7x7b"]
+
+[resource]
+script = ExtResource("1_r23go")
+item_name = "White Claw"
+ID = 21
+texture = ExtResource("2_a7x7b")
+texture_scale = 1.5
+pickable_texture_scale = 2.0
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

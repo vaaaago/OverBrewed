@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_c3n56")
 item_name = "Unicorn Horn"
-ID = 19
+ID = 18
 texture = ExtResource("2_ictm4")
 texture_scale = 1.5
 pickable_texture_scale = 2.0

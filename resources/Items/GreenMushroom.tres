@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_oecd4")
 item_name = "Green Mushroom"
-ID = 11
+ID = 12
 texture = ExtResource("2_en1bq")
 texture_scale = 1.0
 pickable_texture_scale = 2.0
