@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bieegw68igah3"]
+[gd_scene load_steps=28 format=3 uid="uid://bieegw68igah3"]
 
 [ext_resource type="Script" uid="uid://2gd0kljdd5jv" path="res://assets/sprites/Environment/book/book.gd" id="1_4oemj"]
 [ext_resource type="Texture2D" uid="uid://cy2n3b4lfa2bi" path="res://assets/sprites/Environment/book/book_image_13.png" id="2_gkogt"]
@@ -9,9 +9,20 @@
 [ext_resource type="FontFile" uid="uid://bbh6nsse8pp3b" path="res://assets/fonts/smallburg-Italic.ttf" id="7_87n2p"]
 [ext_resource type="FontFile" uid="uid://8rki88vs3glq" path="res://assets/fonts/smallburg-Italic.otf" id="8_ehtt4"]
 [ext_resource type="Texture2D" uid="uid://g4nerpkof1qj" path="res://assets/sprites/Environment/ambience/instruments/Small Vial - RED - 0000.png" id="8_j75rt"]
+[ext_resource type="Texture2D" uid="uid://dir1bek17kh04" path="res://assets/sprites/Environment/ambience/instruments/Small Bottle - BLACK_GOLD - 0006.png" id="9_55ft4"]
 [ext_resource type="Texture2D" uid="uid://cvxyfxyuhf3mp" path="res://assets/sprites/Environment/ingredients/others/tile004.png" id="10_a3osd"]
+[ext_resource type="Texture2D" uid="uid://ck87fxmumqktd" path="res://assets/sprites/Environment/ambience/instruments/Bubbly Brew Bottle Rising - GREEN - 0017.png" id="10_yhhq4"]
 [ext_resource type="Texture2D" uid="uid://dud3aroblsnm4" path="res://assets/sprites/Environment/ingredients/plants/chamomile 32.png" id="11_bchlu"]
+[ext_resource type="Texture2D" uid="uid://dgbs5h1ky2n1f" path="res://assets/sprites/Environment/ambience/instruments/Large Bottle - PURPLE - 0013.png" id="11_ps1yp"]
 [ext_resource type="Texture2D" uid="uid://dehimt0j62c07" path="res://assets/sprites/Environment/ingredients/others/gold_ore.png" id="12_wh87u"]
+[ext_resource type="Texture2D" uid="uid://brul846un65cl" path="res://assets/sprites/Environment/ingredients/plants/senna 32.png" id="14_igc1g"]
+[ext_resource type="Texture2D" uid="uid://c4edpcr8cjnya" path="res://assets/sprites/Environment/ingredients/others/tile003.png" id="15_shv2o"]
+[ext_resource type="Texture2D" uid="uid://dqjn70kcr6cxh" path="res://assets/sprites/Environment/ingredients/plants/ephedra 32.png" id="16_0g7oe"]
+[ext_resource type="Texture2D" uid="uid://5apt34g15ikb" path="res://assets/sprites/Environment/ingredients/plants/black elder 32.png" id="18_e7wot"]
+[ext_resource type="Texture2D" uid="uid://cnntnnqn6pplu" path="res://assets/sprites/Environment/ingredients/plants/white toadstool 32.png" id="19_pygtd"]
+[ext_resource type="Texture2D" uid="uid://dkgkjkjnsy8p1" path="res://assets/sprites/Environment/ingredients/others/tile007.png" id="20_ps1yp"]
+[ext_resource type="Texture2D" uid="uid://bmhpn31288ay5" path="res://assets/sprites/Environment/ingredients/plants/basil 32.png" id="22_gijxt"]
+[ext_resource type="Texture2D" uid="uid://425v1r8qx5mj" path="res://assets/sprites/Environment/ingredients/plants/blue lotus 32.png" id="23_siqcq"]
 
 [sub_resource type="Animation" id="Animation_g2pr3"]
 length = 0.001
@@ -75,7 +86,6 @@ scale = Vector2(4, 4)
 shape = SubResource("CapsuleShape2D_gkogt")
 
 [node name="LibroUI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="LibroUI"]
 anchors_preset = 15
@@ -152,6 +162,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="pagIzq_health" type="RichTextLabel" parent="LibroUI/Control/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -198,16 +209,35 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -143.0
-offset_top = -131.0
-offset_right = -28.0
-offset_bottom = 31.0
+offset_left = -144.0
+offset_top = -130.0
+offset_right = 138.0
+offset_bottom = 281.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.4, 0.4)
 theme_override_colors/default_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
 theme_override_fonts/normal_font = ExtResource("7_87n2p")
 bbcode_enabled = true
-text = "Coming soon... ⚡️"
+text = "         breath of the wind
+
+Among the scrolls of the desert wanderers clan, this ancient formula is crafted to cross grat distances without fatigue. Only the most skilled alchemist can balance its ingredients without unleashing devastating side efects.
+
+
+
+
+
+
+Those who drink it feel their muscles lighten, their breathing steady, and their thoughts race as fast as their steps. But excessive use may lead to physical collapse or hallucinations of illusory speed."
+
+[node name="TextureRect1" type="TextureRect" parent="LibroUI/Control/Control/pagIzq_speed"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 165.0
+offset_right = 130.0
+offset_bottom = 221.0
+scale = Vector2(2, 2)
+texture = ExtResource("9_55ft4")
 
 [node name="pagIzq_poison" type="RichTextLabel" parent="LibroUI/Control/Control"]
 visible = false
@@ -217,35 +247,78 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -143.0
-offset_top = -131.0
-offset_right = -28.0
-offset_bottom = 31.0
+offset_left = -144.0
+offset_top = -130.0
+offset_right = 138.0
+offset_bottom = 281.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.4, 0.4)
 theme_override_colors/default_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
 theme_override_fonts/normal_font = ExtResource("7_87n2p")
 bbcode_enabled = true
-text = "Coming soon...☠️"
+text = "         Whisper of the night
+
+A brew reserved for silent assassins and alchemists of questionable morals. Its preparation demands precision and cold blood, for a single mistake may poison the maker before the victim.
+
+
+
+
+
+
+
+
+A single drop of this poison is enough to bring even a giant to their deathbed within hours. It should never be handled within bare skin. Some alchemists store it in vials sealed with black wax and warning sigils."
+
+[node name="TextureRect1" type="TextureRect" parent="LibroUI/Control/Control/pagIzq_poison"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 155.0
+offset_right = 128.0
+offset_bottom = 211.0
+scale = Vector2(2, 2)
+texture = ExtResource("10_yhhq4")
 
 [node name="pagIzq_sleep" type="RichTextLabel" parent="LibroUI/Control/Control"]
 visible = false
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -143.0
-offset_top = -131.0
-offset_right = -28.0
-offset_bottom = 31.0
+anchors_preset = -1
+anchor_left = 0.509999
+anchor_top = 0.94
+anchor_right = 0.509999
+anchor_bottom = 0.99
+offset_left = -144.4
+offset_top = -134.4
+offset_right = 137.6
+offset_bottom = 287.6
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.4, 0.4)
 theme_override_colors/default_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
 theme_override_fonts/normal_font = ExtResource("7_87n2p")
 bbcode_enabled = true
-text = "Coming soon...😴"
+text = "         Selene's embrace
+
+Whispered among nocturnal herbalists and dreamwardens, this potion is dedicated to the lunar Goddess who watches over the sleeping. Its effect is deep and enveloping, pulling the soul into a dreamless rest as soft as midnight mist.
+
+
+
+
+
+
+
+It was once used by priestesses of forgotten temples to induce prophetic visions or soothe kings tormented by nightmares. However, overuse may lead the drinker into an unbreakable slumber from wich few awaken.
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect1" type="TextureRect" parent="LibroUI/Control/Control/pagIzq_sleep"]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 160.0
+offset_right = 131.0
+offset_bottom = 228.0
+scale = Vector2(2, 2)
+texture = ExtResource("11_ps1yp")
 
 [node name="Control2" type="Control" parent="LibroUI/Control"]
 anchors_preset = 0
@@ -253,6 +326,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="pagDer_health" type="RichTextLabel" parent="LibroUI/Control/Control2"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -261,7 +335,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -7.0
 offset_top = -130.0
-offset_right = 288.0
+offset_right = 292.0
 offset_bottom = 276.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -320,14 +394,55 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -7.0
 offset_top = -130.0
-offset_right = 111.0
-offset_bottom = 35.0
+offset_right = 296.0
+offset_bottom = 281.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.4, 0.4)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("8_ehtt4")
 bbcode_enabled = true
-text = "Coming soon..."
+text = "Ingredients
+
+    Claw of Griffin: harvested from beasts that outrun the wind itself. The claw is ground into silver powder wich, when boiled, unnaturally sharpends the drinker's reflexes. 
+
+    Senna leaves: A plant that grows in scorching dunes, traditionally used as a purgative. In the right dose, it stimulates the internal system and lightens the body of toxins, preparing it for accelerated movement.
+
+    Ephedra sprouts: Carefully picked at dawn. Its compounds stimulate the heart and expand the lungs, granting stamina and focus in teh heat of the run.
+
+
+"
+
+[node name="TextureRect" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_speed"]
+layout_mode = 0
+offset_left = -6.5
+offset_top = 145.0
+offset_right = 33.5
+offset_bottom = 185.0
+rotation = -0.300197
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("14_igc1g")
+
+[node name="TextureRect2" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_speed"]
+layout_mode = 0
+offset_left = 24.5
+offset_top = 26.0
+offset_right = 64.5
+offset_bottom = 66.0
+rotation = 1.42768
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("15_shv2o")
+flip_h = true
+
+[node name="TextureRect3" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_speed"]
+layout_mode = 0
+offset_left = 8.5
+offset_top = 274.0
+offset_right = 40.5
+offset_bottom = 315.0
+rotation = 0.214676
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("16_0g7oe")
 
 [node name="pagDer_poison" type="RichTextLabel" parent="LibroUI/Control/Control2"]
 visible = false
@@ -337,16 +452,55 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -7.0
-offset_top = -130.0
-offset_right = 109.0
-offset_bottom = 35.0
+offset_left = -11.2
+offset_top = -132.0
+offset_right = 306.8
+offset_bottom = 287.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.4, 0.4)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("8_ehtt4")
 bbcode_enabled = true
-text = "Coming soon..."
+text = "Ingredients
+
+    White mushroom of Liria: Though they appear harmless, their sap contains a paralyzing toxin that halts breath with a single sip. Must be fermented for three days before being crushed.
+
+    Black Elder: Its berries must be added raw, unprocessed, to release their volatile essence. upon ingestion, they induce visions and internal unrest that slowly erodes the body from within.
+
+    Eye of an unknown creature: From beasts that dwell between realms. It's inclusion activates the poison full lethality. When boiled whole, the eye turns the mixture a sickly green and gives off a sweet scent that masks its danger.
+
+
+"
+
+[node name="TextureRect" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_poison"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 145.0
+offset_right = 38.0
+offset_bottom = 185.0
+rotation = -0.300197
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("18_e7wot")
+
+[node name="TextureRect2" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_poison"]
+layout_mode = 0
+offset_left = -1.5
+offset_top = 27.0
+offset_right = 38.5
+offset_bottom = 67.0
+rotation = -0.0296706
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("19_pygtd")
+flip_h = true
+
+[node name="TextureRect3" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_poison"]
+layout_mode = 0
+offset_top = 247.0
+offset_right = 32.0
+offset_bottom = 288.0
+rotation = 0.214676
+texture = ExtResource("20_ps1yp")
 
 [node name="pagDer_sleep" type="RichTextLabel" parent="LibroUI/Control/Control2"]
 visible = false
@@ -356,16 +510,56 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -7.0
-offset_top = -130.0
-offset_right = 109.0
-offset_bottom = 35.0
+offset_left = -8.0
+offset_top = -129.2
+offset_right = 287.0
+offset_bottom = 271.8
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.4, 0.4)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("8_ehtt4")
 bbcode_enabled = true
-text = "Coming soon..."
+text = "Ingredients
+
+    Blue lotus flower: Blossoms in still ponds under moonlight. Its petals are dried and gently brewed, releasing an aroma that calms the mind and opens the gates of the subconscious.
+
+    Holy Basil: Revered in protection rituals, its fresh leaves purify the body before rest. Infused into the mixture, it wards off nightmares and ill omens.
+
+    Ground Black elderberry: Harvested at dusk and finely ground. This is the potion's core guiding the body into a state of deep, restorative sleep. Some say it may also enable lucid dreams if combined with proper chants.
+
+
+"
+
+[node name="TextureRect" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_sleep"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 140.0
+offset_right = 41.0
+offset_bottom = 180.0
+rotation = -0.171042
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("22_gijxt")
+
+[node name="TextureRect2" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_sleep"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 28.0
+offset_right = 42.0
+offset_bottom = 68.0
+rotation = -0.0418879
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("23_siqcq")
+
+[node name="TextureRect3" type="TextureRect" parent="LibroUI/Control/Control2/pagDer_sleep"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 235.0
+offset_right = 46.0
+offset_bottom = 275.0
+rotation = 0.214676
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("18_e7wot")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]
