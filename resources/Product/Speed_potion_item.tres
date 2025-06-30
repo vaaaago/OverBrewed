@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bdanhphrqvdya"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_ap5yn"]
+[ext_resource type="Texture2D" uid="uid://dir1bek17kh04" path="res://assets/sprites/Environment/ambience/instruments/Small Bottle - BLACK_GOLD - 0006.png" id="2_5yj30"]
+
+[resource]
+script = ExtResource("1_ap5yn")
+item_name = "Speed Potion"
+ID = 1003
+texture = ExtResource("2_5yj30")
+texture_scale = 1.0
+pickable_texture_scale = 2.0
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

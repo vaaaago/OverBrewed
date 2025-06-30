@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://drjj88h3chuhe"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_0ka0t"]
+[ext_resource type="Texture2D" uid="uid://ck87fxmumqktd" path="res://assets/sprites/Environment/ambience/instruments/Bubbly Brew Bottle Rising - GREEN - 0017.png" id="2_psyun"]
+
+[resource]
+script = ExtResource("1_0ka0t")
+item_name = "Poison Potion"
+ID = 1004
+texture = ExtResource("2_psyun")
+texture_scale = 1.0
+pickable_texture_scale = 2.0
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

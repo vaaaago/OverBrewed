@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dcxkmyuo0wdyx"]
+[gd_scene load_steps=25 format=3 uid="uid://dcxkmyuo0wdyx"]
 
 [ext_resource type="Script" uid="uid://v0jespiaa5kt" path="res://scripts/tool.gd" id="1_8jqlm"]
 [ext_resource type="Texture2D" uid="uid://dqs6qw2wr4y07" path="res://assets/sprites/Cauldren Set/!cauldren.png" id="1_bi80w"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://s6ju4qx2jwjl" path="res://resources/Recipes/Healing_potion_recipe.tres" id="4_ckcv7"]
 [ext_resource type="Texture2D" uid="uid://ctc5ju7cq1k7w" path="res://assets/sprites/Environment/ingredients/plants/calendula 32.png" id="4_v0sq3"]
 [ext_resource type="Texture2D" uid="uid://dud3aroblsnm4" path="res://assets/sprites/Environment/ingredients/plants/chamomile 32.png" id="5_muemc"]
+[ext_resource type="Resource" uid="uid://ccktb005kdfhh" path="res://resources/Recipes/Speed_potion_recipe.tres" id="5_qr7vf"]
 
 [sub_resource type="Animation" id="Animation_jyhfs"]
 length = 12.0
@@ -114,7 +115,7 @@ properties/2/replication_mode = 2
 y_sort_enabled = true
 script = ExtResource("1_8jqlm")
 total_ingredients = 3
-recipe_array = Array[ExtResource("2_v0sq3")]([ExtResource("3_muemc"), ExtResource("4_ckcv7")])
+recipe_array = Array[ExtResource("2_v0sq3")]([ExtResource("3_muemc"), ExtResource("4_ckcv7"), ExtResource("5_qr7vf")])
 pickable_object_scene = ExtResource("4_3xx01")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

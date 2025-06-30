@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dgtcoo77474cf"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_mhymw"]
+[ext_resource type="Texture2D" uid="uid://dgbs5h1ky2n1f" path="res://assets/sprites/Environment/ambience/instruments/Large Bottle - PURPLE - 0013.png" id="2_5cfmb"]
+
+[resource]
+script = ExtResource("1_mhymw")
+item_name = "Sleeping Potion"
+ID = 1005
+texture = ExtResource("2_5cfmb")
+texture_scale = 1.0
+pickable_texture_scale = 2.0
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

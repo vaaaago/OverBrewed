@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=7 format=3 uid="uid://ccktb005kdfhh"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_7wvom"]
+[ext_resource type="Resource" uid="uid://b0a2qhjig58go" path="res://resources/Items/White_claw.tres" id="2_lrcka"]
+[ext_resource type="Script" uid="uid://hywg3hs58nyv" path="res://resources/definitions/crafting_recipe.gd" id="2_uok2n"]
+[ext_resource type="Resource" uid="uid://b6iqkhqqq7ldm" path="res://resources/Items/Senna.tres" id="3_bpm7n"]
+[ext_resource type="Resource" uid="uid://cau2bw0isgpyj" path="res://resources/Items/Ephedra.tres" id="4_lvlvs"]
+[ext_resource type="Resource" uid="uid://bdanhphrqvdya" path="res://resources/Product/Speed_potion_item.tres" id="5_2iqxc"]
+
+[resource]
+script = ExtResource("2_uok2n")
+ingredients = Array[ExtResource("1_7wvom")]([ExtResource("2_lrcka"), ExtResource("3_bpm7n"), ExtResource("4_lvlvs")])
+output = ExtResource("5_2iqxc")
+metadata/_custom_type_script = "uid://hywg3hs58nyv"
