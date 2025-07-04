@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=7 format=3 uid="uid://bognelmjyf8jw"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_4k8ec"]
+[ext_resource type="Resource" uid="uid://dmjb6u8r2lnx5" path="res://resources/Product/Crushed_white_toadstool.tres" id="2_v4y3j"]
+[ext_resource type="Script" uid="uid://hywg3hs58nyv" path="res://resources/definitions/crafting_recipe.gd" id="2_xqcsy"]
+[ext_resource type="Resource" uid="uid://ccljg42pu5lb4" path="res://resources/Items/UnknownEye.tres" id="3_ogif3"]
+[ext_resource type="Resource" uid="uid://b2x8uytac3fx7" path="res://resources/Items/BlackElder.tres" id="4_4jj3l"]
+[ext_resource type="Resource" uid="uid://drjj88h3chuhe" path="res://resources/Product/Poison_potion_item.tres" id="5_f6q78"]
+
+[resource]
+script = ExtResource("2_xqcsy")
+ingredients = Array[ExtResource("1_4k8ec")]([ExtResource("2_v4y3j"), ExtResource("3_ogif3"), ExtResource("4_4jj3l")])
+output = ExtResource("5_f6q78")
+metadata/_custom_type_script = "uid://hywg3hs58nyv"

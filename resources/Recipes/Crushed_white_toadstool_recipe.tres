@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=5 format=3 uid="uid://cq3r116pvjh82"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_hf2gr"]
+[ext_resource type="Resource" uid="uid://bxewl4fwmtvky" path="res://resources/Items/WhiteToadstool.tres" id="2_158ka"]
+[ext_resource type="Script" uid="uid://hywg3hs58nyv" path="res://resources/definitions/crafting_recipe.gd" id="2_us65k"]
+[ext_resource type="Resource" uid="uid://dmjb6u8r2lnx5" path="res://resources/Product/Crushed_white_toadstool.tres" id="3_eil12"]
+
+[resource]
+script = ExtResource("2_us65k")
+ingredients = Array[ExtResource("1_hf2gr")]([ExtResource("2_158ka")])
+output = ExtResource("3_eil12")
+metadata/_custom_type_script = "uid://hywg3hs58nyv"

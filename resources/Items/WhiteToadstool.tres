@@ -9,5 +9,5 @@ item_name = "White Toadstool"
 ID = 20
 texture = ExtResource("2_o8hs4")
 texture_scale = 1.0
-pickable_texture_scale = 2.0
+pickable_texture_scale = 1.5
 metadata/_custom_type_script = "uid://du7m4ony33aw4"
