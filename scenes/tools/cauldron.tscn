@@ -151,14 +151,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
 
 [node name="Item_1" type="TextureRect" parent="MarginContainer/HBoxContainer/Frame_1/Margin_1"]
 layout_mode = 2
 texture = ExtResource("3_wtd5c")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Frame_2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -172,14 +174,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
 
 [node name="Item_2" type="TextureRect" parent="MarginContainer/HBoxContainer/Frame_2/Margin_2"]
 layout_mode = 2
 texture = ExtResource("4_v0sq3")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Frame_3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -193,14 +197,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
 
 [node name="Item_3" type="TextureRect" parent="MarginContainer/HBoxContainer/Frame_3/Margin_3"]
 layout_mode = 2
 texture = ExtResource("5_muemc")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true

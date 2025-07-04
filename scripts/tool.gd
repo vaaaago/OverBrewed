@@ -54,20 +54,19 @@ func request_server_add_ingredient(ingredient_ID: int, request_peer_id: int):
 		
 		# Si tras actualizar el estado, se tienen los ingredientes totales, iniciamos crafteo
 		if ingredient_count == total_ingredients:
-			#Debug.log("Momento de craftear")
-			
 			timer.start()
 			await timer.timeout
 			
 			var anim: String = "crafted_state"
 			sync_animation.rpc(anim)
 			
+			# Mejorar esta logica para actuar diferente cuando el crafteo falla,
+			# porque ahora mismo el caldero queda con la animacion aunque no haya crafteado nada util.
 			craft_item()
 			
 			reset_state.rpc()
 		
 	else:
-		#Debug.log("Ingrediente " + ingredient.item_name + " rechazado (caldero lleno).")
 		rpc_id(request_peer_id, "reject_object_deposited")
 
 @rpc("authority", "call_local", "reliable")
@@ -88,7 +87,8 @@ func sync_client_ingredient_state(ingredient_added_ID: int):
 @rpc("authority", "call_local", "reliable")
 func reset_state():
 	while ingredient_id_array.size() > 0:
-		var ig = Game.item_register[ingredient_id_array.pop_back()]
+		@warning_ignore("standalone_expression")
+		Game.item_register[ingredient_id_array.pop_back()]
 		#ingredient_dict[ig] = 0
 		ingredient_count -= 1
 		
@@ -97,11 +97,10 @@ func reset_state():
 
 func craft_item():
 	if output_item:
-		#Debug.log("Ya hay un producto esperando ser recogido")
+		# Chequear la logica cuando ya hay un objeto adentro y metes ingredientes
 		return
 	
 	for recipe: CraftingRecipe in recipe_array:
-		Debug.log(recipe.can_craft(ingredient_id_array))
 		if recipe.can_craft(ingredient_id_array):
 			output_item = recipe.output
 			Debug.log(output_item.item_name + " ha sido crafteado")
