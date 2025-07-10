@@ -496,3 +496,5 @@ position = Vector2(0, -50)
 
 [node name="MarkerLeft" type="Marker2D" parent="PickUpMarkers"]
 position = Vector2(-50, 0)
+
+[node name="EffectTimer" type="Timer" parent="."]

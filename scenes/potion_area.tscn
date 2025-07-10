@@ -18,7 +18,7 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_ams70")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticlesColor" type="CPUParticles2D" parent="."]
 amount = 300
 lifetime = 0.7
 speed_scale = 1.5
@@ -33,4 +33,20 @@ scale_amount_min = 2.0
 scale_amount_max = 6.0
 scale_amount_curve = SubResource("Curve_d2txv")
 color = Color(0.807223, 0.357269, 0.545373, 1)
+hue_variation_max = 1.0
+
+[node name="CPUParticlesWhite" type="CPUParticles2D" parent="."]
+amount = 150
+lifetime = 0.7
+speed_scale = 1.5
+randomness = 1.0
+lifetime_randomness = 0.1
+emission_shape = 1
+emission_sphere_radius = 120.0
+direction = Vector2(10, 10)
+spread = 36.0
+gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_d2txv")
 hue_variation_max = 1.0

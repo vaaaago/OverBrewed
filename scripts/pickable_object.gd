@@ -51,7 +51,7 @@ func cancel_timer() -> void:
 		timer.stop()
 
 func on_timer_timeout() -> void:
-	Debug.log("Timer pocion")
+	#Debug.log("Timer pocion")
 	var potion_effect_instance: PotionArea = potion_effect_scene.instantiate()
 	self.get_parent().add_child(potion_effect_instance)
 	potion_effect_instance.configure(position, item_type.ID)

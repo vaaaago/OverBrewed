@@ -22,6 +22,7 @@ var applied_effect: PotionEffect = null
 @onready var animation_tree: AnimationTree = $Pivot/AnimationTree
 @onready var playback: Variant = animation_tree["parameters/playback"]
 @onready var pivot: Node2D = $Pivot
+@onready var effect_timer: Timer = $EffectTimer
 
 @onready var item_pickup_area: Area2D = $ItemPickupArea
 @onready var tool_interaction_area: Area2D = $ToolInteractionArea
@@ -40,6 +41,8 @@ func _ready() -> void:
 	source_interaction_area.area_exited.connect(_on_source_interaction_area_area_exited)
 	customer_interaction_area.area_entered.connect(_on_customer_interaction_area_area_entered)
 	customer_interaction_area.area_exited.connect(_on_customer_interaction_area_area_exited)
+	
+	effect_timer.timeout.connect(remove_effect)
 
 func setup(player_object: Statics.PlayerData) -> void:
 	# Seteamos el nombre del nodo de forma de que sea unico
@@ -47,11 +50,14 @@ func setup(player_object: Statics.PlayerData) -> void:
 	label.text = player_object.name
 	
 	if player_object.role == Statics.Role.ROLE_A:
-		sprite.self_modulate = Color.RED
+		#sprite.self_modulate = Color.RED
+		pass
 	elif player_object.role == Statics.Role.ROLE_B:
-		sprite.self_modulate = Color.BLUE
+		#sprite.self_modulate = Color.BLUE
+		pass
 	else:
-		sprite.self_modulate = Color.GREEN
+		#sprite.self_modulate = Color.GREEN
+		pass
 	
 	#Seteamos la autoridad del peer con id: player_object.id sobre este nodo de jugador
 	set_multiplayer_authority(player_object.id)
@@ -95,7 +101,7 @@ func _input(event: InputEvent) -> void:
 				#Debug.log("Objeto soltado")
 				configure_picked_object(picked_object, false)
 				if picked_object.item_type.is_potion():
-					picked_object.start_timer()
+					picked_object.start_timer.rpc()
 				
 				picked_object = null
 		
@@ -112,7 +118,6 @@ func _input(event: InputEvent) -> void:
 @rpc("any_peer", "call_local", "reliable")
 func confirm_object_deposited() -> void:
 	# Si tenemos un objeto, ahora lo eliminamos
-	# Implementar logica de destruccion aqui
 	#Debug.log("Objeto destruido")
 	picked_object.destroy.rpc()
 
@@ -188,6 +193,12 @@ func play_movement_animations(move_input: Vector2) -> void:
 		playback.travel("upwards_walk")
 	else:
 		playback.travel("idle")
+
+func get_current_effect() -> PotionEffect:
+	return applied_effect
+
+func start_effect_timer(duration: float) -> void:
+	effect_timer.start(duration)
 
 func remove_effect() -> void:
 	max_speed = initial_max_speed

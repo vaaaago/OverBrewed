@@ -9,4 +9,5 @@ health_restoration = true
 speed_reduction = false
 paralysis = false
 speed_increase = false
+particle_color = Color(0.969278, 0.234837, 0.324151, 1)
 metadata/_custom_type_script = "uid://8a4wcrjmag23"
