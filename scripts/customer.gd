@@ -15,7 +15,7 @@ var customer_request: CustomerRequest
 var accepted_products: Array[Item]
 
 @onready var wait_bar_sprite: Sprite2D = $WaitBar
-@onready var interaction_area = $PlayerInteractionArea
+@onready var interaction_area: Area2D = $PlayerInteractionArea
 @onready var sprite: Sprite2D = $Sprite
 
 @export var dialog_scene: PackedScene 
@@ -40,12 +40,12 @@ func configure(customer_id: int, request_id: int) -> void:
 	# Por ahora solo hay uno, cambiar a futuro
 	current_product = accepted_products.pick_random()
 	
-func _ready():
+func _ready() -> void:
 	set_multiplayer_authority(1) #Server tendra la autoridad
 	interaction_area.body_entered.connect(_on_body_entered)
 	interaction_area.body_exited.connect(_on_body_exited)
 
-func _process(delta):
+func _process(delta: float) -> void:
 	if not waiting:
 		return
 
@@ -68,22 +68,22 @@ func _process(delta):
 		toggle_dialog()
 
 
-func _on_body_entered(body: Node2D):
+func _on_body_entered(body: Node2D) -> void:
 	if body.is_class("CharacterBody2D"):
 		player_in_range = true
 
-func _on_body_exited(body: Node2D):
+func _on_body_exited(body: Node2D) -> void:
 	if body.is_class("CharacterBody2D"):
 		player_in_range = false
 		close_dialog()
 
-func toggle_dialog():
+func toggle_dialog() -> void:
 	if is_dialog_open:
 		close_dialog()
 	else:
 		open_dialog()
 
-func open_dialog():
+func open_dialog() -> void:
 	dialog_instance = dialog_scene.instantiate()
 	dialog_instance.ok_pressed.connect(close_dialog)
 	get_tree().current_scene.add_child(dialog_instance)
@@ -91,7 +91,7 @@ func open_dialog():
 	dialog_instance.configure(customer_request.ID, customer_type.ID)
 	is_dialog_open = true
 
-func close_dialog():
+func close_dialog() -> void:
 	if dialog_instance:
 		dialog_instance.queue_free()
 		dialog_instance = null
@@ -137,6 +137,6 @@ func accept_product() -> void:
 	leave_store.rpc()
 
 @rpc("authority", "call_local", "reliable")
-func leave_store():
-	despawned.emit(self)
+func leave_store() -> void:
+	despawned.emit()
 	queue_free()

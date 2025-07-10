@@ -3,13 +3,13 @@ extends Control
 
 signal ok_pressed
 
-@onready var ok_button = $Panel/Button
+@onready var ok_button: Button = $Panel/Button
 @onready var texture_rect: TextureRect = $Panel/TextureRect
 @onready var label: Label = $Panel/Label
 
 @export var request_type: CustomerRequest
 
-func _ready():
+func _ready() -> void:
 	ok_button.pressed.connect(_on_ok_button_pressed)
 
 func configure(request_id: int, customer_id: int) -> void:
@@ -22,5 +22,5 @@ func configure(request_id: int, customer_id: int) -> void:
 	texture_rect.texture = customer.portrait_texture
 	label.text = request.customer_dialog
 
-func _on_ok_button_pressed():
+func _on_ok_button_pressed() -> void:
 	queue_free()

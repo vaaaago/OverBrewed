@@ -86,6 +86,7 @@ scale = Vector2(4, 4)
 shape = SubResource("CapsuleShape2D_gkogt")
 
 [node name="LibroUI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="LibroUI"]
 anchors_preset = 15

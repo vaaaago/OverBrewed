@@ -14,7 +14,7 @@ func _ready() -> void:
 	if item_type:
 		configure(item_type.ID)
 
-func configure(item_type_id: int):
+func configure(item_type_id: int) -> void:
 	if not Game.register_ready:
 		await Game.register_ready_signal
 	

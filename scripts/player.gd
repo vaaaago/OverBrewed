@@ -1,8 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
-@export var max_speed = 450
-@export var acceleration = 800
+@export var max_speed: int = 450
+@export var acceleration: int = 800
 @export var pickable_object_scene: PackedScene
 
 var pickable_objects: Array[PickableObject] = []
@@ -14,7 +14,7 @@ var nearby_customer: Customer
 @onready var label: Label = $Label
 @onready var sprite: Sprite2D = $Pivot/Sprite2D
 @onready var animation_tree: AnimationTree = $Pivot/AnimationTree
-@onready var playback = animation_tree["parameters/playback"]
+@onready var playback: Variant = animation_tree["parameters/playback"]
 @onready var pivot: Node2D = $Pivot
 
 @onready var item_pickup_area: Area2D = $ItemPickupArea
@@ -35,7 +35,7 @@ func _ready() -> void:
 	customer_interaction_area.area_entered.connect(_on_customer_interaction_area_area_entered)
 	customer_interaction_area.area_exited.connect(_on_customer_interaction_area_area_exited)
 
-func setup(player_object: Statics.PlayerData):
+func setup(player_object: Statics.PlayerData) -> void:
 	# Seteamos el nombre del nodo de forma de que sea unico
 	name = str(player_object.id)
 	label.text = player_object.name
@@ -59,7 +59,7 @@ func _input(event: InputEvent) -> void:
 			# Si hay objetos alrededor y no tengo uno en la mano:
 			if pickable_objects and not picked_object:
 				#Debug.log("Objeto Recogido")
-				var object = pickable_objects.pop_front()
+				var object: PickableObject = pickable_objects.pop_front()
 				
 				# Si el objeto no estaba recogido, lo recogemos
 				if not object.picked_up:
@@ -98,15 +98,14 @@ func _input(event: InputEvent) -> void:
 				nearby_customer.receive_product_request.rpc_id(1, picked_object.item_type.ID, multiplayer.get_unique_id())
 
 @rpc("any_peer", "call_local", "reliable")
-func confirm_object_deposited():
+func confirm_object_deposited() -> void:
 	# Si tenemos un objeto, ahora lo eliminamos
 	# Implementar logica de destruccion aqui
 	#Debug.log("Objeto destruido")
 	picked_object.destroy.rpc()
-	pass
 
 @rpc("any_peer", "call_local", "reliable")
-func reject_object_deposited():
+func reject_object_deposited() -> void:
 	# Objeto fue rechazado
 	pass
 
@@ -114,7 +113,7 @@ func reject_object_deposited():
 func receive_object(object_path: NodePath) -> void:
 	#Debug.log("Objeto recibido")
 	#Debug.log(object_path)
-	var object = get_node(object_path)
+	var object: PickableObject = get_node(object_path)
 	
 	if not object:
 		# Si por algun motivo el objeto es nulo, no hacemos nada
@@ -144,11 +143,11 @@ func _physics_process(delta: float) -> void:
 		
 		for i in get_slide_collision_count():
 			# Obtenemos los objetos con los que colisionamos
-			var collision = get_slide_collision(i)
+			var collision: KinematicCollision2D = get_slide_collision(i)
 			
 			# Por cada uno de ellos, calculamos la componente del vector velocidad que va hacia la pared/objeto
 			# y se la restamos a la velocidad. Asi dejamos de acelerar hacia la pared, y podemos deslizarnos aun por ella.
-			var normal_projected_velocity = velocity.dot(collision.get_normal()) * collision.get_normal()
+			var normal_projected_velocity: Vector2 = velocity.dot(collision.get_normal()) * collision.get_normal()
 			velocity = velocity - normal_projected_velocity
 			
 		velocity = velocity.move_toward(move_input * max_speed, acceleration * delta)
@@ -167,7 +166,7 @@ func sync_data(pos: Vector2, vel: Vector2) -> void:
 	velocity = lerp(velocity, vel, 0.9)
 
 @rpc("authority", "call_local", "unreliable")
-func play_movement_animations(move_input: Vector2):
+func play_movement_animations(move_input: Vector2) -> void:
 	if abs(move_input.x) > 0.2:
 		pivot.scale.x = -sign(move_input.x)
 		playback.travel("horizontal_walk")
@@ -181,36 +180,36 @@ func play_movement_animations(move_input: Vector2):
 func configure_picked_object(object: PickableObject, picked_up: bool) -> void:
 	object.pickup_and_disable_interaction.rpc(picked_up)
 
-func _on_item_pickup_area_area_entered(area: Area2D):
+func _on_item_pickup_area_area_entered(area: Area2D) -> void:
 	if is_multiplayer_authority():
 		#Debug.log("Objeto detectado")
 		pickable_objects.append(area.get_parent())
 
-func _on_item_pickup_area_area_exited(area: Area2D):
+func _on_item_pickup_area_area_exited(area: Area2D) -> void:
 	if is_multiplayer_authority():
 		#Debug.log("Objeto sale")
 		pickable_objects.erase(area.get_parent())
 
-func _on_tool_interaction_area_area_entered(area: Area2D):
+func _on_tool_interaction_area_area_entered(area: Area2D) -> void:
 	#Debug.log("Entra utensilio")
 	nearby_tool = area.get_parent()
 
-func _on_tool_interaction_area_area_exited(area: Area2D):
+func _on_tool_interaction_area_area_exited(_area: Area2D) -> void:
 	#Debug.log("Sale utensilio")
 	nearby_tool = null
 
-func _on_source_interaction_area_area_entered(area: Area2D):
+func _on_source_interaction_area_area_entered(area: Area2D) -> void:
 	#Debug.log("Item Source detectado")
 	nearby_item_sources.append(area.get_parent())
 
-func _on_source_interaction_area_area_exited(area: Area2D):
+func _on_source_interaction_area_area_exited(area: Area2D) -> void:
 	#Debug.log("Item source sale")
 	nearby_item_sources.erase(area.get_parent())
 
-func _on_customer_interaction_area_area_entered(area: Area2D):
+func _on_customer_interaction_area_area_entered(area: Area2D) -> void:
 	#Debug.log("Customer entra")
 	nearby_customer = area.get_parent()
 
-func _on_customer_interaction_area_area_exited(area: Area2D):
+func _on_customer_interaction_area_area_exited(_area: Area2D) -> void:
 	#Debug.log("Customer sale")
 	nearby_customer = null

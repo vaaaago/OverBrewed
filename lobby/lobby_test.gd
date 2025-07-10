@@ -1,14 +1,14 @@
 extends Node
 
 
-var player_index = 1
+var player_index: int = 1
 
 @onready var start_game_timer: Timer = $StartGameTimer
 
-func _ready():
+func _ready() -> void:
 	for i in Game.test_players.size():
-		var test_player = Game.test_players[i]
-		var player = Statics.PlayerData.new(
+		var test_player: PlayerDataResource = Game.test_players[i]
+		var player := Statics.PlayerData.new(
 			0,
 			test_player.name,
 			i,
@@ -30,8 +30,8 @@ func _ready():
 
 
 func _try_host() -> bool:
-	var peer = ENetMultiplayerPeer.new()
-	var err = peer.create_server(Statics.PORT, Statics.MAX_CLIENTS)
+	var peer := ENetMultiplayerPeer.new()
+	var err := peer.create_server(Statics.PORT, Statics.MAX_CLIENTS)
 	if err == OK:
 		multiplayer.multiplayer_peer = peer
 		Debug.add_to_window_title("Server")
@@ -42,8 +42,8 @@ func _try_host() -> bool:
 
 
 func _try_join() -> bool:
-	var peer = ENetMultiplayerPeer.new()
-	var err = peer.create_client("localhost", Statics.PORT)
+	var peer := ENetMultiplayerPeer.new()
+	var err := peer.create_client("localhost", Statics.PORT)
 	if err == OK:
 		multiplayer.multiplayer_peer = peer
 	return err == OK
@@ -59,7 +59,7 @@ func _on_peer_connected(id: int) -> void:
 
 
 @rpc("reliable")
-func _send_player_data_id(index, id):
+func _send_player_data_id(index: int, id: int) -> void:
 	if multiplayer.get_unique_id() == id and not Game.players[index].id:
 		Debug.add_to_window_title("Client %d" % index)
 		Debug.index = index
@@ -81,13 +81,13 @@ func _update_window_placement(index: int) -> void:
 		return
 	var columns: int = ceil(sqrt(Game.players.size()))
 	var rows: int = ceil(1.0 * Game.players.size() / columns)
-	var x = index % columns
-	var y = index / columns
+	var x: int = index % columns
+	var y: int = index / columns
 	
-	var screen_rect = DisplayServer.screen_get_usable_rect()
-	var window_size = screen_rect.size / Vector2i(columns, rows)
-	var title_size = DisplayServer.window_get_title_size(get_window().title)
-	var title_size_offset = Vector2i(0, title_size.y)
+	var screen_rect := DisplayServer.screen_get_usable_rect()
+	var window_size := screen_rect.size / Vector2i(columns, rows)
+	var title_size := DisplayServer.window_get_title_size(get_window().title)
+	var title_size_offset := Vector2i(0, title_size.y)
 	
 	get_window().position = Vector2i(x, y) * window_size + title_size_offset + screen_rect.position
 	get_window().size = window_size - title_size_offset

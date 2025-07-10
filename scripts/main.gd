@@ -4,13 +4,12 @@ extends Node2D
 
 @onready var player_root: Node2D = $PlayerRoot
 @onready var spawn_points: Node2D = $SpawnPoints
-@onready var mortarAnim := $Tools/mortar/AnimationPlayer
 
 
 func _ready() -> void:
-	for i in Game.players.size():
-		var player_object = Game.players[i]
-		var player_instance = player_scene.instantiate()
+	for i: int in Game.players.size():
+		var player_object: Statics.PlayerData = Game.players[i]
+		var player_instance: Player = player_scene.instantiate()
 		
 		player_root.add_child(player_instance)
 		player_instance.setup(player_object)

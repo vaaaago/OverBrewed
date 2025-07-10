@@ -10,11 +10,11 @@ extends StaticBody2D
 
 @onready var timer: Timer = $Timer
 @onready var animation_tree: AnimationTree = $Sprite2D/AnimationTree
-@onready var playback = animation_tree["parameters/playback"]
+@onready var playback: Variant = animation_tree["parameters/playback"]
 
 # Variables sobre las que el server tiene autoridad
 var ingredient_id_array: Array[int]
-var ingredient_count = 0
+var ingredient_count: int = 0
 
 @export var pickable_object_scene: PackedScene
 
@@ -29,10 +29,10 @@ func _ready() -> void:
 		frame.visible = false
 
 @rpc("any_peer", "call_local", "reliable")
-func request_server_add_ingredient(ingredient_ID: int, request_peer_id: int):
+func request_server_add_ingredient(ingredient_ID: int, request_peer_id: int) -> void:
 	# Este metodo se ejecuta en el server, y valida una solicitud de un peer para 
 	# depositar un item
-	var ingredient = Game.item_register[ingredient_ID]
+	var ingredient: Item = Game.item_register[ingredient_ID]
 	
 	if !is_multiplayer_authority():
 		# Si no es el server, ignoramos
@@ -70,8 +70,8 @@ func request_server_add_ingredient(ingredient_ID: int, request_peer_id: int):
 		rpc_id(request_peer_id, "reject_object_deposited")
 
 @rpc("authority", "call_local", "reliable")
-func sync_client_ingredient_state(ingredient_added_ID: int):
-	var ingredient_added = Game.item_register[ingredient_added_ID]
+func sync_client_ingredient_state(ingredient_added_ID: int) -> void:
+	var ingredient_added: Item = Game.item_register[ingredient_added_ID]
 	
 	# Si no es el server, actualizamos variables
 	#ingredient_dict[ingredient_added] += 1
@@ -85,7 +85,7 @@ func sync_client_ingredient_state(ingredient_added_ID: int):
 	frame.visible = true
 
 @rpc("authority", "call_local", "reliable")
-func reset_state():
+func reset_state() -> void:
 	while ingredient_id_array.size() > 0:
 		@warning_ignore("standalone_expression")
 		Game.item_register[ingredient_id_array.pop_back()]
@@ -95,7 +95,7 @@ func reset_state():
 		for fr: TextureRect in icon_container.get_children():
 			fr.visible = false
 
-func craft_item():
+func craft_item() -> void:
 	if output_item:
 		# Chequear la logica cuando ya hay un objeto adentro y metes ingredientes
 		return
@@ -117,10 +117,10 @@ func request_crafted_item() -> void:
 	
 	if output_item:
 		#Debug.log("Solicitud aceptada")
-		var remote_sender_id = multiplayer.get_remote_sender_id()
+		var remote_sender_id: int = multiplayer.get_remote_sender_id()
 		var player: Player = Game.get_player(remote_sender_id).instance
 		
-		var output_item_id = output_item.ID
+		var output_item_id: int = output_item.ID
 		output_item = null
 		
 		var anim: String = "idle_state"
@@ -131,5 +131,5 @@ func request_crafted_item() -> void:
 		return
 
 @rpc("authority", "call_local", "reliable")
-func sync_animation(anim: String):
+func sync_animation(anim: String) -> void:
 	playback.travel(anim)

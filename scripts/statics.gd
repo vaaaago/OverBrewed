@@ -55,7 +55,7 @@ class PlayerData:
 		}
 	
 	static func from_dict(data: Dictionary) -> PlayerData:
-		var player = PlayerData.new(data.id, data.name, data.index, data.role)
+		var player: Statics.PlayerData = PlayerData.new(data.id, data.name, data.index, data.role)
 		player.vote = data.vote
 		return player
 	
