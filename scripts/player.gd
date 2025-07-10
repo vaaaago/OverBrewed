@@ -1,8 +1,12 @@
 class_name Player
 extends CharacterBody2D
 
-@export var max_speed: int = 450
-@export var acceleration: int = 800
+@export var initial_max_speed: int = 450
+var max_speed: int = initial_max_speed
+
+@export var initial_acceleration: int = 800
+var acceleration: int = initial_acceleration
+
 @export var pickable_object_scene: PackedScene
 
 var pickable_objects: Array[PickableObject] = []
@@ -10,6 +14,8 @@ var picked_object: PickableObject = null
 var nearby_tool: Tool = null
 var nearby_item_sources: Array[ItemSource] = []
 var nearby_customer: Customer
+
+var applied_effect: PotionEffect = null
 
 @onready var label: Label = $Label
 @onready var sprite: Sprite2D = $Pivot/Sprite2D
@@ -65,6 +71,9 @@ func _input(event: InputEvent) -> void:
 				if not object.picked_up:
 					picked_object = object
 					configure_picked_object(object, true)
+					
+					if picked_object.item_type.is_potion():
+						picked_object.cancel_timer()
 				else:
 					# No recuerdo si este else es necesario o que hacia
 					Debug.log("Caso extraño")
@@ -85,6 +94,9 @@ func _input(event: InputEvent) -> void:
 			elif picked_object:
 				#Debug.log("Objeto soltado")
 				configure_picked_object(picked_object, false)
+				if picked_object.item_type.is_potion():
+					picked_object.start_timer()
+				
 				picked_object = null
 		
 		# Deposito de items en utensilios
@@ -176,6 +188,11 @@ func play_movement_animations(move_input: Vector2) -> void:
 		playback.travel("upwards_walk")
 	else:
 		playback.travel("idle")
+
+func remove_effect() -> void:
+	max_speed = initial_max_speed
+	acceleration = initial_acceleration
+	applied_effect = null
 
 func configure_picked_object(object: PickableObject, picked_up: bool) -> void:
 	object.pickup_and_disable_interaction.rpc(picked_up)

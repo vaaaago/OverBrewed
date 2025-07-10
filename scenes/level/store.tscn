@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://cr5ci8phiwilr"]
+[gd_scene load_steps=70 format=4 uid="uid://cr5ci8phiwilr"]
 
 [ext_resource type="Texture2D" uid="uid://t5ol6nipy8xs" path="res://assets/sprites/Environment/ambience/tiles/Paneling With Stone.png" id="1_ceyww"]
 [ext_resource type="Script" uid="uid://ddari88vi5rti" path="res://scripts/main.gd" id="1_ixixb"]
@@ -50,6 +50,8 @@
 [ext_resource type="Resource" uid="uid://cnk6vk18ycyls" path="res://resources/Items/Sage.tres" id="46_8urdu"]
 [ext_resource type="Resource" uid="uid://bgyldey20asse" path="res://resources/Items/GoldOre.tres" id="46_ba25o"]
 [ext_resource type="Resource" uid="uid://dmjb6u8r2lnx5" path="res://resources/Product/Crushed_white_toadstool.tres" id="50_0j2mq"]
+[ext_resource type="Resource" uid="uid://drjj88h3chuhe" path="res://resources/Product/Poison_potion_item.tres" id="51_2v07h"]
+[ext_resource type="Resource" uid="uid://cqdipvslf1803" path="res://resources/Product/Healing_potion_item.tres" id="52_irirf"]
 [ext_resource type="PackedScene" uid="uid://ja7803m8dtdg" path="res://autoloads/controller.tscn" id="62_rwuct"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_caao4"]
@@ -4163,6 +4165,14 @@ item_type = ExtResource("46_8urdu")
 [node name="Prueba_Mortero" parent="PickableObjects" instance=ExtResource("39_p21c8")]
 position = Vector2(747, 555)
 item_type = ExtResource("50_0j2mq")
+
+[node name="Prueba_Pocion" parent="PickableObjects" instance=ExtResource("39_p21c8")]
+position = Vector2(403, 495)
+item_type = ExtResource("51_2v07h")
+
+[node name="Prueba_Pocion2" parent="PickableObjects" instance=ExtResource("39_p21c8")]
+position = Vector2(981, 298)
+item_type = ExtResource("52_irirf")
 
 [node name="CustomerSpawns" type="Node2D" parent="."]
 

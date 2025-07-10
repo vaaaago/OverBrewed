@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dgtcoo77474cf"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dgtcoo77474cf"]
 
+[ext_resource type="Resource" uid="uid://ch7o6e313xt12" path="res://resources/Effects/paralysis_effect.tres" id="1_fm7qp"]
 [ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_mhymw"]
 [ext_resource type="Texture2D" uid="uid://dgbs5h1ky2n1f" path="res://assets/sprites/Environment/ambience/instruments/Large Bottle - PURPLE - 0013.png" id="2_5cfmb"]
 
@@ -10,4 +11,6 @@ ID = 1005
 texture = ExtResource("2_5cfmb")
 texture_scale = 1.0
 pickable_texture_scale = 2.0
+is_potion_item = true
+potion_effect = ExtResource("1_fm7qp")
 metadata/_custom_type_script = "uid://du7m4ony33aw4"

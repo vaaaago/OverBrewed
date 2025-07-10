@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://cddnx0g1k6k2"]
+
+[ext_resource type="Script" uid="uid://dbn6hll75452n" path="res://scripts/potion_area.gd" id="1_d2txv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ams70"]
+radius = 120.0
+
+[sub_resource type="Curve" id="Curve_d2txv"]
+_data = [Vector2(0.00468019, 1), 0.0, 0.0, 0, 0, Vector2(0.792512, 0.587732), -2.1384, -2.1384, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="PotionArea" type="Node2D"]
+script = ExtResource("1_d2txv")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ams70")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 300
+lifetime = 0.7
+speed_scale = 1.5
+randomness = 1.0
+lifetime_randomness = 0.1
+emission_shape = 1
+emission_sphere_radius = 120.0
+direction = Vector2(10, 10)
+spread = 36.0
+gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_d2txv")
+color = Color(0.807223, 0.357269, 0.545373, 1)
+hue_variation_max = 1.0

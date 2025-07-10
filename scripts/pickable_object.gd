@@ -2,17 +2,21 @@ class_name PickableObject
 extends RigidBody2D
 
 @export var item_type: Item
+@export var potion_effect_scene: PackedScene
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_area_shape: CollisionShape2D = $CollisionAreaShape
 @onready var pickup_area: Area2D = $PickupArea
 @onready var pickup_area_shape: CollisionShape2D = $PickupArea/PickupAreaShape
+@onready var timer: Timer = $Timer
 
 var picked_up: bool = false
 
 func _ready() -> void:
 	if item_type:
 		configure(item_type.ID)
+	
+	timer.timeout.connect(on_timer_timeout)
 
 func configure(item_type_id: int) -> void:
 	if not Game.register_ready:
@@ -37,3 +41,19 @@ func sync_picked_position(pos: Vector2) -> void:
 @rpc("any_peer", "call_local", "reliable")
 func destroy() -> void:
 	self.queue_free()
+
+@rpc("any_peer", "call_local", "reliable")
+func start_timer() -> void:
+	timer.start()
+
+func cancel_timer() -> void:
+	if not timer.is_stopped():
+		timer.stop()
+
+func on_timer_timeout() -> void:
+	Debug.log("Timer pocion")
+	var potion_effect_instance: PotionArea = potion_effect_scene.instantiate()
+	self.get_parent().add_child(potion_effect_instance)
+	potion_effect_instance.configure(position, item_type.ID)
+	
+	self.destroy.rpc()

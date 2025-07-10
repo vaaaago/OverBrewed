@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PotionEffect" load_steps=2 format=3 uid="uid://drofpor37tlno"]
+
+[ext_resource type="Script" uid="uid://8a4wcrjmag23" path="res://resources/definitions/potion_effect.gd" id="1_n3gwc"]
+
+[resource]
+script = ExtResource("1_n3gwc")
+name = "Healing"
+health_restoration = true
+speed_reduction = false
+paralysis = false
+speed_increase = false
+metadata/_custom_type_script = "uid://8a4wcrjmag23"

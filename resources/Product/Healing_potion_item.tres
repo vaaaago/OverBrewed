@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cqdipvslf1803"]
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cqdipvslf1803"]
 
+[ext_resource type="Resource" uid="uid://drofpor37tlno" path="res://resources/Effects/healing_effect.tres" id="1_0f8hi"]
 [ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_e4fcb"]
 [ext_resource type="Texture2D" uid="uid://g4nerpkof1qj" path="res://assets/sprites/Environment/ambience/instruments/Small Vial - RED - 0000.png" id="2_wlsc7"]
 
@@ -10,4 +11,6 @@ ID = 1002
 texture = ExtResource("2_wlsc7")
 texture_scale = 1.0
 pickable_texture_scale = 2.0
+is_potion_item = true
+potion_effect = ExtResource("1_0f8hi")
 metadata/_custom_type_script = "uid://du7m4ony33aw4"
