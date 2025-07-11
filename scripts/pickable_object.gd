@@ -73,4 +73,5 @@ func on_timer_timeout() -> void:
 	timer.stop()
 	
 	await potion_effect_instance.finished
-	destroy.rpc()
+	if is_multiplayer_authority():
+		destroy.rpc()
