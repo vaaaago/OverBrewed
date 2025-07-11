@@ -128,9 +128,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 140.0
-offset_top = -160.0
+offset_top = -170.0
 offset_right = 640.0
-offset_bottom = 220.0
+offset_bottom = 287.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -142,26 +142,31 @@ size_flags_horizontal = 4
 [node name="Host" type="Button" parent="MarginContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ei257")
 text = "Host"
 
 [node name="Join" type="Button" parent="MarginContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ei257")
 text = "Join"
 
 [node name="Controls" type="Button" parent="MarginContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ei257")
 text = "Controls"
 
 [node name="Credits" type="Button" parent="MarginContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ei257")
 text = "Credits"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ei257")
 text = "Quit"
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
@@ -190,10 +195,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -417.5
+offset_left = -417.0
 offset_top = -360.0
-offset_right = 417.5
-offset_bottom = -112.0
+offset_right = 418.0
+offset_bottom = -144.0
 grow_horizontal = 2
 grow_vertical = 2
 

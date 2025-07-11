@@ -31,12 +31,6 @@ one_shot = true
 [node name="Label" parent="MarginContainer2/VBoxContainer/Panel" index="0"]
 text = "Host"
 
-[node name="BackButton" parent="MarginContainer2/VBoxContainer/Panel" index="1"]
-offset_left = -308.0
-offset_top = -105.0
-offset_right = -244.0
-offset_bottom = -41.0
-
 [node name="MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer" parent="MarginContainer2/VBoxContainer/MarginContainer/Control" index="0"]
 offset_left = -314.0
 offset_right = 315.0
@@ -63,11 +57,13 @@ text = "Player"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_l36ea")
 alignment = 1
 
 [node name="HostButton" type="Button" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer/Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer#MarginContainer/VBoxContainer" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_l36ea")
 text = "Host
 "
 

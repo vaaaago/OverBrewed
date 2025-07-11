@@ -83,11 +83,11 @@ func _input(event: InputEvent) -> void:
 					configure_picked_object(object, true)
 					
 					if picked_object.item_type.is_potion():
-						Debug.log("Timer de pocion cancelado")
+						#Debug.log("Timer de pocion cancelado")
 						picked_object.cancel_timer.rpc()
 				else:
 					# No recuerdo si este else es necesario o que hacia
-					Debug.log("Caso extraño")
+					#Debug.log("Caso extraño")
 					pickable_objects.append(object)
 		
 			elif picked_object:

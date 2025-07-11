@@ -63,23 +63,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 10
 size_flags_stretch_ratio = 0.5
 theme_type_variation = &"Title"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_snleu")
 text = "Screen"
 horizontal_alignment = 1
-
-[node name="BackButton" type="Button" parent="MarginContainer2/VBoxContainer/Panel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.9
-anchor_right = 0.5
-anchor_bottom = 0.9
-offset_left = -314.0
-offset_top = -68.0
-offset_right = -250.0
-offset_bottom = -4.0
-text = "く"
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/VBoxContainer"]
 layout_mode = 2
@@ -103,3 +90,16 @@ offset_bottom = 290.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 96.0
+
+[node name="BackButton" type="Button" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 70)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_snleu")
+theme_override_font_sizes/font_size = 32
+text = "Back"

@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://byny6bp0olu78"]
+[gd_scene load_steps=7 format=3 uid="uid://byny6bp0olu78"]
 
 [ext_resource type="PackedScene" uid="uid://cgsspji18smle" path="res://lobby/lobby_screen.tscn" id="1_1g6tu"]
 [ext_resource type="Script" uid="uid://d1urh7pr0l6lh" path="res://lobby/waiting_screen.gd" id="2_a2sqk"]
 [ext_resource type="PackedScene" uid="uid://iobnvr8f3tkm" path="res://lobby/lobby_player.tscn" id="2_wjc1o"]
-[ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="3_0nkhr"]
+[ext_resource type="Texture2D" uid="uid://4c1m3wx584kw" path="res://assets/sprites/CalicoKitty/calicoKitty_sleepyIdleBreaker.png" id="5_iaq1a"]
+[ext_resource type="FontFile" uid="uid://c8i6djpy4ac2" path="res://assets/fonts/Letterstyle(1).ttf" id="5_ssaso"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itdcl"]
+atlas = ExtResource("5_iaq1a")
+region = Rect2(0, 0, 64.1051, 64.2144)
 
 [node name="WaitingScreen" instance=ExtResource("1_1g6tu")]
 script = ExtResource("2_a2sqk")
@@ -94,7 +99,9 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Wating for players ..."
+theme_override_fonts/font = ExtResource("5_ssaso")
+theme_override_font_sizes/font_size = 24
+text = "Waiting for players ..."
 horizontal_alignment = 1
 
 [node name="MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer2" type="PanelContainer" parent="MarginContainer2/VBoxContainer/MarginContainer/Control" index="1"]
@@ -120,24 +127,30 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_type_variation = &"Zero"
+theme_override_constants/separation = 5
 
 [node name="PlayerTexture" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer2/Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer#MarginContainer/VBoxContainer" index="0"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(192, 192)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("3_0nkhr")
-stretch_mode = 2
+texture = SubResource("AtlasTexture_itdcl")
 
 [node name="PlayerName" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer2/Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer#MarginContainer/VBoxContainer" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_ssaso")
+theme_override_font_sizes/font_size = 32
 text = "Player"
 horizontal_alignment = 1
 
 [node name="RoleButton" type="Button" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer2/Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer#MarginContainer/VBoxContainer" index="2"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ssaso")
+theme_override_font_sizes/font_size = 24
 text = "Role?"
 
 [node name="Control" type="Control" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer2/Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer#MarginContainer/VBoxContainer/RoleButton" index="0"]
@@ -176,5 +189,7 @@ theme_type_variation = &"Zero"
 [node name="ReadyButton" type="Button" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer2/Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer#MarginContainer/VBoxContainer" index="3"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ssaso")
+theme_override_font_sizes/font_size = 24
 disabled = true
 text = "Ready"

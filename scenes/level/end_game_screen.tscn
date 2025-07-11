@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0pdht7s2j6yr"]
+
+[ext_resource type="Script" uid="uid://dav3ld8k1u7rv" path="res://scripts/end_game_screens.gd" id="1_1xnbn"]
+[ext_resource type="Texture2D" uid="uid://c5qptqssojlvg" path="res://assets/sprites/Environment/ambience/tiles/2.png" id="1_o4bnc"]
+[ext_resource type="FontFile" uid="uid://c8i6djpy4ac2" path="res://assets/fonts/Letterstyle(1).ttf" id="2_3lqr5"]
+[ext_resource type="Texture2D" uid="uid://s4f2hrt6xe45" path="res://assets/UI/homebutton.png" id="4_sub4t"]
+
+[node name="EndGameScreen" type="Node2D"]
+script = ExtResource("1_1xnbn")
+
+[node name="victory" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="victory"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.10352e-05
+offset_top = 3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="victory/ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="victory/ColorRect/Control"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 78.0
+offset_right = 1021.0
+offset_bottom = 638.0
+texture = ExtResource("1_o4bnc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="victory/ColorRect/Control"]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 294.0
+offset_right = 484.0
+offset_bottom = 333.0
+scale = Vector2(5, 5)
+theme_override_fonts/normal_font = ExtResource("2_3lqr5")
+bbcode_enabled = true
+text = "VICTORY
+"
+
+[node name="ButtonWin" type="TextureButton" parent="victory/ColorRect/Control"]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 435.0
+offset_right = 1312.0
+offset_bottom = 778.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("4_sub4t")
+
+[node name="defeat" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="defeat"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.10352e-05
+offset_top = 3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="defeat/ColorRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="defeat/ColorRect/Control"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 78.0
+offset_right = 1021.0
+offset_bottom = 638.0
+texture = ExtResource("1_o4bnc")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="defeat/ColorRect/Control"]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 295.0
+offset_right = 531.0
+offset_bottom = 334.0
+scale = Vector2(5, 5)
+theme_override_fonts/normal_font = ExtResource("2_3lqr5")
+bbcode_enabled = true
+text = "DEFEAT
+"
+
+[node name="ButtonDefeat" type="TextureButton" parent="defeat/ColorRect/Control"]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 433.0
+offset_right = 1310.0
+offset_bottom = 776.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("4_sub4t")

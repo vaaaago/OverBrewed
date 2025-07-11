@@ -1,9 +1,11 @@
 extends Node2D
 
 @export var player_scene: PackedScene 
+@export var character_textures: Array[Texture2D]
 
 @onready var player_root: Node2D = $PlayerRoot
 @onready var spawn_points: Node2D = $SpawnPoints
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 func _ready() -> void:
@@ -17,3 +19,8 @@ func _ready() -> void:
 		
 		# Guardamos una referencia al nodo del jugador en su PlayerData
 		player_object.instance = player_instance
+		
+		audio_stream_player_2d.finished.connect(_on_audio_playback_finished)
+
+func _on_audio_playback_finished() -> void:
+	audio_stream_player_2d.play()

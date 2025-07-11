@@ -44,11 +44,11 @@
 [ext_resource type="Resource" uid="uid://b0a2qhjig58go" path="res://resources/Items/White_claw.tres" id="42_iw3xo"]
 [ext_resource type="Resource" uid="uid://ccljg42pu5lb4" path="res://resources/Items/UnknownEye.tres" id="43_nktms"]
 [ext_resource type="Resource" uid="uid://citvq7s5vdwd7" path="res://resources/Items/UnicornHorn.tres" id="45_8urdu"]
-[ext_resource type="PackedScene" uid="uid://d0pdht7s2j6yr" path="res://scenes/item_sources/end_game_screen.tscn" id="45_61ux7"]
+[ext_resource type="PackedScene" uid="uid://d0pdht7s2j6yr" path="res://scenes/level/end_game_screen.tscn" id="45_61ux7"]
 [ext_resource type="Resource" uid="uid://bxqx45k8tc540" path="res://resources/Items/Chamomile.tres" id="45_ba25o"]
 [ext_resource type="Resource" uid="uid://cnk6vk18ycyls" path="res://resources/Items/Sage.tres" id="46_8urdu"]
 [ext_resource type="Resource" uid="uid://bgyldey20asse" path="res://resources/Items/GoldOre.tres" id="46_ba25o"]
-[ext_resource type="AudioStream" uid="uid://buhsgt8m5m77d" path="res://assets/music/soundtrack.wav" id="54_e4vgt"]
+[ext_resource type="AudioStream" uid="uid://hxw20f4qb1ru" path="res://assets/music/soundtrack_recortado.wav" id="50_nktms"]
 [ext_resource type="PackedScene" uid="uid://ja7803m8dtdg" path="res://autoloads/controller.tscn" id="62_rwuct"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_caao4"]
@@ -3886,6 +3886,7 @@ sources/0 = SubResource("TileSetAtlasSource_ixixb")
 y_sort_enabled = true
 script = ExtResource("1_ixixb")
 player_scene = ExtResource("8_2ov5w")
+character_textures = Array[Texture2D]([null, null])
 
 [node name="Controller" parent="." instance=ExtResource("62_rwuct")]
 
@@ -4165,5 +4166,5 @@ position = Vector2(1119, 120)
 visible = false
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("54_e4vgt")
+stream = ExtResource("50_nktms")
 autoplay = true

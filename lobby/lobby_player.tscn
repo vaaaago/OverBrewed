@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://iobnvr8f3tkm"]
 
 [ext_resource type="Script" uid="uid://eed5mjiac1bg" path="res://lobby/lobby_player.gd" id="1_1jc8v"]
-[ext_resource type="Texture2D" uid="uid://tw8t38ns0seh" path="res://icon.svg" id="1_dxmoh"]
 [ext_resource type="FontFile" uid="uid://c8i6djpy4ac2" path="res://assets/fonts/Letterstyle(1).ttf" id="2_lpbu6"]
+[ext_resource type="Texture2D" uid="uid://cqou0ygjtxey" path="res://assets/UI/Menu/Buttons/Play.png" id="3_lpbu6"]
 
 [node name="LobbyPlayer" type="HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
@@ -28,5 +28,5 @@ text = "Role"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
-texture = ExtResource("1_dxmoh")
+texture = ExtResource("3_lpbu6")
 expand_mode = 3

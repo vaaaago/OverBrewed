@@ -4,6 +4,7 @@ extends Control
 
 @onready var host: Button = %Host
 @onready var join: Button = %Join
+@onready var controls: Button = %Controls
 @onready var credits: Button = %Credits
 @onready var quit: Button = %Quit
 
@@ -17,5 +18,6 @@ func _ready() -> void:
 	host.pressed.connect(func() -> void: get_tree().change_scene_to_file("res://lobby/host_screen.tscn"))
 	join.pressed.connect(func() -> void: get_tree().change_scene_to_file("res://lobby/join_screen.tscn"))
 	credits.pressed.connect(func() -> void: get_tree().change_scene_to_file("res://ui/credits.tscn"))
+	controls.pressed.connect(func() -> void: get_tree().change_scene_to_file("res://ui/controls.tscn"))
 	
 	host.grab_focus()
