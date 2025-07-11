@@ -2,7 +2,7 @@
 class_name Book
 extends Node2D
 
-@onready var libro_ui := $LibroUIa
+@onready var libro_ui := $LibroUI
 @onready var brillo := $book/AnimationPlayer
 
 @onready var boton_siguiente := $LibroUI/Control/NextPage
