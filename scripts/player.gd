@@ -70,7 +70,7 @@ func _input(event: InputEvent) -> void:
 	if is_multiplayer_authority():
 		
 		# Recogida de items: Pulsacion de Espacio
-		if event.is_action_pressed("ui_accept"):
+		if event.is_action_pressed("pick-drop-item"):
 			
 			# Si hay objetos alrededor y no tengo uno en la mano:
 			if pickable_objects and not picked_object:
