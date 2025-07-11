@@ -50,7 +50,7 @@
 [ext_resource type="Resource" uid="uid://cnk6vk18ycyls" path="res://resources/Items/Sage.tres" id="46_8urdu"]
 [ext_resource type="Resource" uid="uid://bgyldey20asse" path="res://resources/Items/GoldOre.tres" id="46_ba25o"]
 [ext_resource type="Resource" uid="uid://dmjb6u8r2lnx5" path="res://resources/Product/Crushed_white_toadstool.tres" id="50_0j2mq"]
-[ext_resource type="Resource" uid="uid://dgtcoo77474cf" path="res://resources/Product/Sleeping_potion_item.tres" id="51_irirf"]
+[ext_resource type="Resource" uid="uid://drjj88h3chuhe" path="res://resources/Product/Poison_potion_item.tres" id="51_irirf"]
 [ext_resource type="Resource" uid="uid://cqdipvslf1803" path="res://resources/Product/Healing_potion_item.tres" id="52_irirf"]
 [ext_resource type="PackedScene" uid="uid://ja7803m8dtdg" path="res://autoloads/controller.tscn" id="62_rwuct"]
 

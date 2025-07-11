@@ -46,14 +46,23 @@ func destroy() -> void:
 func start_timer() -> void:
 	timer.start()
 
+@rpc("any_peer", "call_local", "reliable")
 func cancel_timer() -> void:
 	if not timer.is_stopped():
 		timer.stop()
 
 func on_timer_timeout() -> void:
 	#Debug.log("Timer pocion")
-	var potion_effect_instance: PotionArea = potion_effect_scene.instantiate()
-	self.get_parent().add_child(potion_effect_instance)
-	potion_effect_instance.configure(position, item_type.ID)
+	collision_area_shape.set_deferred("disabled", true)
+	pickup_area_shape.set_deferred("disabled", true)
+	visible = false
 	
-	self.destroy.rpc()
+	var potion_effect_instance: PotionArea = potion_effect_scene.instantiate()
+	var parent: Node2D = get_parent()
+	parent.add_child(potion_effect_instance)
+	
+	potion_effect_instance.configure(position, item_type.ID)
+	timer.stop()
+	
+	await potion_effect_instance.finished
+	destroy.rpc()

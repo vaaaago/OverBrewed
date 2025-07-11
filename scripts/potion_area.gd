@@ -2,6 +2,7 @@ class_name PotionArea
 extends Node2D
 
 signal configure_ready
+signal finished
 
 @export var duration_time: float = 6.0
 @export var initial_radius: float = 120.0
@@ -49,6 +50,8 @@ func _ready() -> void:
 	tween_white_particle_radius.tween_property(cpu_particles_white, "emission_sphere_radius", 0, duration_time)
 	
 	await tween_radius.finished
+	
+	finished.emit()
 	self.queue_free()
 
 # Se registran cuerpos en capa 1 (Colision de jugador)

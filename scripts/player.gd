@@ -1,11 +1,11 @@
 class_name Player
 extends CharacterBody2D
 
-@export var initial_max_speed: int = 450
-var max_speed: int = initial_max_speed
+@export var initial_max_speed: float = 450.0
+var max_speed: float = initial_max_speed
 
-@export var initial_acceleration: int = 800
-var acceleration: int = initial_acceleration
+@export var initial_acceleration: float = 800.0
+var acceleration: float = initial_acceleration
 
 @export var pickable_object_scene: PackedScene
 
@@ -79,7 +79,8 @@ func _input(event: InputEvent) -> void:
 					configure_picked_object(object, true)
 					
 					if picked_object.item_type.is_potion():
-						picked_object.cancel_timer()
+						Debug.log("Timer de pocion cancelado")
+						picked_object.cancel_timer.rpc()
 				else:
 					# No recuerdo si este else es necesario o que hacia
 					Debug.log("Caso extraño")
