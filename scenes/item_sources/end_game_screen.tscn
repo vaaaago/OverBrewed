@@ -47,6 +47,7 @@ text = "VICTORY
 "
 
 [node name="ButtonWin" type="TextureButton" parent="victory/ColorRect/Control"]
+layout_mode = 0
 offset_left = 522.0
 offset_top = 435.0
 offset_right = 1312.0
@@ -93,6 +94,7 @@ text = "DEFEAT
 "
 
 [node name="ButtonDefeat" type="TextureButton" parent="defeat/ColorRect/Control"]
+layout_mode = 0
 offset_left = 520.0
 offset_top = 433.0
 offset_right = 1310.0
