@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dcxkmyuo0wdyx"]
+[gd_scene load_steps=27 format=3 uid="uid://dcxkmyuo0wdyx"]
 
 [ext_resource type="Script" uid="uid://v0jespiaa5kt" path="res://scripts/tool.gd" id="1_8jqlm"]
 [ext_resource type="Texture2D" uid="uid://dqs6qw2wr4y07" path="res://assets/sprites/Cauldren Set/!cauldren.png" id="1_bi80w"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dud3aroblsnm4" path="res://assets/sprites/Environment/ingredients/plants/chamomile 32.png" id="5_muemc"]
 [ext_resource type="Resource" uid="uid://ccktb005kdfhh" path="res://resources/Recipes/Speed_potion_recipe.tres" id="5_qr7vf"]
 [ext_resource type="Resource" uid="uid://bognelmjyf8jw" path="res://resources/Recipes/Poison_potion_recipe.tres" id="6_0dj08"]
+[ext_resource type="Resource" uid="uid://c6r7vqbaqbivu" path="res://resources/Recipes/Sleeping_potion_recipe.tres" id="7_br2uo"]
 
 [sub_resource type="Animation" id="Animation_jyhfs"]
 length = 12.0
@@ -116,7 +117,7 @@ properties/2/replication_mode = 2
 y_sort_enabled = true
 script = ExtResource("1_8jqlm")
 total_ingredients = 3
-recipe_array = Array[ExtResource("2_v0sq3")]([ExtResource("3_muemc"), ExtResource("4_ckcv7"), ExtResource("5_qr7vf"), ExtResource("6_0dj08"), null])
+recipe_array = Array[ExtResource("2_v0sq3")]([ExtResource("3_muemc"), ExtResource("4_ckcv7"), ExtResource("5_qr7vf"), ExtResource("6_0dj08"), ExtResource("7_br2uo")])
 pickable_object_scene = ExtResource("4_3xx01")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -214,7 +215,6 @@ scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_bi80w")
 hframes = 12
 vframes = 8
-metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")
@@ -246,7 +246,7 @@ shape = SubResource("CircleShape2D_8jqlm")
 metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_3xx01")

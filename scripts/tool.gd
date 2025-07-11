@@ -38,12 +38,8 @@ func request_server_add_ingredient(ingredient_ID: int, request_peer_id: int) -> 
 		# Si no es el server, ignoramos
 		return
 	
-	#Debug.log("Recibida petición de " + Game.get_player(request_peer_id).name + " para añadir " + ingredient.item_name)
-	
 	# Chequeamos si el total de ingredientes se ha superado:
-	if ingredient_count < total_ingredients:
-		#Debug.log("Ingrediente " + ingredient.item_name + " aceptado.")
-		
+	if ingredient_count < total_ingredients and not output_item:
 		# Como fue aceptado, actualizamos el estado de todos los peers
 		rpc("sync_client_ingredient_state", ingredient.ID)
 		
@@ -57,14 +53,9 @@ func request_server_add_ingredient(ingredient_ID: int, request_peer_id: int) -> 
 			timer.start()
 			await timer.timeout
 			
-			var anim: String = "crafted_state"
-			sync_animation.rpc(anim)
-			
 			# Mejorar esta logica para actuar diferente cuando el crafteo falla,
 			# porque ahora mismo el caldero queda con la animacion aunque no haya crafteado nada util.
 			craft_item()
-			
-			reset_state.rpc()
 		
 	else:
 		rpc_id(request_peer_id, "reject_object_deposited")
@@ -96,17 +87,18 @@ func reset_state() -> void:
 			fr.visible = false
 
 func craft_item() -> void:
-	if output_item:
-		# Chequear la logica cuando ya hay un objeto adentro y metes ingredientes
-		return
-	
 	for recipe: CraftingRecipe in recipe_array:
 		if recipe.can_craft(ingredient_id_array):
 			output_item = recipe.output
-			Debug.log(output_item.item_name + " ha sido crafteado")
+			
+			# Crafteo exitoso
+			var anim: String = "crafted_state"
+			sync_animation.rpc(anim)
+			reset_state.rpc()
 			return
 	
-	Debug.log("Crafteo fallido")
+	# Crafteo fallido
+	reset_state.rpc()
 	return
 
 @rpc("any_peer", "call_local", "reliable")
