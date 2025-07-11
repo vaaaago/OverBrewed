@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="CustomerRequest" load_steps=4 format=3 uid="uid://dml7wya4pqnhg"]
 
 [ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_2xrok"]
-[ext_resource type="Resource" uid="uid://bdanhphrqvdya" path="res://resources/Product/Speed_potion_item.tres" id="2_2xrok"]
+[ext_resource type="Resource" uid="uid://drjj88h3chuhe" path="res://resources/Product/Poison_potion_item.tres" id="2_2xrok"]
 [ext_resource type="Script" uid="uid://br16brkyu8kao" path="res://resources/definitions/customer_request.gd" id="3_njbro"]
 
 [resource]
 script = ExtResource("3_njbro")
 ID = 3
-customer_dialog = "Hey, I need to finish a month's worth of work in one night. Do you have something that boosts productivity? Quick!"
+customer_dialog = "\"This king is robbing us blind with his taxes. Don’t you have something to add to his drink to, you know, speed up the process of getting a new king?"
 wait_time = 25
 requested_items = Array[ExtResource("1_2xrok")]([ExtResource("2_2xrok")])
 metadata/_custom_type_script = "uid://br16brkyu8kao"
