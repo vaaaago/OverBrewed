@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://3xu7psp5nyey"]
+[gd_scene load_steps=11 format=3 uid="uid://3xu7psp5nyey"]
 
 [ext_resource type="Script" uid="uid://bs6xl7vd1h0ma" path="res://scripts/chests.gd" id="1_2d6o4"]
 [ext_resource type="PackedScene" uid="uid://151p2wp14a3p" path="res://scenes/pickable_object.tscn" id="2_1ucgv"]
 [ext_resource type="Texture2D" uid="uid://b5ll8wva0b22e" path="res://assets/sprites/Environment/ambience/tiles/RPG Chests.png" id="2_6bnc6"]
+[ext_resource type="Texture2D" uid="uid://cqplgpp7gd5g" path="res://assets/sprites/frame.svg" id="4_gbfrx"]
+[ext_resource type="Texture2D" uid="uid://dehimt0j62c07" path="res://assets/sprites/Environment/ingredients/others/gold_ore.png" id="5_b1r13"]
 
 [sub_resource type="Animation" id="Animation_1ucgv"]
 length = 0.001
@@ -82,3 +84,45 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SourceInteractionArea"]
 scale = Vector2(4, 4)
 shape = SubResource("CircleShape2D_v6jl5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -75.0
+offset_right = 23.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("4_gbfrx")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/TextureRect/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("5_b1r13")
+expand_mode = 3
+stretch_mode = 5
