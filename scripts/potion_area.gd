@@ -57,5 +57,5 @@ func _ready() -> void:
 # Se registran cuerpos en capa 1 (Colision de jugador)
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_class("CharacterBody2D"):
-		Debug.log("Efecto: " + effect.name + " aplicado")
+		#Debug.log("Efecto: " + effect.name + " aplicado")
 		effect.apply_effect(body)

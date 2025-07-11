@@ -102,7 +102,6 @@ func load_customer_resources_to_register() -> void:
 
 func load_customer_request_resources_to_register() -> void:
 	for file in get_all_files_from_directory(customer_request_folder_path):
-		print(file)
 		var request: CustomerRequest = load(file)
 		customer_request_register[request.ID] = request
 
