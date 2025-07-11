@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://cr5ci8phiwilr"]
+[gd_scene load_steps=67 format=4 uid="uid://cr5ci8phiwilr"]
 
 [ext_resource type="Texture2D" uid="uid://t5ol6nipy8xs" path="res://assets/sprites/Environment/ambience/tiles/Paneling With Stone.png" id="1_ceyww"]
 [ext_resource type="Script" uid="uid://ddari88vi5rti" path="res://scripts/main.gd" id="1_ixixb"]
@@ -39,7 +39,6 @@
 [ext_resource type="Resource" uid="uid://bxewl4fwmtvky" path="res://resources/Items/WhiteToadstool.tres" id="38_rwuct"]
 [ext_resource type="Texture2D" uid="uid://b4vlpiuv22j6q" path="res://assets/sprites/Environment/ambience/decoration/tile030.png" id="38_v6jl5"]
 [ext_resource type="PackedScene" uid="uid://bieegw68igah3" path="res://scenes/book.tscn" id="39_bn3hj"]
-[ext_resource type="PackedScene" uid="uid://151p2wp14a3p" path="res://scenes/pickable_object.tscn" id="39_p21c8"]
 [ext_resource type="PackedScene" uid="uid://c88pblemonfgv" path="res://scenes/tools/mortar.tscn" id="41_8urdu"]
 [ext_resource type="PackedScene" uid="uid://3xu7psp5nyey" path="res://scenes/item_sources/chest.tscn" id="41_f5n31"]
 [ext_resource type="Resource" uid="uid://b0a2qhjig58go" path="res://resources/Items/White_claw.tres" id="42_iw3xo"]
@@ -49,9 +48,6 @@
 [ext_resource type="Resource" uid="uid://bxqx45k8tc540" path="res://resources/Items/Chamomile.tres" id="45_ba25o"]
 [ext_resource type="Resource" uid="uid://cnk6vk18ycyls" path="res://resources/Items/Sage.tres" id="46_8urdu"]
 [ext_resource type="Resource" uid="uid://bgyldey20asse" path="res://resources/Items/GoldOre.tres" id="46_ba25o"]
-[ext_resource type="Resource" uid="uid://dmjb6u8r2lnx5" path="res://resources/Product/Crushed_white_toadstool.tres" id="50_0j2mq"]
-[ext_resource type="Resource" uid="uid://drjj88h3chuhe" path="res://resources/Product/Poison_potion_item.tres" id="51_irirf"]
-[ext_resource type="Resource" uid="uid://cqdipvslf1803" path="res://resources/Product/Healing_potion_item.tres" id="52_irirf"]
 [ext_resource type="AudioStream" uid="uid://buhsgt8m5m77d" path="res://assets/music/soundtrack.wav" id="54_e4vgt"]
 [ext_resource type="PackedScene" uid="uid://ja7803m8dtdg" path="res://autoloads/controller.tscn" id="62_rwuct"]
 
@@ -4150,30 +4146,6 @@ position = Vector2(624, 320)
 
 [node name="PickableObjects" type="Node2D" parent="."]
 y_sort_enabled = true
-
-[node name="Prueba_1" parent="PickableObjects" instance=ExtResource("39_p21c8")]
-position = Vector2(1195, 399)
-item_type = ExtResource("10_61ux7")
-
-[node name="Prueba_2" parent="PickableObjects" instance=ExtResource("39_p21c8")]
-position = Vector2(1199, 486)
-item_type = ExtResource("45_ba25o")
-
-[node name="Prueba_3" parent="PickableObjects" instance=ExtResource("39_p21c8")]
-position = Vector2(1191, 312)
-item_type = ExtResource("46_8urdu")
-
-[node name="Prueba_Mortero" parent="PickableObjects" instance=ExtResource("39_p21c8")]
-position = Vector2(747, 555)
-item_type = ExtResource("50_0j2mq")
-
-[node name="Prueba_Pocion" parent="PickableObjects" instance=ExtResource("39_p21c8")]
-position = Vector2(403, 495)
-item_type = ExtResource("51_irirf")
-
-[node name="Prueba_Pocion2" parent="PickableObjects" instance=ExtResource("39_p21c8")]
-position = Vector2(981, 298)
-item_type = ExtResource("52_irirf")
 
 [node name="CustomerSpawns" type="Node2D" parent="."]
 

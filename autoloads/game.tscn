@@ -22,7 +22,6 @@ metadata/_custom_type_script = "uid://bnqpng0o60r43"
 
 [node name="Game" type="Node"]
 script = ExtResource("1_fmbhi")
-multiplayer_test = true
 all_roles = false
 min_players = 3
 test_players = Array[ExtResource("2_xaonh")]([SubResource("Resource_nviqh"), SubResource("Resource_ckjww"), SubResource("Resource_du0e2")])
