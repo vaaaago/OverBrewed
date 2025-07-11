@@ -12,6 +12,9 @@ extends RigidBody2D
 
 var picked_up: bool = false
 
+func _init() -> void:
+	set_multiplayer_authority(1)
+
 func _ready() -> void:
 	if item_type:
 		configure(item_type.ID)
@@ -50,6 +53,11 @@ func start_timer() -> void:
 func cancel_timer() -> void:
 	if not timer.is_stopped():
 		timer.stop()
+
+@rpc("any_peer", "call_local", "reliable")
+func request_effect_cloud() -> void:
+	if is_multiplayer_authority():
+		pass
 
 func on_timer_timeout() -> void:
 	#Debug.log("Timer pocion")
