@@ -149,6 +149,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Join"
 
+[node name="Controls" type="Button" parent="MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Controls"
+
 [node name="Credits" type="Button" parent="MarginContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2

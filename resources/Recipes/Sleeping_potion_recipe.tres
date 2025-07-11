@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=7 format=3 uid="uid://c6r7vqbaqbivu"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_514fk"]
+[ext_resource type="Resource" uid="uid://cogegceif5ke2" path="res://resources/Items/BlueLotus.tres" id="2_514fk"]
+[ext_resource type="Resource" uid="uid://j4xlr2mvknlr" path="res://resources/Items/Basil.tres" id="3_phtl1"]
+[ext_resource type="Resource" uid="uid://b2x8uytac3fx7" path="res://resources/Items/BlackElder.tres" id="4_y6kmu"]
+[ext_resource type="Resource" uid="uid://dgtcoo77474cf" path="res://resources/Product/Sleeping_potion_item.tres" id="5_vcdgm"]
+[ext_resource type="Script" uid="uid://hywg3hs58nyv" path="res://resources/definitions/crafting_recipe.gd" id="6_ttkt6"]
+
+[resource]
+script = ExtResource("6_ttkt6")
+ingredients = Array[ExtResource("1_514fk")]([ExtResource("2_514fk"), ExtResource("3_phtl1"), ExtResource("4_y6kmu")])
+output = ExtResource("5_vcdgm")
+metadata/_custom_type_script = "uid://hywg3hs58nyv"

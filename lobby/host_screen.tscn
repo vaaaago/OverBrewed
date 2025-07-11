@@ -13,7 +13,7 @@ shader_parameter/SPEED = 0.5
 [node name="HostScreen" instance=ExtResource("1_uvmm6")]
 script = ExtResource("2_l54gy")
 
-[node name="Background" type="TextureRect" parent="." index="0"]
+[node name="Background2" type="TextureRect" parent="." index="0"]
 material = SubResource("ShaderMaterial_2ob3k")
 layout_mode = 1
 anchors_preset = 15
@@ -24,8 +24,11 @@ grow_vertical = 2
 texture = ExtResource("4_l36ea")
 stretch_mode = 1
 
+[node name="ErrorTimer" type="Timer" parent="." index="2"]
+wait_time = 3.0
+one_shot = true
+
 [node name="Label" parent="MarginContainer2/VBoxContainer/Panel" index="0"]
-theme_override_fonts/font = ExtResource("5_l36ea")
 text = "Host"
 
 [node name="BackButton" parent="MarginContainer2/VBoxContainer/Panel" index="1"]
@@ -75,7 +78,3 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.647059, 0, 1)
 text = "An error occurred · o ·)>"
 horizontal_alignment = 1
-
-[node name="ErrorTimer" type="Timer" parent="." index="2"]
-wait_time = 3.0
-one_shot = true

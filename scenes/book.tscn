@@ -62,7 +62,8 @@ _data = {
 &"brillar": SubResource("Animation_ehtt4")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gkogt"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_tcbgk"]
+radius = 20.0
 
 [node name="Book" type="Node2D"]
 script = ExtResource("1_4oemj")
@@ -76,14 +77,14 @@ libraries = {
 }
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-3, 1)
+position = Vector2(0, 20)
+collision_layer = 32
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2(-19, 21)
 rotation = -2.15723
 scale = Vector2(4, 4)
-shape = SubResource("CapsuleShape2D_gkogt")
+shape = SubResource("CircleShape2D_tcbgk")
 
 [node name="LibroUI" type="CanvasLayer" parent="."]
 visible = false
@@ -564,6 +565,3 @@ offset_bottom = 275.0
 rotation = 0.214676
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("18_e7wot")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_body_exited"]

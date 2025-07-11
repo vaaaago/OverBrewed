@@ -3,8 +3,8 @@ extends Control
 @export var customer_scene: PackedScene
 
 @export var max_customers: int = 4
-@export var spawn_delay: float = 10.0
-@export var max_wait_time: float =  25.0
+@export var spawn_delay: float = 15.0
+@export var max_wait_time: float =  80.0
 #@export var customer_scenes: Array[PackedScene] # contiene 4 escenas diferentes
 
 var customer_array := []
@@ -14,8 +14,8 @@ var occupied_spawners: Dictionary = {}  # spawner_node -> cliente
 var score: int = 0
 @onready var score_label: Label = $ScorePanel/ScoreLabel
 
-@export var level_duration: int = 90  # 5 minutos
-@export var required_score: int = 300
+@export var level_duration: int = 360  # 6 minutos
+@export var required_score: int = 1000
 var time_left: int = level_duration
 var level_ended := false
 

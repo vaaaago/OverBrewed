@@ -14,6 +14,7 @@ var picked_object: PickableObject = null
 var nearby_tool: Tool = null
 var nearby_item_sources: Array[ItemSource] = []
 var nearby_customer: Customer
+var nearby_book: Book = null
 
 var applied_effect: PotionEffect = null
 
@@ -28,6 +29,7 @@ var applied_effect: PotionEffect = null
 @onready var tool_interaction_area: Area2D = $ToolInteractionArea
 @onready var source_interaction_area: Area2D = $SourceInteractionArea
 @onready var customer_interaction_area: Area2D = $CustomerInteractionArea
+@onready var book_interaction_area: Area2D = $BookInteractionArea
 
 @onready var marker_down: Marker2D = $PickUpMarkers/MarkerDown
 @onready var object_root: Node2D = self.find_parent("Store").get_child(5)
@@ -41,6 +43,8 @@ func _ready() -> void:
 	source_interaction_area.area_exited.connect(_on_source_interaction_area_area_exited)
 	customer_interaction_area.area_entered.connect(_on_customer_interaction_area_area_entered)
 	customer_interaction_area.area_exited.connect(_on_customer_interaction_area_area_exited)
+	book_interaction_area.area_entered.connect(_on_book_interaction_area_area_entered)
+	book_interaction_area.area_exited.connect(_on_book_interaction_area_area_exited)
 	
 	effect_timer.timeout.connect(remove_effect)
 
@@ -94,7 +98,7 @@ func _input(event: InputEvent) -> void:
 				
 				picked_object = null
 		
-		# Deposito de items en utensilios: Pulsacion de Q
+		# Deposito de items en utensilios: Pulsacion de E
 		if event.is_action_pressed("interact"):
 			if nearby_tool and picked_object:
 				#Debug.log("Solicitud de deposito de " + str(picked_object.item_type) + " enviada al server")
@@ -118,6 +122,9 @@ func _input(event: InputEvent) -> void:
 			
 			elif nearby_customer and not picked_object:
 				nearby_customer.toggle_dialog()
+			
+			elif nearby_book:
+				nearby_book.mostrar_libro()
 
 @rpc("any_peer", "call_local", "reliable")
 func confirm_object_deposited() -> void:
@@ -245,3 +252,10 @@ func _on_customer_interaction_area_area_entered(area: Area2D) -> void:
 func _on_customer_interaction_area_area_exited(_area: Area2D) -> void:
 	#Debug.log("Customer sale")
 	nearby_customer = null
+
+func _on_book_interaction_area_area_entered(area: Area2D) -> void:
+	nearby_book = area.get_parent()
+
+func _on_book_interaction_area_area_exited(_area: Area2D) -> void:
+	nearby_book.ocultar_libro()
+	nearby_book = null

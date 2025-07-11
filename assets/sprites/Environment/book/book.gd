@@ -1,8 +1,8 @@
+# El libro vive en la capa de colision 6
+class_name Book
 extends Node2D
 
-@onready var interaction_area := $Area2D
-@onready var libro_ui := $LibroUI
-
+@onready var libro_ui := $LibroUIa
 @onready var brillo := $book/AnimationPlayer
 
 @onready var boton_siguiente := $LibroUI/Control/NextPage
@@ -23,11 +23,8 @@ extends Node2D
 	$LibroUI/Control/Control2/pagDer_sleep,
 ]
 
-var player_in_range: bool = false
 var libro_abierto: bool = false
 var pagina_actual: int = 0
-
-
 
 func _ready() -> void:
 	libro_ui.visible = false
@@ -38,25 +35,17 @@ func _ready() -> void:
 	boton_anterior.pressed.connect(_on_boton_anterior_pressed)
 	boton_cerrar.pressed.connect(_on_boton_cerrar_pressed)
 
-func _process(_delta: float) -> void:
-	if player_in_range and Input.is_action_just_pressed("interact"): 
-		libro_abierto = !libro_abierto
-		libro_ui.visible = libro_abierto
-		if libro_abierto:
-			pagina_actual = 0
-			_mostrar_pagina()
+func mostrar_libro() -> void:
+	libro_abierto = !libro_abierto
+	libro_ui.visible = libro_abierto
+	if libro_abierto:
+		pagina_actual = 0
+		_mostrar_pagina()
 
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_class("CharacterBody2D"):
-		player_in_range = true
+func ocultar_libro() -> void:
+	libro_abierto = false
+	libro_ui.visible = false
 
-func _on_body_exited(body: Node2D) -> void:
-	if body.is_class("CharacterBody2D"):
-		player_in_range = false
-		libro_abierto = false
-		libro_ui.visible = false
-		
-		
 func _mostrar_pagina() -> void:
 	# Oculta todas las páginas
 	for i in paginas_izq.size():

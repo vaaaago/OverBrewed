@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://cr5ci8phiwilr"]
+[gd_scene load_steps=71 format=4 uid="uid://cr5ci8phiwilr"]
 
 [ext_resource type="Texture2D" uid="uid://t5ol6nipy8xs" path="res://assets/sprites/Environment/ambience/tiles/Paneling With Stone.png" id="1_ceyww"]
 [ext_resource type="Script" uid="uid://ddari88vi5rti" path="res://scripts/main.gd" id="1_ixixb"]
@@ -53,7 +53,6 @@
 [ext_resource type="Resource" uid="uid://drjj88h3chuhe" path="res://resources/Product/Poison_potion_item.tres" id="51_irirf"]
 [ext_resource type="Resource" uid="uid://cqdipvslf1803" path="res://resources/Product/Healing_potion_item.tres" id="52_irirf"]
 [ext_resource type="AudioStream" uid="uid://buhsgt8m5m77d" path="res://assets/music/soundtrack.wav" id="54_e4vgt"]
-[ext_resource type="Script" path="res://scenes/level/audio_stream_player_2d.gd" id="55_y088a"]
 [ext_resource type="PackedScene" uid="uid://ja7803m8dtdg" path="res://autoloads/controller.tscn" id="62_rwuct"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_caao4"]
@@ -4196,4 +4195,3 @@ visible = false
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("54_e4vgt")
 autoplay = true
-script = ExtResource("55_y088a")

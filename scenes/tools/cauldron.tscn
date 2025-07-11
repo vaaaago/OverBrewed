@@ -116,7 +116,7 @@ properties/2/replication_mode = 2
 y_sort_enabled = true
 script = ExtResource("1_8jqlm")
 total_ingredients = 3
-recipe_array = Array[ExtResource("2_v0sq3")]([ExtResource("3_muemc"), ExtResource("4_ckcv7"), ExtResource("5_qr7vf"), ExtResource("6_0dj08")])
+recipe_array = Array[ExtResource("2_v0sq3")]([ExtResource("3_muemc"), ExtResource("4_ckcv7"), ExtResource("5_qr7vf"), ExtResource("6_0dj08"), null])
 pickable_object_scene = ExtResource("4_3xx01")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
