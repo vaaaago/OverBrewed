@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c88pblemonfgv"]
+[gd_scene load_steps=22 format=3 uid="uid://c88pblemonfgv"]
 
 [ext_resource type="Texture2D" uid="uid://dolrujyntfrvq" path="res://assets/sprites/Environment/ambience/instruments/tile039.png" id="1_gud2c"]
 [ext_resource type="Script" uid="uid://v0jespiaa5kt" path="res://scripts/tool.gd" id="1_h0x2c"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://151p2wp14a3p" path="res://scenes/pickable_object.tscn" id="3_mdng2"]
 [ext_resource type="Resource" uid="uid://bjjajudejiyso" path="res://resources/Recipes/Test_recipe.tres" id="3_y2n8d"]
 [ext_resource type="Resource" uid="uid://cq3r116pvjh82" path="res://resources/Recipes/Crushed_white_toadstool_recipe.tres" id="4_mdng2"]
+[ext_resource type="Resource" uid="uid://c003ux3ew76xy" path="res://resources/Recipes/Crushed_black_elder_recipe.tres" id="5_1wllr"]
 
 [sub_resource type="Animation" id="Animation_sh1vm"]
 length = 0.001
@@ -119,7 +120,7 @@ radius = 104.463
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_h0x2c")
 total_ingredients = 1
-recipe_array = Array[ExtResource("2_y2n8d")]([ExtResource("3_y2n8d"), ExtResource("4_mdng2")])
+recipe_array = Array[ExtResource("2_y2n8d")]([ExtResource("3_y2n8d"), ExtResource("4_mdng2"), ExtResource("5_1wllr")])
 pickable_object_scene = ExtResource("3_mdng2")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

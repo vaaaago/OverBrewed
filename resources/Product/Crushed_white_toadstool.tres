@@ -1,13 +1,14 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dmjb6u8r2lnx5"]
 
 [ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_v8q2e"]
-[ext_resource type="Texture2D" uid="uid://cqplgpp7gd5g" path="res://assets/sprites/frame.svg" id="2_bkn2j"]
+[ext_resource type="Texture2D" uid="uid://caj8cnjfgdmuv" path="res://assets/sprites/Environment/ingredients/dust/Idylwild's Arcanum/bonemeal.png" id="2_bkn2j"]
 
 [resource]
 script = ExtResource("1_v8q2e")
 item_name = "Crushed White Toadstool"
-ID = 22
+ID = 23
 texture = ExtResource("2_bkn2j")
 texture_scale = 0.3
-pickable_texture_scale = 0.2
+pickable_texture_scale = 1.5
+is_potion_item = false
 metadata/_custom_type_script = "uid://du7m4ony33aw4"

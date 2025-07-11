@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dvlsvr0w45uoo"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_pne4o"]
+[ext_resource type="Texture2D" uid="uid://cie7hlipayt6k" path="res://assets/sprites/Environment/ingredients/dust/Idylwild's Arcanum/raw_purple_gem.png" id="2_pne4o"]
+
+[resource]
+script = ExtResource("1_pne4o")
+item_name = "Crushed Black Elder"
+ID = 22
+texture = ExtResource("2_pne4o")
+texture_scale = 0.3
+pickable_texture_scale = 1.5
+is_potion_item = false
+metadata/_custom_type_script = "uid://du7m4ony33aw4"

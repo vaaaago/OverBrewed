@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=5 format=3 uid="uid://c003ux3ew76xy"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_kftls"]
+[ext_resource type="Resource" uid="uid://b2x8uytac3fx7" path="res://resources/Items/BlackElder.tres" id="2_kftls"]
+[ext_resource type="Resource" uid="uid://dvlsvr0w45uoo" path="res://resources/Product/Crushed_black_elder.tres" id="3_87n7k"]
+[ext_resource type="Script" uid="uid://hywg3hs58nyv" path="res://resources/definitions/crafting_recipe.gd" id="4_n2bwg"]
+
+[resource]
+script = ExtResource("4_n2bwg")
+ingredients = Array[ExtResource("1_kftls")]([ExtResource("2_kftls")])
+output = ExtResource("3_87n7k")
+metadata/_custom_type_script = "uid://hywg3hs58nyv"
