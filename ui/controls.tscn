@@ -1,15 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvjgkfpouloss"]
+[gd_scene load_steps=13 format=3 uid="uid://dvjgkfpouloss"]
 
 [ext_resource type="PackedScene" uid="uid://cgsspji18smle" path="res://lobby/lobby_screen.tscn" id="1_w0tqn"]
 [ext_resource type="Script" uid="uid://cuqvj8grm28qy" path="res://ui/credits.gd" id="2_mgu1a"]
 [ext_resource type="Shader" uid="uid://dhc1wq30yt23k" path="res://assets/UI/backgrounds/backgraound.gdshader" id="3_tcc6e"]
 [ext_resource type="Texture2D" uid="uid://mgwj7iosrloo" path="res://assets/UI/backgrounds/Pink.png" id="4_aeyra"]
+[ext_resource type="Texture2D" uid="uid://br4pyirlved0" path="res://assets/UI/E-Key.png" id="5_ju8ie"]
+[ext_resource type="Texture2D" uid="uid://cvpalfa38eyc3" path="res://assets/UI/Space-Key.png" id="6_k8wo4"]
+[ext_resource type="Texture2D" uid="uid://myo37hdh3l4c" path="res://assets/UI/W-Key.png" id="7_gb347"]
+[ext_resource type="Texture2D" uid="uid://cb5embr1gx3tp" path="res://assets/UI/A-Key.png" id="8_jgovr"]
+[ext_resource type="Texture2D" uid="uid://b4jew7bw80ilb" path="res://assets/UI/S-Key.png" id="9_6j7xd"]
+[ext_resource type="Texture2D" uid="uid://p4tkogovsa82" path="res://assets/UI/D-Key.png" id="10_7tmtc"]
+[ext_resource type="FontFile" uid="uid://c8i6djpy4ac2" path="res://assets/fonts/Letterstyle(1).ttf" id="11_vr7fw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_icdkc"]
 shader = ExtResource("3_tcc6e")
 shader_parameter/SPEED = 0.5
 
-[node name="CreditsScreen" instance=ExtResource("1_w0tqn")]
+[node name="ControlsScreen" instance=ExtResource("1_w0tqn")]
 script = ExtResource("2_mgu1a")
 
 [node name="TextureRect" type="TextureRect" parent="." index="0"]
@@ -25,10 +32,121 @@ stretch_mode = 1
 
 [node name="Label" parent="MarginContainer2/VBoxContainer/Panel" index="0"]
 theme_override_colors/font_color = Color(0.211346, 0.211346, 0.211346, 1)
-text = "Credits"
+text = "Controls"
 
 [node name="MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer" parent="MarginContainer2/VBoxContainer/MarginContainer/Control" index="0"]
+offset_left = -1048.0
+offset_top = -27.0
+offset_right = -1001.0
+offset_bottom = 17.0
 theme_type_variation = &"Zero"
 
-[node name="Panel" type="Panel" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer" index="0"]
+[node name="e" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer/Control" index="1"]
 layout_mode = 2
+offset_left = 789.0
+offset_top = 220.0
+offset_right = 1301.0
+offset_bottom = 732.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_ju8ie")
+
+[node name="space" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer/Control" index="2"]
+layout_mode = 2
+offset_left = 884.0
+offset_top = 337.0
+offset_right = 2164.0
+offset_bottom = 849.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_k8wo4")
+
+[node name="wasd" type="Container" parent="MarginContainer2/VBoxContainer/MarginContainer/Control" index="3"]
+layout_mode = 0
+offset_left = 745.0
+offset_top = 72.0
+offset_right = 897.0
+offset_bottom = 175.0
+
+[node name="w" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/wasd" index="0"]
+layout_mode = 2
+texture = ExtResource("7_gb347")
+
+[node name="a" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/wasd" index="1"]
+layout_mode = 2
+texture = ExtResource("8_jgovr")
+
+[node name="s" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/wasd" index="2"]
+layout_mode = 2
+texture = ExtResource("9_6j7xd")
+
+[node name="d" type="TextureRect" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/wasd" index="3"]
+layout_mode = 2
+texture = ExtResource("10_7tmtc")
+
+[node name="move" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer/Control" index="4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 0.9
+offset_left = -307.0
+offset_top = -331.0
+offset_right = 59.0
+offset_bottom = -257.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 10
+size_flags_stretch_ratio = 0.5
+theme_type_variation = &"Title"
+theme_override_colors/font_color = Color(0.211346, 0.211346, 0.211346, 1)
+theme_override_fonts/font = ExtResource("11_vr7fw")
+theme_override_font_sizes/font_size = 39
+text = "Move ="
+horizontal_alignment = 1
+
+[node name="interact" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer/Control" index="5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 0.9
+offset_left = -285.0
+offset_top = -216.0
+offset_right = 81.0
+offset_bottom = -142.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 10
+size_flags_stretch_ratio = 0.5
+theme_type_variation = &"Title"
+theme_override_colors/font_color = Color(0.211346, 0.211346, 0.211346, 1)
+theme_override_fonts/font = ExtResource("11_vr7fw")
+theme_override_font_sizes/font_size = 39
+text = "Interact ="
+horizontal_alignment = 1
+
+[node name="pick" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer/Control" index="6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.9
+anchor_right = 0.5
+anchor_bottom = 0.9
+offset_left = -455.0
+offset_top = -103.0
+offset_right = 194.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 10
+size_flags_stretch_ratio = 0.5
+theme_type_variation = &"Title"
+theme_override_colors/font_color = Color(0.211346, 0.211346, 0.211346, 1)
+theme_override_fonts/font = ExtResource("11_vr7fw")
+theme_override_font_sizes/font_size = 39
+text = "Pick-up / Drop item ="
+horizontal_alignment = 1
