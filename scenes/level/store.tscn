@@ -38,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://diy6ly52sk3oy" path="res://assets/sprites/Environment/ambience/decoration/tile029.png" id="37_ekvhi"]
 [ext_resource type="Resource" uid="uid://bxewl4fwmtvky" path="res://resources/Items/WhiteToadstool.tres" id="38_rwuct"]
 [ext_resource type="Texture2D" uid="uid://b4vlpiuv22j6q" path="res://assets/sprites/Environment/ambience/decoration/tile030.png" id="38_v6jl5"]
-[ext_resource type="PackedScene" uid="uid://bieegw68igah3" path="res://assets/sprites/Environment/book/book.tscn" id="39_bn3hj"]
+[ext_resource type="PackedScene" uid="uid://bieegw68igah3" path="res://scenes/book.tscn" id="39_bn3hj"]
 [ext_resource type="PackedScene" uid="uid://151p2wp14a3p" path="res://scenes/pickable_object.tscn" id="39_p21c8"]
 [ext_resource type="PackedScene" uid="uid://c88pblemonfgv" path="res://scenes/tools/mortar.tscn" id="41_8urdu"]
 [ext_resource type="PackedScene" uid="uid://3xu7psp5nyey" path="res://scenes/item_sources/chest.tscn" id="41_f5n31"]

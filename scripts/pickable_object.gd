@@ -9,6 +9,9 @@ extends RigidBody2D
 @onready var pickup_area: Area2D = $PickupArea
 @onready var pickup_area_shape: CollisionShape2D = $PickupArea/PickupAreaShape
 @onready var timer: Timer = $Timer
+@onready var animation_player: AnimationPlayer = $Sprite2D/AnimationPlayer
+
+
 
 var picked_up: bool = false
 
@@ -48,11 +51,13 @@ func destroy() -> void:
 @rpc("any_peer", "call_local", "reliable")
 func start_timer() -> void:
 	timer.start()
+	animation_player.play("brillar")
 
 @rpc("any_peer", "call_local", "reliable")
 func cancel_timer() -> void:
 	if not timer.is_stopped():
 		timer.stop()
+		animation_player.stop()
 
 @rpc("any_peer", "call_local", "reliable")
 func request_effect_cloud() -> void:
