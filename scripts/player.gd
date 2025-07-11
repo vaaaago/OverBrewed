@@ -65,7 +65,7 @@ func setup(player_object: Statics.PlayerData) -> void:
 func _input(event: InputEvent) -> void:
 	if is_multiplayer_authority():
 		
-		# Recogida de items
+		# Recogida de items: Pulsacion de Espacio
 		if event.is_action_pressed("ui_accept"):
 			
 			# Si hay objetos alrededor y no tengo uno en la mano:
@@ -85,6 +85,24 @@ func _input(event: InputEvent) -> void:
 					# No recuerdo si este else es necesario o que hacia
 					Debug.log("Caso extraño")
 					pickable_objects.append(object)
+		
+			elif picked_object:
+				#Debug.log("Objeto soltado")
+				configure_picked_object(picked_object, false)
+				if picked_object.item_type.is_potion():
+					picked_object.start_timer.rpc()
+				
+				picked_object = null
+		
+		# Deposito de items en utensilios: Pulsacion de Q
+		if event.is_action_pressed("interact"):
+			if nearby_tool and picked_object:
+				#Debug.log("Solicitud de deposito de " + str(picked_object.item_type) + " enviada al server")
+				nearby_tool.rpc_id(1, "request_server_add_ingredient", picked_object.item_type.ID, multiplayer.get_unique_id())
+			
+			elif nearby_tool and not picked_object:
+				#Debug.log("Solicitud de recogida de producto enviada al server")
+				nearby_tool.request_crafted_item.rpc_id(1)
 			
 			elif nearby_item_sources and not picked_object:
 				# Hay un item source cerca y podemos recoger objeto nuevo
@@ -94,27 +112,12 @@ func _input(event: InputEvent) -> void:
 				
 				nearby_item_sources.append(source)
 			
-			elif nearby_tool and not picked_object:
-				#Debug.log("Solicitud de recogida de producto enviada al server")
-				nearby_tool.request_crafted_item.rpc_id(1)
-
-			elif picked_object:
-				#Debug.log("Objeto soltado")
-				configure_picked_object(picked_object, false)
-				if picked_object.item_type.is_potion():
-					picked_object.start_timer.rpc()
-				
-				picked_object = null
-		
-		# Deposito de items en utensilios
-		if event.is_action_pressed("deposit_ingredient"):
-			if nearby_tool and picked_object:
-				#Debug.log("Solicitud de deposito de " + str(picked_object.item_type) + " enviada al server")
-				nearby_tool.rpc_id(1, "request_server_add_ingredient", picked_object.item_type.ID, multiplayer.get_unique_id())
-			
 			elif nearby_customer and picked_object:
 				#Debug.log("Entregando " + picked_object.item_type.item_name + " al cliente")
 				nearby_customer.receive_product_request.rpc_id(1, picked_object.item_type.ID, multiplayer.get_unique_id())
+			
+			elif nearby_customer and not picked_object:
+				nearby_customer.toggle_dialog()
 
 @rpc("any_peer", "call_local", "reliable")
 func confirm_object_deposited() -> void:

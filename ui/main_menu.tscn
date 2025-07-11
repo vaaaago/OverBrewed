@@ -1,8 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://buxla4a3c3k2"]
+[gd_scene load_steps=12 format=3 uid="uid://buxla4a3c3k2"]
 
 [ext_resource type="Theme" uid="uid://bwgdrcgopd0s1" path="res://lobby/lobby_theme.tres" id="1_3qnx1"]
 [ext_resource type="Script" uid="uid://cnbk17iq1x68f" path="res://ui/main_menu.gd" id="2_p6ygj"]
+[ext_resource type="Shader" uid="uid://dhc1wq30yt23k" path="res://assets/UI/backgrounds/backgraound.gdshader" id="3_8uxxo"]
+[ext_resource type="Texture2D" uid="uid://cn47l10upbsyh" path="res://assets/UI/backgrounds/Purple.png" id="3_rmr83"]
 [ext_resource type="Texture2D" uid="uid://c7h5ukpdxlmov" path="res://assets/sprites/CalicoKitty/calicoKitty_curiousIdleBreaker.png" id="3_wk0pr"]
+[ext_resource type="FontFile" uid="uid://c8i6djpy4ac2" path="res://assets/fonts/Letterstyle(1).ttf" id="5_ei257"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ei257"]
+shader = ExtResource("3_8uxxo")
+shader_parameter/SPEED = 0.5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rmr83"]
 
@@ -102,6 +109,17 @@ grow_vertical = 2
 theme = ExtResource("1_3qnx1")
 script = ExtResource("2_p6ygj")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ei257")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_rmr83")
+stretch_mode = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -177,6 +195,8 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="MarginContainer3"]
 layout_mode = 2
 theme_type_variation = &"Title"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_ei257")
 text = "OverBrewed"
 horizontal_alignment = 1
 

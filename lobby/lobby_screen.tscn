@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgsspji18smle"]
+[gd_scene load_steps=6 format=3 uid="uid://cgsspji18smle"]
 
 [ext_resource type="Theme" uid="uid://bwgdrcgopd0s1" path="res://lobby/lobby_theme.tres" id="1_0ce57"]
+[ext_resource type="Shader" uid="uid://dhc1wq30yt23k" path="res://assets/UI/backgrounds/backgraound.gdshader" id="2_y8mbi"]
+[ext_resource type="Texture2D" uid="uid://cn47l10upbsyh" path="res://assets/UI/backgrounds/Purple.png" id="3_snleu"]
+[ext_resource type="FontFile" uid="uid://c8i6djpy4ac2" path="res://assets/fonts/Letterstyle(1).ttf" id="4_snleu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7fh3v"]
+shader = ExtResource("2_y8mbi")
+shader_parameter/SPEED = 0.5
 
 [node name="LobbyScreen" type="Control"]
 layout_mode = 3
@@ -10,6 +17,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0ce57")
+
+[node name="Background" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_7fh3v")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_snleu")
+stretch_mode = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -45,6 +63,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 10
 size_flags_stretch_ratio = 0.5
 theme_type_variation = &"Title"
+theme_override_fonts/font = ExtResource("4_snleu")
 text = "Screen"
 horizontal_alignment = 1
 

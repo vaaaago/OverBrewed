@@ -1,12 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj66nte78u87x"]
+[gd_scene load_steps=6 format=3 uid="uid://dj66nte78u87x"]
 
 [ext_resource type="PackedScene" uid="uid://cgsspji18smle" path="res://lobby/lobby_screen.tscn" id="1_m3vk0"]
 [ext_resource type="Script" uid="uid://cuqvj8grm28qy" path="res://ui/credits.gd" id="2_hvxmk"]
+[ext_resource type="Shader" uid="uid://dhc1wq30yt23k" path="res://assets/UI/backgrounds/backgraound.gdshader" id="3_1bagf"]
+[ext_resource type="Texture2D" uid="uid://mgwj7iosrloo" path="res://assets/UI/backgrounds/Pink.png" id="3_74u3g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_icdkc"]
+shader = ExtResource("3_1bagf")
+shader_parameter/SPEED = 0.5
 
 [node name="CreditsScreen" instance=ExtResource("1_m3vk0")]
 script = ExtResource("2_hvxmk")
 
+[node name="TextureRect" type="TextureRect" parent="." index="0"]
+material = SubResource("ShaderMaterial_icdkc")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_74u3g")
+stretch_mode = 1
+
 [node name="Label" parent="MarginContainer2/VBoxContainer/Panel" index="0"]
+theme_override_colors/font_color = Color(0.211346, 0.211346, 0.211346, 1)
 text = "Credits"
 
 [node name="MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer" parent="MarginContainer2/VBoxContainer/MarginContainer/Control" index="0"]
@@ -14,8 +32,34 @@ theme_type_variation = &"Zero"
 
 [node name="MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer" type="RichTextLabel" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer" index="0"]
 layout_mode = 2
+theme_override_colors/default_color = Color(0.211765, 0.211765, 0.211765, 1)
 bbcode_enabled = true
 text = "[center]
 [b]Lobby[/b]
 Elías Zelada
+[/center]
+[center]
+[b]Character Sprites[/b]
+Witch Kitty - Character Pack
+by Chariart (Itch.io)
+[/center]
+[center]
+[b]Menu Backgrounds[/b]
+Pixel Adventure
+by PixelFrog (Itch.io)
+[/center]
+[center]
+[b]Decoration[/b]
+The Library - Indoor Asset Pack (24x24)
+by Andy (Itch.io)
+[/center]
+[center]
+[b]Decoration[/b]
+Free Pixel Climbing Plants Pack-32x64
+by Danaida (Itch.io)
+[/center]
+[center]
+[b]Decoration[/b]
+Free Pixel Climbing Plants Pack-32x64
+by Danaida (Itch.io)
 [/center]"

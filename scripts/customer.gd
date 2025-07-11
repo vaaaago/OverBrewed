@@ -64,8 +64,8 @@ func _process(delta: float) -> void:
 	if time_passed >= customer_wait_time:
 		leave_store()
 		
-	if player_in_range and Input.is_action_just_pressed("interact"): # "interact" será la acción para la tecla E
-		toggle_dialog()
+	#if player_in_range and Input.is_action_just_pressed("interact"): # "interact" será la acción para la tecla E
+		#toggle_dialog()
 
 
 func _on_body_entered(body: Node2D) -> void:

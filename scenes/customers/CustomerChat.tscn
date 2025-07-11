@@ -37,21 +37,21 @@ texture = ExtResource("2_f03jp")
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 1082.0
-offset_top = 44.0
-offset_right = 1206.0
-offset_bottom = 101.0
+offset_left = 1111.0
+offset_top = 33.0
+offset_right = 1235.0
+offset_bottom = 90.0
 theme_override_fonts/font = ExtResource("3_ef158")
 text = "Ok!"
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 2
-offset_left = 281.0
-offset_top = 41.0
-offset_right = 1104.0
-offset_bottom = 120.0
+offset_left = 254.0
+offset_top = 17.0
+offset_right = 1044.0
+offset_bottom = 130.0
 theme_override_fonts/font = ExtResource("3_ef158")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 17
 theme_override_styles/normal = SubResource("StyleBoxFlat_lwkm2")
 text = "Hi! I've been getting really bad headaches lately. Do you have anything that could help?"
 autowrap_mode = 2

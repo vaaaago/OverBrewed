@@ -1,13 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb87qnq3164s5"]
+[gd_scene load_steps=7 format=3 uid="uid://bb87qnq3164s5"]
 
 [ext_resource type="PackedScene" uid="uid://cgsspji18smle" path="res://lobby/lobby_screen.tscn" id="1_uvmm6"]
 [ext_resource type="Script" uid="uid://layh08o4sto4" path="res://lobby/host_screen.gd" id="2_l54gy"]
+[ext_resource type="Shader" uid="uid://dhc1wq30yt23k" path="res://assets/UI/backgrounds/backgraound.gdshader" id="3_50f1p"]
+[ext_resource type="Texture2D" uid="uid://cn47l10upbsyh" path="res://assets/UI/backgrounds/Purple.png" id="4_l36ea"]
+[ext_resource type="FontFile" uid="uid://c8i6djpy4ac2" path="res://assets/fonts/Letterstyle(1).ttf" id="5_l36ea"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ob3k"]
+shader = ExtResource("3_50f1p")
+shader_parameter/SPEED = 0.5
 
 [node name="HostScreen" instance=ExtResource("1_uvmm6")]
 script = ExtResource("2_l54gy")
 
+[node name="Background" type="TextureRect" parent="." index="0"]
+material = SubResource("ShaderMaterial_2ob3k")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_l36ea")
+stretch_mode = 1
+
 [node name="Label" parent="MarginContainer2/VBoxContainer/Panel" index="0"]
+theme_override_fonts/font = ExtResource("5_l36ea")
 text = "Host"
+
+[node name="BackButton" parent="MarginContainer2/VBoxContainer/Panel" index="1"]
+offset_left = -308.0
+offset_top = -105.0
+offset_right = -244.0
+offset_bottom = -41.0
 
 [node name="MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer" parent="MarginContainer2/VBoxContainer/MarginContainer/Control" index="0"]
 offset_left = -314.0
@@ -28,6 +53,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer/Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer#MarginContainer/VBoxContainer/HBoxContainer" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_l36ea")
 text = "Player"
 
 [node name="PlayerName" type="LineEdit" parent="MarginContainer2/VBoxContainer/MarginContainer/Control/MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer/Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel_MarginContainer2_VBoxContainer_MarginContainer_Panel#PanelContainer#MarginContainer/VBoxContainer/HBoxContainer" index="1"]
@@ -50,6 +76,6 @@ theme_override_colors/font_color = Color(1, 0.647059, 0, 1)
 text = "An error occurred · o ·)>"
 horizontal_alignment = 1
 
-[node name="ErrorTimer" type="Timer" parent="." index="1"]
+[node name="ErrorTimer" type="Timer" parent="." index="2"]
 wait_time = 3.0
 one_shot = true
