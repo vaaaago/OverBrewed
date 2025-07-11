@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CustomerRequest" load_steps=4 format=3 uid="uid://ddwoq0si5qrrk"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_yxl1u"]
+[ext_resource type="Resource" uid="uid://drjj88h3chuhe" path="res://resources/Product/Poison_potion_item.tres" id="2_ltcxs"]
+[ext_resource type="Script" uid="uid://br16brkyu8kao" path="res://resources/definitions/customer_request.gd" id="3_8sf7j"]
+
+[resource]
+script = ExtResource("3_8sf7j")
+ID = 2
+customer_dialog = "This king is robbing us blind with his taxes. Don’t you have something to add to his drink to, you know, speed up the process of getting a new king?"
+wait_time = 25
+requested_items = Array[ExtResource("1_yxl1u")]([ExtResource("2_ltcxs")])
+metadata/_custom_type_script = "uid://br16brkyu8kao"

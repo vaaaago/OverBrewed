@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CustomerRequest" load_steps=4 format=3 uid="uid://c8b6qa8aqolel"]
+
+[ext_resource type="Script" uid="uid://du7m4ony33aw4" path="res://resources/definitions/item.gd" id="1_5qvvk"]
+[ext_resource type="Resource" uid="uid://dgtcoo77474cf" path="res://resources/Product/Sleeping_potion_item.tres" id="2_5qvvk"]
+[ext_resource type="Script" uid="uid://br16brkyu8kao" path="res://resources/definitions/customer_request.gd" id="3_uaxtn"]
+
+[resource]
+script = ExtResource("3_uaxtn")
+ID = 1
+customer_dialog = "I've been having trouble sleeping. Do you have any remedy to sleep like a log?"
+wait_time = 25
+requested_items = Array[ExtResource("1_5qvvk")]([ExtResource("2_5qvvk")])
+metadata/_custom_type_script = "uid://br16brkyu8kao"
